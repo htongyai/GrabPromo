@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "869995630085",
+    "project_id": "grab-hot-deal-feb55",
+    "storage_bucket": "grab-hot-deal-feb55.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869995630085:android:635b05e133e7bb3267566c",
+        "android_client_info": {
+          "package_name": "com.example.grabpromogame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7xqsTBMMy1s2uwA1zWeaa79Cr8lA4Uus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
