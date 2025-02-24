@@ -12,27 +12,29 @@ class StartScreen extends StatelessWidget {
     String name = 'empty';
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 177, 79, 1),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
+      body: Center(
+        child: Container(height: screenHeight,width: screenWidth,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Spacer(flex: 2),
+               SizedBox(
+                  height: screenHeight * 0.1,
+                ),
               Image.asset('assets/title.png', width: screenWidth * 0.6),
               const Spacer(),
               SizedBox(
-                height: screenHeight * 0.1,
+                height: screenHeight * 0.08,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.065),
+                      borderRadius: BorderRadius.circular(180)),
+                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08),
                 ),
                 onPressed: () {
+                buttonSound();
                   english = false;
                   Navigator.push(
                     context,
@@ -43,19 +45,19 @@ class StartScreen extends StatelessWidget {
                 child: Text(
                   'ภาษาไทย',
                   style: TextStyle(
-                      fontSize: screenWidth * 0.035,
+                      fontSize: screenWidth * 0.06,
                       fontWeight: FontWeight.w700,
                       color: const Color.fromRGBO(0, 177, 79, 1)),
                 ),
               ),
-              SizedBox(height: screenHeight * 0.02),
+              SizedBox(height: screenHeight * 0.03),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    minimumSize: Size(screenWidth * 0.8, screenHeight * 0.065)),
-                onPressed: () {
+                        borderRadius: BorderRadius.circular(180)),
+                    minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08)),
+                onPressed: () { buttonSound();
                   english = true;
                   Navigator.push(
                     context,
@@ -67,11 +69,13 @@ class StartScreen extends StatelessWidget {
                   'English',
                   style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: screenWidth * 0.035,
+                      fontSize: screenWidth * 0.06,
                       color: const Color.fromRGBO(0, 177, 79, 1)),
                 ),
               ),
-              const Spacer(),
+               SizedBox(
+                height: screenHeight * 0.03,
+              ),
               Text(
                 'Powered by CON-XO Lab',
                 style: TextStyle(
@@ -79,10 +83,12 @@ class StartScreen extends StatelessWidget {
                     fontSize: screenWidth * 0.025,
                     fontWeight: FontWeight.w700),
               ),
-              const Spacer(),
+            SizedBox(
+                height: screenHeight * 0.05,
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

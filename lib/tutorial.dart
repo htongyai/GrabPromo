@@ -86,11 +86,11 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       children: [
                         Container(
                           color: Colors.white,
-                          height: screenHeight * 0.6,
+                          height: screenHeight * 0.55,
                           child: ClipPath(
                             clipper: CustomCurveClipper(),
                             child: Container(
-                              height: screenHeight * 0.1,
+                              height: screenHeight * 0.6,
                               color: Colors.red,
                             ),
                           ),
@@ -100,25 +100,25 @@ class _TutorialScreenState extends State<TutorialScreen> {
                           color: Colors.white,
                           child: Column(
                             children: [
-                              SizedBox(height: screenHeight * 0.04),
+                              SizedBox(height: screenHeight * 0.03),
                               Text(
                                 page['title']!,
                                 style: TextStyle(
-                                    fontSize: screenWidth * 0.06,
+                                    fontSize: screenWidth * 0.08,
                                     fontWeight: FontWeight.bold,
                                     color: const Color.fromRGBO(4, 41, 35, 1)),
                               ),
-                              SizedBox(height: screenHeight * 0.01),
+                              SizedBox(height: screenHeight * 0.008),
                               Container(
-                                width: screenWidth * 0.8,
+                                width: screenWidth * 0.85,
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.03,
+                                  horizontal: screenWidth * 0.027,
                                 ),
                                 child: Text(
                                   page['description']!,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: screenWidth * 0.04,
+                                      fontSize: screenWidth * 0.05,
                                       color: const Color.fromRGBO(
                                           112, 112, 112, 1)),
                                 ),
@@ -126,36 +126,42 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.035),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            tutorialPages.length,
-                            (index) => Container(
-                              margin: EdgeInsets.all(screenWidth * 0.015),
-                              width: screenWidth * 0.03,
-                              height: screenWidth * 0.03,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: _currentPage == index
-                                      ? const Color.fromRGBO(0, 177, 79, 1)
-                                      : const Color.fromRGBO(234, 233, 233, 1)),
-                            ),
-                          ),
-                        ),
+                       
+                        
                       ],
                     );
                   },
                 ),
+              ), SizedBox(height: screenHeight * 0.01),
+              Column(
+                children: [
+                  Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(
+                                tutorialPages.length,
+                                (index) => Container(
+                                  margin: EdgeInsets.all(screenWidth * 0.015),
+                                  width: screenWidth * 0.03,
+                                  height: screenWidth * 0.03,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: _currentPage == index
+                                          ? const Color.fromRGBO(0, 177, 79, 1)
+                                          : const Color.fromRGBO(234, 233, 233, 1)),
+                                ),
+                              ),
+                            ),
+ SizedBox(height: screenHeight * 0.04),],
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(0, 177, 79, 1),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.065),
+                      borderRadius: BorderRadius.circular(180)),
+                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08),
                 ),
                 onPressed: () {
+                   buttonSound();
                   if (_currentPage == tutorialPages.length - 1) {
                     Navigator.push(
                       context,
@@ -174,17 +180,17 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             ? 'Start'
                             : 'Next',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.035, color: Colors.white),
+                            fontSize: screenWidth * 0.06, color: Colors.white),
                       )
                     : Text(
                         _currentPage == tutorialPages.length - 1
                             ? 'เริ่มเล่น'
                             : 'ถัดไป',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.035, color: Colors.white),
+                            fontSize: screenWidth * 0.06, color: Colors.white),
                       ),
               ),
-              const SizedBox(height: 40),
+               SizedBox(height: screenHeight*0.06),
             ],
           ),
           Positioned(
@@ -196,11 +202,11 @@ class _TutorialScreenState extends State<TutorialScreen> {
               },
               child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(150),
                       color: Colors.white),
                   child: Padding(
                     padding: EdgeInsets.all(screenWidth * 0.02),
-                    child: const Icon(Icons.arrow_back),
+                    child:  Icon(Icons.restart_alt, size: screenWidth * 0.05,),
                   )),
             ),
           )
@@ -214,11 +220,11 @@ class CustomCurveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.lineTo(0, size.height - 50);
+    path.lineTo(0, size.height - 300);
     path.quadraticBezierTo(
         size.width / 4, size.height, size.width / 2, size.height);
     path.quadraticBezierTo(
-        size.width * 3 / 4, size.height, size.width, size.height - 50);
+        size.width * 3 / 4, size.height, size.width, size.height - 300);
     path.lineTo(size.width, 0);
     path.close();
     return path;

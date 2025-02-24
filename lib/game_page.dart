@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:grabpromogame/losingScreen.dart';
 import 'package:grabpromogame/resteraunt_data.dart';
 import 'package:grabpromogame/util.dart';
 import 'package:grabpromogame/winningScreen.dart';
+import 'package:lottie/lottie.dart';
 
 class Restaurant {
   final String promoName;
@@ -36,6 +38,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   //double progress = 1.0;
   // bool showWrongSelectionGraphic = false;
   bool _showCountdownOverlay = true;
+  bool _showEndOverlay = false;
   int _countdown = 3;
   Color selectedColor = Colors.white;
   late AnimationController _controller;
@@ -54,15 +57,27 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   late Animation<double> _timeShakesAnimation;
   late Animation<Color?> _timeColorAnimation;
   late Animation<Color?> _timeColorAnimationFinal;
+  late AnimationController sparkController;
+  bool collectedShow =false;
+  final player = AudioPlayer();
   List<Star> stars = [];
   @override
   void initState() {
+    sparkController =AnimationController(vsync: this,duration: Duration(seconds: 1));
+
     super.initState();
     loadRestaurants();
     restaurants.shuffle(Random());
+    startSound();
     startCountdownOverlay();
+   
+      
     //_startTimer();
+    //  Future.delayed(const Duration(milliseconds: 200), () {
 
+    //     player.play(AssetSource("sound/bgm.mp3"));
+      
+    // });
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200), // Total shake time
       vsync: this,
@@ -179,6 +194,22 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     _generateStars();
   }
 
+playColelcted(){
+  setState(() {
+    collectedShow = true;
+  });
+  sparkController.forward(from:0.0);
+  
+     Future.delayed(const Duration(seconds: 1), () {
+          setState(() {
+            collectedShow=false;
+            sparkController.stop();
+            // showWrongSelectionGraphic = false;
+            // selectedColor = Colors.white;
+            //selectedRestaurants2.remove(restaurant.promoName);
+          });
+        });
+}
   void _generateStars() {
     final Random random = Random();
     for (int i = 0; i < 20; i++) {
@@ -209,6 +240,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
 
   @override
   void dispose() {
+    player.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -221,9 +253,13 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         });
       } else {
         timer.cancel();
+        player.play(AssetSource("sound/bgm.mp3"));
         setState(() {
+          
           _showCountdownOverlay = false;
           startTimer();
+          
+          
         });
       }
     });
@@ -239,6 +275,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   void startAnimation() {
     _bounceController.forward(from: 0);
   }
+  
 
   void loadRestaurants() {
     setState(() {
@@ -262,9 +299,9 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         setState(() {
           _timeLeft--;
           // progress = _timeLeft / 30;
-          if (_timeLeft == 20 || _timeLeft == 15 || _timeLeft == 10) {
+          if ( _timeLeft == 10) {
             // SlidestartAnimation();
-
+countdownSound();
             // slideIdol();
           }
         });
@@ -276,11 +313,17 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   }
 
   void checkWinCondition() {
+    _showEndOverlay = true;
+    setState(() {
+      
+    });
+    player.stop();
+    explosionSound();
     gameOver = true;
     _timer?.cancel();
-    showTimeUpScreen();
+   // showTimeUpScreen();
     if (selectedCount >= 5) {
-      Future.delayed(const Duration(milliseconds: 4000), () {
+      Future.delayed(const Duration(milliseconds: 1000), () {
         setState(() {
           Navigator.pushReplacement(
               context,
@@ -291,7 +334,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         });
       });
     } else {
-      Future.delayed(const Duration(milliseconds: 4000), () {
+      Future.delayed(const Duration(milliseconds: 1000), () {
         setState(() {
           Navigator.pushReplacement(
               context,
@@ -302,14 +345,18 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       });
     }
   }
-
+Widget EndScreen(){
+    var size= MediaQuery.of(context).size;
+  return Lottie.asset('assets/animations/bomb.json',repeat: false, alignment: Alignment.center,width: size.width, height: size.height*0.6,fit: BoxFit.cover,);
+}
   void showTimeUpScreen() {
     final double screenWidth = MediaQuery.of(context).size.width;
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -326,6 +373,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       selectedRestaurants.add(restaurant.promoName);
       selectedRestaurants2.add(restaurant.promoName);
       if (restaurant.discount == 80) {
+        playColelcted();
         slideIdol();
         startAnimation();
         startSAnimation();
@@ -333,14 +381,16 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         selectedCount++;
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
+           // collectedShow=false;
             // showWrongSelectionGraphic = false;
             // selectedColor = Colors.white;
             selectedRestaurants2.remove(restaurant.promoName);
           });
         });
       } else {
+        wrongSound();
         setState(() {
-          selectedColor = Colors.red;
+          selectedColor = const Color.fromRGBO(247, 205, 201, 1);
         });
         startShake();
         _timeLeft = max(0, _timeLeft - 3);
@@ -416,7 +466,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                       width: screenWidth,
                       child: ListView.builder(
                         padding: EdgeInsets.only(
-                            top: screenHeight * 0.15,
+                            top: screenHeight * 0.2,
                             bottom: screenHeight * 0.05),
                         itemCount: restaurants.length,
                         itemBuilder: (context, index) {
@@ -438,7 +488,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                             child: Container(
                               alignment: Alignment.center,
                               width: screenWidth * 0.8,
-                              margin: const EdgeInsets.only(top: 20),
+                              margin:  EdgeInsets.only(top: screenHeight*0.035),
                               decoration:
                                   const BoxDecoration(color: Colors.white),
                               child: Center(
@@ -451,7 +501,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                     Container(
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(16),
+                                              BorderRadius.circular(90),
                                           color: Colors.grey),
                                       height: screenWidth * 0.25,
                                       width: screenWidth * 0.25,
@@ -485,7 +535,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                             child: Text(restaurant.name,
                                                 style: TextStyle(
                                                     fontSize:
-                                                        screenWidth * 0.03,
+                                                        screenWidth * 0.035,
                                                     color: Colors.grey)),
                                           ),
                                           SizedBox(
@@ -520,10 +570,10 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                             alignment: Alignment
                                                                 .center,
                                                             width: screenWidth *
-                                                                0.275,
+                                                                0.3,
                                                             height:
                                                                 screenHeight *
-                                                                    0.037,
+                                                                    0.0475,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: isSelected
@@ -536,7 +586,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12),
+                                                                          60),
                                                               border:
                                                                   Border.all(
                                                                 color: const Color
@@ -544,7 +594,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                                     219,
                                                                     219,
                                                                     219,
-                                                                    1),
+                                                                    1),width: 5
                                                               ),
                                                             ),
                                                             child: Row(
@@ -583,13 +633,21 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                                     style: TextStyle(
                                                                         fontSize:
                                                                             screenWidth *
-                                                                                0.03,
-                                                                        color: const Color
+                                                                                0.04,
+                                                                        color: isSelected
+                                                                  ? (isCorrect
+                                                                      ? Colors.white
+                                                                        
+                                                                      : Colors.black)
+                                                                  : const Color
                                                                             .fromRGBO(
                                                                             4,
                                                                             41,
                                                                             35,
                                                                             1),
+                                                                        
+                                                                        
+                                                                        
                                                                         fontWeight:
                                                                             FontWeight.bold)),
                                                               ],
@@ -614,7 +672,16 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                         },
                       ),
                     ),
-                    if (_showCountdownOverlay)
+                    if (_showEndOverlay)
+                      Positioned.fill(
+                        child: Container(
+                          color: Colors.white.withOpacity(0.8),
+                          child: Center(
+                            child: EndScreen()
+                          ),
+                        ),
+                      ),
+                      if (_showCountdownOverlay)
                       Positioned.fill(
                         child: Container(
                           color: Colors.white.withOpacity(0.8),
@@ -631,12 +698,12 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
               ),
             ]),
             Positioned(
-              top: screenHeight * 0.06,
+              top: screenHeight * 0.1,
               child: Center(
                 child: Container(
                   // margin: EdgeInsets.only(bottom: screenHeight * 0.01),
                   width: screenWidth * 0.925,
-                  height: screenHeight * 0.27,
+                  height: screenHeight * 0.3,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -645,7 +712,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                           blurRadius: 80,
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(90),
                       //  border: Border.all(color: Colors.grey),
                       color: Colors.white),
                   child: Center(
@@ -654,8 +721,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
+                            //color: Colors.white,
+                           // borderRadius: BorderRadius.circular(12),
                           ),
                           padding: EdgeInsets.symmetric(
                               vertical: screenHeight * 0.009),
@@ -678,7 +745,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                   ? "Time Left"
                                                   : "เหลือเวลาอีก",
                                               style: TextStyle(
-                                                  fontSize: screenWidth * 0.03,
+                                                  fontSize: screenWidth * 0.04,
                                                   color: const Color.fromRGBO(
                                                       4, 41, 35, 1),
                                                   fontWeight: FontWeight.w600)),
@@ -701,7 +768,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                       : _timeColorAnimationFinal
                                                           .value,
                                                   borderRadius:
-                                                      BorderRadius.circular(7),
+                                                      BorderRadius.circular(30),
                                                 ),
                                                 child: Text(
                                                     _timeLeft < 10
@@ -710,7 +777,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                     style: TextStyle(
                                                         letterSpacing: 2,
                                                         fontSize:
-                                                            screenWidth * 0.06,
+                                                            screenWidth * 0.07,
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         color: Colors.white)),
@@ -739,7 +806,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                       height: screenHeight * 0.01,
                                       decoration: BoxDecoration(
                                         color: Colors.grey.shade300,
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(125),
                                       ),
                                     ),
                                     Container(
@@ -756,11 +823,11 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                 0xFF00B440), // #00B440 (Darker Green)
                                           ],
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius: BorderRadius.circular(125),
                                       ),
                                     ),
                                     Positioned(
-                                      top: 0,
+                                      top: -screenHeight*0.009,
                                       left: _timeLeft > 5
                                           ? (screenWidth * 0.74) *
                                               (progress - 0.005)
@@ -768,8 +835,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                               (progress - 0.008),
                                       child: Image.asset(
                                         'assets/slider_selector.png',
-                                        width: screenWidth * 0.07,
-                                        height: screenWidth * 0.07,
+                                        width: screenWidth * 0.08,
+                                        height: screenWidth * 0.08,
                                       ),
                                     ),
                                   ],
@@ -781,17 +848,17 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: screenWidth * 0.05),
-                          child: const Divider(),
+                          child:  Divider(thickness: 6,height: screenHeight*0.01,color: Color.fromRGBO(219, 219, 219, 1),),
                         ),
-                        SizedBox(height: screenHeight * 0.015),
+                        SizedBox(height: screenHeight * 0.01),
                         SizedBox(
-                          width: screenWidth * 0.8,
+                          width: screenWidth * 0.9,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
                                 children: [
-                                  Container(
+                                  Container(margin: EdgeInsets.only(left:screenWidth*0.04),
                                     height: screenWidth * 0.1,
                                     width: screenWidth * 0.1,
                                     decoration: const BoxDecoration(
@@ -807,38 +874,52 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                   ),
                                   Text("80% off",
                                       style: TextStyle(
-                                          fontSize: screenWidth * 0.05,
+                                          fontSize: screenWidth * 0.06,
                                           color: const Color.fromRGBO(
                                               4, 41, 35, 1),
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              AnimatedBuilder(
-                                animation: _bounceController,
-                                builder: (context, child) {
-                                  return Transform.translate(
-                                    offset: Offset(0, _bounceAnimation.value),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: screenHeight * 0.05,
-                                      width: screenWidth * 0.2,
-                                      // padding: const EdgeInsets.symmetric(
-                                      //     horizontal: 25, vertical: 8),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25),
-                                        color: selectedCount >= 5
-                                            ? Colors.green
-                                            : _colorAnimation.value,
-                                      ),
-                                      child: Text(
-                                          "x${selectedCount.toString()}",
-                                          style: TextStyle(
-                                              fontSize: screenWidth * 0.05,
-                                              color: _colorAnimationText.value,
-                                              fontWeight: FontWeight.w700)),
+                              Container(  alignment: Alignment.centerRight,height: screenHeight * 0.1,
+                                            width: screenWidth * 0.2,
+                                child: Stack(alignment: Alignment.topRight,
+                                  children: [
+                                    AnimatedBuilder(
+                                      animation: _bounceController,
+                                      builder: (context, child) {
+                                        return Transform.translate(
+                                          offset: Offset(0, _bounceAnimation.value),
+                                          child: Center(
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: screenHeight * 0.05,
+                                              width: screenWidth * 0.15,
+                                              // padding: const EdgeInsets.symmetric(
+                                              //     horizontal: 25, vertical: 8),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(145),
+                                                color: selectedCount >= 5
+                                                    ? Colors.green
+                                                    : _colorAnimation.value,
+                                              ),
+                                              child: Text(
+                                                  "x${selectedCount.toString()}",
+                                                  style: TextStyle(
+                                                      fontSize: screenWidth * 0.05,
+                                                      color:selectedCount>=5?Colors.white: _colorAnimationText.value,
+                                                      fontWeight: FontWeight.w700)),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  );
-                                },
+                                  Center(
+                                    child: Visibility(visible: collectedShow,
+                                      child: Center(child: Lottie.asset(alignment: Alignment.center, 'assets/animations/firework.json' ,controller: sparkController, height: screenHeight * 0.5,
+                                                width: screenHeight * 0.4,fit: BoxFit.fill),),
+                                    ),
+                                  )],
+                                ),
                               ),
                             ],
                           ),
@@ -869,8 +950,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
               top: screenHeight * 0.008,
               right: screenWidth * 0.08,
               child: Container(
-                height: screenWidth * 0.29,
-                width: screenWidth * 0.3,
+                height: screenWidth * 0.35,
+                width: screenWidth * 0.35,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/hotdeal.png"),
@@ -880,25 +961,22 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
               ),
             ),
             Positioned(
-              top: screenHeight * 0.012,
-              left: screenWidth * 0.04,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: screenWidth * 0.04,
-                      ),
-                    )),
-              ),
-            )
+            top: screenWidth * 0.04,
+            left: screenWidth * 0.04,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(150),
+                      color: Colors.white),
+                  child: Padding(
+                    padding: EdgeInsets.all(screenWidth * 0.02),
+                    child:  Icon(Icons.restart_alt, size: screenWidth * 0.05,),
+                  )),
+            ),
+          )
           ],
         ));
   }

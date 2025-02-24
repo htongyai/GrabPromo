@@ -22,7 +22,7 @@ class _WinningScreenState extends State<WinningScreen> {
         ConfettiController(duration: const Duration(milliseconds: 200));
     Future.delayed(const Duration(milliseconds: 200), () {
       setState(() {
-        _startConfetti();
+        //_startConfetti();
       });
     });
   }
@@ -69,7 +69,7 @@ class _WinningScreenState extends State<WinningScreen> {
               Text(
                 english ? "Congratulatons!" : 'ยินดีด้วย',
                 style: TextStyle(
-                    fontSize: screenWidth * 0.09, fontWeight: FontWeight.bold),
+                    fontSize: screenWidth * 0.08, fontWeight: FontWeight.bold),
               ),
               //  SizedBox(height: screenHeight * 0.0105),
               Text(
@@ -77,7 +77,7 @@ class _WinningScreenState extends State<WinningScreen> {
                     ? "You collected enough promo to win!"
                     : 'คุณสะสมส่วนลดได้ครบตามกำหนด',
                 style: TextStyle(
-                    fontSize: screenWidth * 0.04, color: Colors.black54),
+                    fontSize: screenWidth * 0.05, color: Colors.black54),
               ),
               SizedBox(height: screenHeight * 0.05),
               Container(
@@ -86,9 +86,9 @@ class _WinningScreenState extends State<WinningScreen> {
                     horizontal: screenWidth * 0.05,
                     vertical: screenHeight * 0.015),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(120),
                   border:
-                      Border.all(color: const Color.fromRGBO(219, 219, 219, 1)),
+                      Border.all(color: const Color.fromRGBO(219, 219, 219, 1),width: 4),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,10 +134,11 @@ class _WinningScreenState extends State<WinningScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(0, 177, 79, 1),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.065),
+                      borderRadius: BorderRadius.circular(180)),
+                  minimumSize: Size(screenWidth * 0.8, screenHeight * 0.085),
                 ),
                 onPressed: () {
+                  buttonSound();
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -147,7 +148,7 @@ class _WinningScreenState extends State<WinningScreen> {
                 child: Text(
                   english ? "Next" : 'ถัดไป',
                   style: TextStyle(
-                      fontSize: screenWidth * 0.038, color: Colors.white),
+                      fontSize: screenWidth * 0.06, color: Colors.white),
                 ),
               ),
             ],
@@ -165,8 +166,8 @@ class _WinningScreenState extends State<WinningScreen> {
                 emissionFrequency: 1,
                 numberOfParticles: 100,
                 maxBlastForce: 850,
-                minBlastForce: 430,
-                gravity: 0.6,
+                minBlastForce: 630,
+                gravity: 1,
                 colors: [
                   Colors.green.shade200,
                   Colors.green.shade400,

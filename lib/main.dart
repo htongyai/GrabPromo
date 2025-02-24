@@ -1,7 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:grabpromogame/Start_page.dart';
 import 'package:grabpromogame/firebase_options.dart';
 import 'package:grabpromogame/game_page.dart';
+import 'package:grabpromogame/leaderboard.dart';
+import 'package:grabpromogame/losingScreen.dart';
+import 'package:grabpromogame/namesubmission.dart';
+import 'package:grabpromogame/tutorial.dart';
+import 'package:grabpromogame/win_lose.dart';
+import 'package:grabpromogame/winningScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +33,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'GrabCommunitySolidTH',
       ),
-      home: const PromoSelectionGame(),
+      home: StartScreen()
+      
+      // StartScreen()
     );
   }
 }

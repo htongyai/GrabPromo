@@ -27,6 +27,7 @@ class LosingScreen extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
     void reloadApp(BuildContext context) {
+        buttonSound();
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const StartScreen()),
@@ -58,7 +59,7 @@ class LosingScreen extends StatelessWidget {
           Text(
             english ? "So Close!" : 'พลาดไปนิดเดียว',
             style: TextStyle(
-                fontSize: screenWidth * 0.075, fontWeight: FontWeight.bold),
+                fontSize: screenWidth * 0.08, fontWeight: FontWeight.bold),
           ),
           //SizedBox(height: screenHeight * 0.01),
           Text(
@@ -66,7 +67,7 @@ class LosingScreen extends StatelessWidget {
                 ? "You didn’t collect enough discounts to win!"
                 : 'คุณสะสมส่วนลดได้ไม่ครบตามกำหนด',
             style:
-                TextStyle(fontSize: screenWidth * 0.04, color: Colors.black54),
+                TextStyle(fontSize: screenWidth * 0.05, color: Colors.black54),
           ),
           SizedBox(height: screenHeight * 0.05),
           Container(
@@ -74,8 +75,8 @@ class LosingScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: screenWidth * 0.05, vertical: screenHeight * 0.015),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(color: const Color.fromRGBO(219, 219, 219, 1)),
+              borderRadius: BorderRadius.circular(120),
+              border: Border.all(color: const Color.fromRGBO(219, 219, 219, 1),width: 4),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +122,7 @@ class LosingScreen extends StatelessWidget {
             padding: EdgeInsets.all(screenWidth * 0.04),
             decoration: BoxDecoration(
               color: const Color.fromRGBO(212, 251, 219, 1),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(120),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,23 +145,23 @@ class LosingScreen extends StatelessWidget {
                             ? "Even though you missed the discounts in this game, \nyou can still grab amazing Hot Deals on GRAB!"
                             : 'ถึงแม้คุณจะเก็บส่วนลดไม่ครบในเกมนี้ \nคุณยังสามารถเก็บ Hot Deal สุดคุ้มใน GRAB ได้อยู่นะ',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.027,
+                            fontSize: screenWidth * 0.028,
                             color: Colors.black87),
                       ),
                     ],
                   ),
                 ),
-                Image.asset('assets/hotdeal.png', width: screenWidth * 0.07),
+                Image.asset('assets/hotdeal.png', width: screenWidth * 0.08),
               ],
             ),
           ),
-          SizedBox(height: screenHeight * 0.1),
+          SizedBox(height: screenHeight * 0.08),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromRGBO(0, 177, 79, 1),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)),
-              minimumSize: Size(screenWidth * 0.8, screenHeight * 0.075),
+                  borderRadius: BorderRadius.circular(180)),
+              minimumSize: Size(screenWidth * 0.8, screenHeight * 0.085),
             ),
             onPressed: () {
               reloadApp(context);
@@ -168,9 +169,10 @@ class LosingScreen extends StatelessWidget {
             child: Text(
               english ? "Back start" : 'กลับสู่หน้าแรก',
               style:
-                  TextStyle(fontSize: screenWidth * 0.04, color: Colors.white),
+                  TextStyle(fontSize: screenWidth * 0.06, color: Colors.white),
             ),
-          ),
+          ),          SizedBox(height: screenHeight * 0.08),
+
         ],
       ),
     );

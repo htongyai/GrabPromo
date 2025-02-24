@@ -38,6 +38,7 @@ dependencies:
   cloud_firestore: ^5.6.3
   audioplayers: ^6.1.2
   confetti: ^0.8.0
+  lottie: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,17 @@ flutter:
   - assets/loseicon.png
   - assets/winningicon.png
   - assets/FBIcon.png
+  - assets/sound/bgm.mp3
+  - assets/sound/click.mp3
+  - assets/sound/correct.mp3
+  - assets/sound/wrong.mp3
+  - assets/sound/countdown.mp3
+  - assets/sound/end.mp3
+  - assets/sound/start.mp3
+  - assets/animations/bomb-Animation-transparent.json
+  - assets/animations/bomb-Animation-black-transparent.json
+  - assets/animations/bomb.json
+  - assets/animations/firework.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
