@@ -14,7 +14,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+//Grab Promo APP for TV
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
