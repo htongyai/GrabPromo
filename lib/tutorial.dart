@@ -118,7 +118,9 @@ class _TutorialScreenState extends State<TutorialScreen> {
                                   page['description']!,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: screenWidth * 0.05,
+                                      fontSize: english
+                                          ? screenWidth * 0.045
+                                          : screenWidth * 0.05,
                                       color: const Color.fromRGBO(
                                           112, 112, 112, 1)),
                                 ),
@@ -126,32 +128,32 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             ],
                           ),
                         ),
-                       
-                        
                       ],
                     );
                   },
                 ),
-              ), SizedBox(height: screenHeight * 0.01),
+              ),
+              SizedBox(height: screenHeight * 0.01),
               Column(
                 children: [
                   Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(
-                                tutorialPages.length,
-                                (index) => Container(
-                                  margin: EdgeInsets.all(screenWidth * 0.015),
-                                  width: screenWidth * 0.03,
-                                  height: screenWidth * 0.03,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: _currentPage == index
-                                          ? const Color.fromRGBO(0, 177, 79, 1)
-                                          : const Color.fromRGBO(234, 233, 233, 1)),
-                                ),
-                              ),
-                            ),
- SizedBox(height: screenHeight * 0.04),],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      tutorialPages.length,
+                      (index) => Container(
+                        margin: EdgeInsets.all(screenWidth * 0.015),
+                        width: screenWidth * 0.03,
+                        height: screenWidth * 0.03,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: _currentPage == index
+                                ? const Color.fromRGBO(0, 177, 79, 1)
+                                : const Color.fromRGBO(234, 233, 233, 1)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.04),
+                ],
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -161,7 +163,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                   minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08),
                 ),
                 onPressed: () {
-                   buttonSound();
+                  buttonSound();
                   if (_currentPage == tutorialPages.length - 1) {
                     Navigator.push(
                       context,
@@ -190,7 +192,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             fontSize: screenWidth * 0.06, color: Colors.white),
                       ),
               ),
-               SizedBox(height: screenHeight*0.06),
+              SizedBox(height: screenHeight * 0.06),
             ],
           ),
           Positioned(
@@ -206,7 +208,10 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       color: Colors.white),
                   child: Padding(
                     padding: EdgeInsets.all(screenWidth * 0.02),
-                    child:  Icon(Icons.restart_alt, size: screenWidth * 0.05,),
+                    child: Icon(
+                      Icons.restart_alt,
+                      size: screenWidth * 0.05,
+                    ),
                   )),
             ),
           )

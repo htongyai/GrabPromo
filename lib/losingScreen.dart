@@ -27,7 +27,7 @@ class LosingScreen extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
     void reloadApp(BuildContext context) {
-        buttonSound();
+      buttonSound();
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const StartScreen()),
@@ -66,8 +66,9 @@ class LosingScreen extends StatelessWidget {
             english
                 ? "You didn’t collect enough discounts to win!"
                 : 'คุณสะสมส่วนลดได้ไม่ครบตามกำหนด',
-            style:
-                TextStyle(fontSize: screenWidth * 0.05, color: Colors.black54),
+            style: TextStyle(
+                fontSize: english ? screenWidth * 0.04 : screenWidth * 0.05,
+                color: Colors.black54),
           ),
           SizedBox(height: screenHeight * 0.05),
           Container(
@@ -76,7 +77,8 @@ class LosingScreen extends StatelessWidget {
                 horizontal: screenWidth * 0.05, vertical: screenHeight * 0.015),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(120),
-              border: Border.all(color: const Color.fromRGBO(219, 219, 219, 1),width: 4),
+              border: Border.all(
+                  color: const Color.fromRGBO(219, 219, 219, 1), width: 4),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -145,7 +147,9 @@ class LosingScreen extends StatelessWidget {
                             ? "Even though you missed the discounts in this game, \nyou can still grab amazing Hot Deals on GRAB!"
                             : 'ถึงแม้คุณจะเก็บส่วนลดไม่ครบในเกมนี้ \nคุณยังสามารถเก็บ Hot Deal สุดคุ้มใน GRAB ได้อยู่นะ',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.028,
+                            fontSize: english
+                                ? screenWidth * 0.024
+                                : screenWidth * 0.028,
                             color: Colors.black87),
                       ),
                     ],
@@ -171,8 +175,8 @@ class LosingScreen extends StatelessWidget {
               style:
                   TextStyle(fontSize: screenWidth * 0.06, color: Colors.white),
             ),
-          ),          SizedBox(height: screenHeight * 0.08),
-
+          ),
+          SizedBox(height: screenHeight * 0.08),
         ],
       ),
     );

@@ -225,177 +225,184 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                           List<Map<String, dynamic>> leaderboard =
                               snapshot.data!;
 
-                          return ListView.builder(physics: NeverScrollableScrollPhysics(),
+                          return ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
                             itemCount: 3,
                             itemBuilder: (context, index) {
                               final player = leaderboard[index];
                               bool isUser = player['playerSessionID'] ==
                                   widget.playerSessionID;
                               return Container(
-                                width: screenWidth * 0.9,
-                                height: screenHeight * 0.075,
-                                padding: const EdgeInsets.all(8),
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: screenWidth * 0.05,
-                                    vertical: screenHeight * 0.005),
-                                decoration: BoxDecoration(
-                                 // color: Colors.white,
-                                  borderRadius: BorderRadius.circular(25),
-                                  border: isUser
-                                      ? Border.all(
-                                          color: Colors.green, width: 2)
-                                      : Border.all(
-                                          color: const Color.fromRGBO(
-                                              219, 219, 219, 1),
-                                          width: 1),
-                                ),
-                                child:Container(
-                                  alignment: Alignment.center,
                                   width: screenWidth * 0.9,
                                   height: screenHeight * 0.075,
-                                  padding:  EdgeInsets.only(left: screenWidth*0.011,right: screenWidth*0.03),
-                                  // margin: EdgeInsets.symmetric(
-                                  //     horizontal: screenWidth * 0.05,
-                                  //     vertical: screenHeight * 0.005),
+                                  //padding: const EdgeInsets.all(8),
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: screenWidth * 0.05,
+                                      vertical: screenHeight * 0.005),
                                   decoration: BoxDecoration(
-                                      //color: Colors.white,
-                                      borderRadius: BorderRadius.circular(90),
-                                      border: Border.all(
-                                          color: const Color.fromRGBO(
-                                              219, 219, 219, 1),
-                                          width: 5)),
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [ Row(
-                                      children: [
-                                        Center(
-                                          child: Container(
-                                            width: screenWidth * 0.1,
-                                            height: screenWidth * 0.1,
-                                            decoration: BoxDecoration(gradient: 
-                                    getGradient(player['rank']),
-                                              borderRadius:
-                                                  BorderRadius.circular(60),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              player['rank'].toString(),
-                                              style: TextStyle(
-                                                  fontSize: screenWidth * 0.05,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white),
-                                            ),
+                                    // color: Colors.white,
+                                    borderRadius: BorderRadius.circular(25),
+                                    border: isUser
+                                        ? Border.all(
+                                            color: Colors.green, width: 2)
+                                        : Border.all(
+                                            color: const Color.fromRGBO(
+                                                219, 219, 219, 1),
+                                            width: 1),
+                                  ),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    width: screenWidth * 0.9,
+                                    height: screenHeight * 0.075,
+                                    padding: EdgeInsets.only(
+                                        left: screenWidth * 0.011,
+                                        right: screenWidth * 0.03),
+                                    // margin: EdgeInsets.symmetric(
+                                    //     horizontal: screenWidth * 0.05,
+                                    //     vertical: screenHeight * 0.005),
+                                    decoration: BoxDecoration(
+                                        //color: Colors.white,
+                                        borderRadius: BorderRadius.circular(90),
+                                        border: Border.all(
+                                            color: const Color.fromRGBO(
+                                                219, 219, 219, 1),
+                                            width: 5)),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Center(
+                                                child: Container(
+                                                  width: screenWidth * 0.1,
+                                                  height: screenWidth * 0.1,
+                                                  decoration: BoxDecoration(
+                                                    gradient: getGradient(
+                                                        player['rank']),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            60),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    player['rank'].toString(),
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            screenWidth * 0.05,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: screenWidth * 0.05),
+                                                child: Text(
+                                                  player['name'],
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.05,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
-                                      Padding(
-                                      padding: EdgeInsets.only(
-                                          left: screenWidth * 0.05),
-                                      child: Text(
-                                        player['name'],
-                                        style: TextStyle(
-                                            fontSize: screenWidth * 0.05,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),],
-                                    ), Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Container(
-                                          margin: const EdgeInsets.only(
-                                              right: 10),
-                                          height: screenWidth * 0.08,
-                                          width: screenWidth * 0.08,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/percent.png"),
-                                                fit: BoxFit.fitHeight,
-                                                alignment:
-                                                    Alignment.bottomCenter),
-                                          ),
-                                        ),SizedBox(
-                                          width: screenWidth * 0.07,
-                                          child: Text(
-                                            'x${player['score']}',
-                                            style: TextStyle(
-                                                fontSize: screenWidth * 0.05,
-                                                fontWeight: FontWeight.w600),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),],)
-                                  
-                                  
-                                  
-                                                             
-                                                         
-                                        
-                                      
-                                    
-                                                                ]),
-                                )
-                                
-                                
-                                
-                                
-                                
-                                //  ListTile(
-                                //   leading: Container(
-                                //     padding: const EdgeInsets.all(8),
-                                //     width: screenWidth * 0.1,
-                                //     height: screenWidth * 0.1,
-                                //     decoration: BoxDecoration(
-                                //       gradient: getGradient(player['rank']),
-                                //       borderRadius: BorderRadius.circular(10),
-                                //     ),
-                                //     alignment: Alignment.center,
-                                //     child: Text(
-                                //       '${player['rank']}',
-                                //       style: TextStyle(
-                                //           fontSize: screenWidth * 0.04,
-                                //           fontWeight: FontWeight.bold,
-                                //           color: Colors.white),
-                                //     ),
-                                //   ),
-                                //   title: Padding(
-                                //     padding: EdgeInsets.only(
-                                //         left: screenWidth * 0.05),
-                                //     child: Text(
-                                //       player['name'],
-                                //       style: TextStyle(
-                                //           fontSize: screenWidth * 0.045,
-                                //           fontWeight: FontWeight.bold),
-                                //     ),
-                                //   ),
-                                //   trailing: Row(
-                                //     mainAxisSize: MainAxisSize.min,
-                                //     children: [
-                                //       Container(
-                                //         margin:
-                                //             const EdgeInsets.only(right: 10),
-                                //         height: screenWidth * 0.1,
-                                //         width: screenWidth * 0.1,
-                                //         decoration: const BoxDecoration(
-                                //           image: DecorationImage(
-                                //               image: AssetImage(
-                                //                   "assets/percent.png"),
-                                //               fit: BoxFit.fitHeight,
-                                //               alignment:
-                                //                   Alignment.bottomCenter),
-                                //         ),
-                                //       ),
-                                //       SizedBox(
-                                //         width: screenWidth * 0.07,
-                                //         child: Text(
-                                //           'x${player['score']}',
-                                //           style: TextStyle(
-                                //               fontSize: screenWidth * 0.05,
-                                //               fontWeight: FontWeight.w400),
-                                //           textAlign: TextAlign.center,
-                                //         ),
-                                //       ),
-                                //     ],
-                                //   ),
-                                // ),
-                              );
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Container(
+                                                margin: const EdgeInsets.only(
+                                                    right: 10),
+                                                height: screenWidth * 0.08,
+                                                width: screenWidth * 0.08,
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/percent.png"),
+                                                      fit: BoxFit.fitHeight,
+                                                      alignment: Alignment
+                                                          .bottomCenter),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth * 0.07,
+                                                child: Text(
+                                                  'x${player['score']}',
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.05,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ]),
+                                  )
+
+                                  //  ListTile(
+                                  //   leading: Container(
+                                  //     padding: const EdgeInsets.all(8),
+                                  //     width: screenWidth * 0.1,
+                                  //     height: screenWidth * 0.1,
+                                  //     decoration: BoxDecoration(
+                                  //       gradient: getGradient(player['rank']),
+                                  //       borderRadius: BorderRadius.circular(10),
+                                  //     ),
+                                  //     alignment: Alignment.center,
+                                  //     child: Text(
+                                  //       '${player['rank']}',
+                                  //       style: TextStyle(
+                                  //           fontSize: screenWidth * 0.04,
+                                  //           fontWeight: FontWeight.bold,
+                                  //           color: Colors.white),
+                                  //     ),
+                                  //   ),
+                                  //   title: Padding(
+                                  //     padding: EdgeInsets.only(
+                                  //         left: screenWidth * 0.05),
+                                  //     child: Text(
+                                  //       player['name'],
+                                  //       style: TextStyle(
+                                  //           fontSize: screenWidth * 0.045,
+                                  //           fontWeight: FontWeight.bold),
+                                  //     ),
+                                  //   ),
+                                  //   trailing: Row(
+                                  //     mainAxisSize: MainAxisSize.min,
+                                  //     children: [
+                                  //       Container(
+                                  //         margin:
+                                  //             const EdgeInsets.only(right: 10),
+                                  //         height: screenWidth * 0.1,
+                                  //         width: screenWidth * 0.1,
+                                  //         decoration: const BoxDecoration(
+                                  //           image: DecorationImage(
+                                  //               image: AssetImage(
+                                  //                   "assets/percent.png"),
+                                  //               fit: BoxFit.fitHeight,
+                                  //               alignment:
+                                  //                   Alignment.bottomCenter),
+                                  //         ),
+                                  //       ),
+                                  //       SizedBox(
+                                  //         width: screenWidth * 0.07,
+                                  //         child: Text(
+                                  //           'x${player['score']}',
+                                  //           style: TextStyle(
+                                  //               fontSize: screenWidth * 0.05,
+                                  //               fontWeight: FontWeight.w400),
+                                  //           textAlign: TextAlign.center,
+                                  //         ),
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
+                                  );
                             },
                           );
                         },
@@ -443,7 +450,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     alignment: Alignment.center,
                                     width: screenWidth * 0.9,
                                     height: screenHeight * 0.075,
-                                    padding:  EdgeInsets.only(left: screenWidth*0.0075,right: screenWidth*0.03),
+                                    padding: EdgeInsets.only(
+                                        left: screenWidth * 0.0075,
+                                        right: screenWidth * 0.03),
                                     // margin: EdgeInsets.symmetric(
                                     //     horizontal: screenWidth * 0.05,
                                     //     vertical: screenHeight * 0.005),
@@ -454,74 +463,81 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                             color: const Color.fromRGBO(
                                                 0, 177, 79, 1),
                                             width: 12)),
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [ Row(
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Center(
-                                            child: Container(
-                                              width: screenWidth * 0.11,
-                                              height: screenWidth * 0.11,
-                                              decoration: BoxDecoration(
-                                                color: const Color.fromRGBO(
-                                                    8, 73, 51, 1),
-                                                borderRadius:
-                                                    BorderRadius.circular(60),
+                                          Row(
+                                            children: [
+                                              Center(
+                                                child: Container(
+                                                  width: screenWidth * 0.11,
+                                                  height: screenWidth * 0.11,
+                                                  decoration: BoxDecoration(
+                                                    color: const Color.fromRGBO(
+                                                        8, 73, 51, 1),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            60),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    player['rank'].toString(),
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            screenWidth * 0.05,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
                                               ),
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                player['rank'].toString(),
-                                                style: TextStyle(
-                                                    fontSize: screenWidth * 0.05,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: screenWidth * 0.05),
+                                                child: Text(
+                                                  player['name'],
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.05,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ),
-                                            ),
+                                            ],
                                           ),
-                                        Padding(
-                                        padding: EdgeInsets.only(
-                                            left: screenWidth * 0.05),
-                                        child: Text(
-                                          player['name'],
-                                          style: TextStyle(
-                                              fontSize: screenWidth * 0.05,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),],
-                                      ), Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Container(
-                                            margin: const EdgeInsets.only(
-                                                right: 10),
-                                            height: screenWidth * 0.08,
-                                            width: screenWidth * 0.08,
-                                            decoration: const BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/percent.png"),
-                                                  fit: BoxFit.fitHeight,
-                                                  alignment:
-                                                      Alignment.bottomCenter),
-                                            ),
-                                          ),SizedBox(
-                                            width: screenWidth * 0.07,
-                                            child: Text(
-                                              'x${player['score']}',
-                                              style: TextStyle(
-                                                  fontSize: screenWidth * 0.05,
-                                                  fontWeight: FontWeight.w600),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),],)
-                                    
-                                    
-                                    
-                             
-                         
-                                          
-                                        
-                                      
-                                ]),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Container(
+                                                margin: const EdgeInsets.only(
+                                                    right: 10),
+                                                height: screenWidth * 0.08,
+                                                width: screenWidth * 0.08,
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/percent.png"),
+                                                      fit: BoxFit.fitHeight,
+                                                      alignment: Alignment
+                                                          .bottomCenter),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: screenWidth * 0.07,
+                                                child: Text(
+                                                  'x${player['score']}',
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.05,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ]),
                                   )
                                 ],
                               );
@@ -542,8 +558,14 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                         Container(padding: EdgeInsets.only(left: screenWidth*0.02),
-                            width: screenWidth * 0.75,
+                          Container(
+                            padding: EdgeInsets.only(
+                                left: english
+                                    ? screenWidth * 0.1
+                                    : screenWidth * 0.02),
+                            width: english
+                                ? screenWidth * 0.7
+                                : screenWidth * 0.75,
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -554,7 +576,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                         ? 'The first-place winner has a chance to win additional prizes.'
                                         : 'ผู้ชนะอันดับ 1 ลุ้นรับของรางวัลเพิ่มเติม',
                                     style: TextStyle(
-                                        fontSize: screenWidth * 0.04,
+                                        fontSize: english
+                                            ? screenWidth * 0.03
+                                            : screenWidth * 0.04,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
@@ -562,7 +586,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                         ? "Please stay tuned for the prize announcement on March 7, 2025."
                                         : 'โปรดติดตามประกาศผลรางวัลวันที่ 7 มีนาคม 2568',
                                     style: TextStyle(
-                                        fontSize: screenWidth * 0.03,
+                                        fontSize: english
+                                            ? screenWidth * 0.025
+                                            : screenWidth * 0.03,
                                         fontWeight: FontWeight.normal),
                                   ),
                                 ],
@@ -596,9 +622,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                   Size(screenWidth * 0.8, screenHeight * 0.085),
                             ),
                             onPressed: () {
-                             
- 
-                                buttonSound();
+                              buttonSound();
                               reloadApp(context);
                             },
                             child: Text(

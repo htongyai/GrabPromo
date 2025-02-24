@@ -58,25 +58,25 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   late Animation<Color?> _timeColorAnimation;
   late Animation<Color?> _timeColorAnimationFinal;
   late AnimationController sparkController;
-  bool collectedShow =false;
+  bool collectedShow = false;
   final player = AudioPlayer();
   List<Star> stars = [];
   @override
   void initState() {
-    sparkController =AnimationController(vsync: this,duration: Duration(seconds: 1));
+    sparkController =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
 
     super.initState();
     loadRestaurants();
     restaurants.shuffle(Random());
     startSound();
     startCountdownOverlay();
-   
-      
+
     //_startTimer();
     //  Future.delayed(const Duration(milliseconds: 200), () {
 
     //     player.play(AssetSource("sound/bgm.mp3"));
-      
+
     // });
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200), // Total shake time
@@ -194,22 +194,23 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     _generateStars();
   }
 
-playColelcted(){
-  setState(() {
-    collectedShow = true;
-  });
-  sparkController.forward(from:0.0);
-  
-     Future.delayed(const Duration(seconds: 1), () {
-          setState(() {
-            collectedShow=false;
-            sparkController.stop();
-            // showWrongSelectionGraphic = false;
-            // selectedColor = Colors.white;
-            //selectedRestaurants2.remove(restaurant.promoName);
-          });
-        });
-}
+  playColelcted() {
+    setState(() {
+      collectedShow = true;
+    });
+    sparkController.forward(from: 0.0);
+
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        collectedShow = false;
+        sparkController.stop();
+        // showWrongSelectionGraphic = false;
+        // selectedColor = Colors.white;
+        //selectedRestaurants2.remove(restaurant.promoName);
+      });
+    });
+  }
+
   void _generateStars() {
     final Random random = Random();
     for (int i = 0; i < 20; i++) {
@@ -242,6 +243,13 @@ playColelcted(){
   void dispose() {
     player.dispose();
     _controller.dispose();
+    _bounceController.dispose();
+    _scaleController.dispose();
+    _starController.dispose();
+    _slideController.dispose();
+    _timeShakesController.dispose();
+    sparkController.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -255,11 +263,8 @@ playColelcted(){
         timer.cancel();
         player.play(AssetSource("sound/bgm.mp3"));
         setState(() {
-          
           _showCountdownOverlay = false;
           startTimer();
-          
-          
         });
       }
     });
@@ -275,7 +280,6 @@ playColelcted(){
   void startAnimation() {
     _bounceController.forward(from: 0);
   }
-  
 
   void loadRestaurants() {
     setState(() {
@@ -299,9 +303,9 @@ playColelcted(){
         setState(() {
           _timeLeft--;
           // progress = _timeLeft / 30;
-          if ( _timeLeft == 10) {
+          if (_timeLeft == 10) {
             // SlidestartAnimation();
-countdownSound();
+            countdownSound();
             // slideIdol();
           }
         });
@@ -314,14 +318,12 @@ countdownSound();
 
   void checkWinCondition() {
     _showEndOverlay = true;
-    setState(() {
-      
-    });
+    setState(() {});
     player.stop();
     explosionSound();
     gameOver = true;
     _timer?.cancel();
-   // showTimeUpScreen();
+    // showTimeUpScreen();
     if (selectedCount >= 5) {
       Future.delayed(const Duration(milliseconds: 1000), () {
         setState(() {
@@ -345,10 +347,19 @@ countdownSound();
       });
     }
   }
-Widget EndScreen(){
-    var size= MediaQuery.of(context).size;
-  return Lottie.asset('assets/animations/bomb.json',repeat: false, alignment: Alignment.center,width: size.width, height: size.height*0.6,fit: BoxFit.cover,);
-}
+
+  Widget EndScreen() {
+    var size = MediaQuery.of(context).size;
+    return Lottie.asset(
+      'assets/animations/bomb.json',
+      repeat: false,
+      alignment: Alignment.center,
+      width: size.width,
+      height: size.height * 0.6,
+      fit: BoxFit.cover,
+    );
+  }
+
   void showTimeUpScreen() {
     final double screenWidth = MediaQuery.of(context).size.width;
 
@@ -373,6 +384,7 @@ Widget EndScreen(){
       selectedRestaurants.add(restaurant.promoName);
       selectedRestaurants2.add(restaurant.promoName);
       if (restaurant.discount == 80) {
+        correntSound();
         playColelcted();
         slideIdol();
         startAnimation();
@@ -381,7 +393,7 @@ Widget EndScreen(){
         selectedCount++;
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
-           // collectedShow=false;
+            // collectedShow=false;
             // showWrongSelectionGraphic = false;
             // selectedColor = Colors.white;
             selectedRestaurants2.remove(restaurant.promoName);
@@ -488,7 +500,8 @@ Widget EndScreen(){
                             child: Container(
                               alignment: Alignment.center,
                               width: screenWidth * 0.8,
-                              margin:  EdgeInsets.only(top: screenHeight*0.035),
+                              margin:
+                                  EdgeInsets.only(top: screenHeight * 0.035),
                               decoration:
                                   const BoxDecoration(color: Colors.white),
                               child: Center(
@@ -587,15 +600,14 @@ Widget EndScreen(){
                                                                   BorderRadius
                                                                       .circular(
                                                                           60),
-                                                              border:
-                                                                  Border.all(
-                                                                color: const Color
-                                                                    .fromRGBO(
-                                                                    219,
-                                                                    219,
-                                                                    219,
-                                                                    1),width: 5
-                                                              ),
+                                                              border: Border.all(
+                                                                  color: const Color
+                                                                      .fromRGBO(
+                                                                      219,
+                                                                      219,
+                                                                      219,
+                                                                      1),
+                                                                  width: 5),
                                                             ),
                                                             child: Row(
                                                               mainAxisAlignment:
@@ -635,21 +647,11 @@ Widget EndScreen(){
                                                                             screenWidth *
                                                                                 0.04,
                                                                         color: isSelected
-                                                                  ? (isCorrect
-                                                                      ? Colors.white
-                                                                        
-                                                                      : Colors.black)
-                                                                  : const Color
-                                                                            .fromRGBO(
-                                                                            4,
-                                                                            41,
-                                                                            35,
-                                                                            1),
-                                                                        
-                                                                        
-                                                                        
-                                                                        fontWeight:
-                                                                            FontWeight.bold)),
+                                                                            ? (isCorrect
+                                                                                ? Colors.white
+                                                                                : Colors.black)
+                                                                            : const Color.fromRGBO(4, 41, 35, 1),
+                                                                        fontWeight: FontWeight.bold)),
                                                               ],
                                                             ),
                                                           ),
@@ -676,12 +678,10 @@ Widget EndScreen(){
                       Positioned.fill(
                         child: Container(
                           color: Colors.white.withOpacity(0.8),
-                          child: Center(
-                            child: EndScreen()
-                          ),
+                          child: Center(child: EndScreen()),
                         ),
                       ),
-                      if (_showCountdownOverlay)
+                    if (_showCountdownOverlay)
                       Positioned.fill(
                         child: Container(
                           color: Colors.white.withOpacity(0.8),
@@ -721,9 +721,9 @@ Widget EndScreen(){
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            //color: Colors.white,
-                           // borderRadius: BorderRadius.circular(12),
-                          ),
+                              //color: Colors.white,
+                              // borderRadius: BorderRadius.circular(12),
+                              ),
                           padding: EdgeInsets.symmetric(
                               vertical: screenHeight * 0.009),
                           child: Column(
@@ -806,7 +806,8 @@ Widget EndScreen(){
                                       height: screenHeight * 0.01,
                                       decoration: BoxDecoration(
                                         color: Colors.grey.shade300,
-                                        borderRadius: BorderRadius.circular(125),
+                                        borderRadius:
+                                            BorderRadius.circular(125),
                                       ),
                                     ),
                                     Container(
@@ -823,11 +824,12 @@ Widget EndScreen(){
                                                 0xFF00B440), // #00B440 (Darker Green)
                                           ],
                                         ),
-                                        borderRadius: BorderRadius.circular(125),
+                                        borderRadius:
+                                            BorderRadius.circular(125),
                                       ),
                                     ),
                                     Positioned(
-                                      top: -screenHeight*0.009,
+                                      top: -screenHeight * 0.009,
                                       left: _timeLeft > 5
                                           ? (screenWidth * 0.74) *
                                               (progress - 0.005)
@@ -848,7 +850,11 @@ Widget EndScreen(){
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: screenWidth * 0.05),
-                          child:  Divider(thickness: 6,height: screenHeight*0.01,color: Color.fromRGBO(219, 219, 219, 1),),
+                          child: Divider(
+                            thickness: 6,
+                            height: screenHeight * 0.01,
+                            color: Color.fromRGBO(219, 219, 219, 1),
+                          ),
                         ),
                         SizedBox(height: screenHeight * 0.01),
                         SizedBox(
@@ -858,7 +864,9 @@ Widget EndScreen(){
                             children: [
                               Row(
                                 children: [
-                                  Container(margin: EdgeInsets.only(left:screenWidth*0.04),
+                                  Container(
+                                    margin: EdgeInsets.only(
+                                        left: screenWidth * 0.04),
                                     height: screenWidth * 0.1,
                                     width: screenWidth * 0.1,
                                     decoration: const BoxDecoration(
@@ -880,15 +888,19 @@ Widget EndScreen(){
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              Container(  alignment: Alignment.centerRight,height: screenHeight * 0.1,
-                                            width: screenWidth * 0.2,
-                                child: Stack(alignment: Alignment.topRight,
+                              Container(
+                                alignment: Alignment.centerRight,
+                                height: screenHeight * 0.1,
+                                width: screenWidth * 0.2,
+                                child: Stack(
+                                  alignment: Alignment.topRight,
                                   children: [
                                     AnimatedBuilder(
                                       animation: _bounceController,
                                       builder: (context, child) {
                                         return Transform.translate(
-                                          offset: Offset(0, _bounceAnimation.value),
+                                          offset:
+                                              Offset(0, _bounceAnimation.value),
                                           child: Center(
                                             child: Container(
                                               alignment: Alignment.center,
@@ -897,7 +909,8 @@ Widget EndScreen(){
                                               // padding: const EdgeInsets.symmetric(
                                               //     horizontal: 25, vertical: 8),
                                               decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(145),
+                                                borderRadius:
+                                                    BorderRadius.circular(145),
                                                 color: selectedCount >= 5
                                                     ? Colors.green
                                                     : _colorAnimation.value,
@@ -905,20 +918,34 @@ Widget EndScreen(){
                                               child: Text(
                                                   "x${selectedCount.toString()}",
                                                   style: TextStyle(
-                                                      fontSize: screenWidth * 0.05,
-                                                      color:selectedCount>=5?Colors.white: _colorAnimationText.value,
-                                                      fontWeight: FontWeight.w700)),
+                                                      fontSize:
+                                                          screenWidth * 0.05,
+                                                      color: selectedCount >= 5
+                                                          ? Colors.white
+                                                          : _colorAnimationText
+                                                              .value,
+                                                      fontWeight:
+                                                          FontWeight.w700)),
                                             ),
                                           ),
                                         );
                                       },
                                     ),
-                                  Center(
-                                    child: Visibility(visible: collectedShow,
-                                      child: Center(child: Lottie.asset(alignment: Alignment.center, 'assets/animations/firework.json' ,controller: sparkController, height: screenHeight * 0.5,
-                                                width: screenHeight * 0.4,fit: BoxFit.fill),),
-                                    ),
-                                  )],
+                                    Center(
+                                      child: Visibility(
+                                        visible: collectedShow,
+                                        child: Center(
+                                          child: Lottie.asset(
+                                              alignment: Alignment.center,
+                                              'assets/animations/firework.json',
+                                              controller: sparkController,
+                                              height: screenHeight * 0.5,
+                                              width: screenHeight * 0.4,
+                                              fit: BoxFit.fill),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
                             ],
@@ -961,22 +988,25 @@ Widget EndScreen(){
               ),
             ),
             Positioned(
-            top: screenWidth * 0.04,
-            left: screenWidth * 0.04,
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(150),
-                      color: Colors.white),
-                  child: Padding(
-                    padding: EdgeInsets.all(screenWidth * 0.02),
-                    child:  Icon(Icons.restart_alt, size: screenWidth * 0.05,),
-                  )),
-            ),
-          )
+              top: screenWidth * 0.04,
+              left: screenWidth * 0.04,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(150),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: EdgeInsets.all(screenWidth * 0.02),
+                      child: Icon(
+                        Icons.restart_alt,
+                        size: screenWidth * 0.05,
+                      ),
+                    )),
+              ),
+            )
           ],
         ));
   }

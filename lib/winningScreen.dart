@@ -32,6 +32,12 @@ class _WinningScreenState extends State<WinningScreen> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
@@ -87,8 +93,8 @@ class _WinningScreenState extends State<WinningScreen> {
                     vertical: screenHeight * 0.015),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(120),
-                  border:
-                      Border.all(color: const Color.fromRGBO(219, 219, 219, 1),width: 4),
+                  border: Border.all(
+                      color: const Color.fromRGBO(219, 219, 219, 1), width: 4),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
