@@ -229,7 +229,8 @@ final List<Map<String, dynamic>> promotionsThai = [
     "discount": 80
   },
   {
-    "promoName": "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เบอร์เกอร์หมู ซอสเทอริยากิ",
+    "promoName":
+        "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เบอร์เกอร์หมู ซอสเทอริยากิ 1",
     "name": "เบอร์เกอร์ คิง",
     "imageUrl": "assets/placeholder.png",
     "discount": 60

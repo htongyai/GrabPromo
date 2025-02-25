@@ -200,7 +200,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
             left: screenWidth * 0.04,
             child: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                reloadApp(context);
               },
               child: Container(
                   decoration: BoxDecoration(

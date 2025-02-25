@@ -2,22 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:grabpromogame/Start_page.dart';
 import 'package:grabpromogame/util.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LosingScreen(collectedDiscounts: 3),
-    );
-  }
-}
-
 class LosingScreen extends StatelessWidget {
   final int collectedDiscounts;
   const LosingScreen({super.key, required this.collectedDiscounts});
@@ -26,14 +10,6 @@ class LosingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
-    void reloadApp(BuildContext context) {
-      buttonSound();
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const StartScreen()),
-        (route) => false,
-      );
-    }
 
     return Scaffold(
       backgroundColor: Colors.white,

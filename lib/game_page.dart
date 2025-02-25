@@ -47,9 +47,13 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   late Animation<double> _bounceAnimation;
   late Animation<double> _backgroundScaleAnimation;
   late Animation<Color?> _colorAnimation;
+  late Animation<Color?> _colorAnimation2;
   late Animation<Color?> _colorAnimationText;
+  late Animation<Color?> _colorAnimationText2;
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
+  late AnimationController _scaleController2;
+  late Animation<double> _scaleAnimation2;
   late AnimationController _starController;
   late AnimationController _slideController;
   late Animation<Offset> _slideAnimation;
@@ -63,21 +67,15 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   List<Star> stars = [];
   @override
   void initState() {
+    super.initState();
     sparkController =
         AnimationController(vsync: this, duration: Duration(seconds: 1));
 
-    super.initState();
     loadRestaurants();
     restaurants.shuffle(Random());
     startSound();
     startCountdownOverlay();
 
-    //_startTimer();
-    //  Future.delayed(const Duration(milliseconds: 200), () {
-
-    //     player.play(AssetSource("sound/bgm.mp3"));
-
-    // });
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200), // Total shake time
       vsync: this,
@@ -99,7 +97,6 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       TweenSequenceItem(tween: Tween(begin: 0, end: -10), weight: 1),
       TweenSequenceItem(tween: Tween(begin: -10, end: 10), weight: 1),
       TweenSequenceItem(tween: Tween(begin: 10, end: -10), weight: 1),
-      // TweenSequenceItem(tween: Tween(begin: -10, end: 0), weight: 1),
     ]).animate(
         CurvedAnimation(parent: _timeShakesController, curve: Curves.bounceIn));
 
@@ -146,7 +143,6 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
 
     _bounceAnimation = TweenSequence<double>([
       TweenSequenceItem(tween: Tween(begin: 0, end: -20), weight: 1),
-      //TweenSequenceItem(tween: Tween(begin: -20, end: 0), weight: 1),
     ]).animate(_bounceController);
 
     _backgroundScaleAnimation = Tween<double>(begin: 1.0, end: 1.1).animate(
@@ -167,6 +163,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       parent: _bounceController,
       curve: Curves.easeInOut,
     ));
+
     _scaleController = AnimationController(
       duration:
           const Duration(milliseconds: 200), // Duration of the scale effect
@@ -190,8 +187,37 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     )..addListener(() {
         setState(() {});
       });
+    _scaleController2 = AnimationController(
+      duration:
+          const Duration(milliseconds: 200), // Duration of the scale effect
+      vsync: this,
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _scaleController2.reverse(); // Shrinks back after expansion
+        }
+      });
 
-    _generateStars();
+    _scaleAnimation2 = Tween<double>(
+      begin: 1.0,
+      end: 1.25, // Scale up
+    ).animate(CurvedAnimation(
+      parent: _scaleController2,
+      curve: Curves.easeInOut,
+    ));
+    _colorAnimation2 = ColorTween(
+      begin: const Color.fromRGBO(235, 239, 244, 1),
+      end: const Color.fromRGBO(0, 177, 79, 1),
+    ).animate(CurvedAnimation(
+      parent: _scaleController2,
+      curve: Curves.easeInOut,
+    ));
+    _colorAnimationText2 = ColorTween(
+      begin: const Color.fromRGBO(4, 41, 35, 1),
+      end: const Color.fromRGBO(235, 239, 244, 1),
+    ).animate(CurvedAnimation(
+      parent: _scaleController2,
+      curve: Curves.easeInOut,
+    ));
   }
 
   playColelcted() {
@@ -209,18 +235,6 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         //selectedRestaurants2.remove(restaurant.promoName);
       });
     });
-  }
-
-  void _generateStars() {
-    final Random random = Random();
-    for (int i = 0; i < 20; i++) {
-      stars.add(Star(
-        angle: random.nextDouble() * 2 * pi, // Random direction
-        distance: random.nextDouble() * 50 + 50, // Random distance
-        size: random.nextDouble() * 10 + 5, // Random star size
-        color: Colors.white.withOpacity(random.nextDouble() * 0.5 + 0.5),
-      ));
-    }
   }
 
   void _startTimeShakesAnimation() {
@@ -245,6 +259,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     _controller.dispose();
     _bounceController.dispose();
     _scaleController.dispose();
+    _scaleController2.dispose();
     _starController.dispose();
     _slideController.dispose();
     _timeShakesController.dispose();
@@ -278,7 +293,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   }
 
   void startAnimation() {
-    _bounceController.forward(from: 0);
+    _scaleController2.forward(from: 0);
+    //_bounceController.forward(from: 0);
   }
 
   void loadRestaurants() {
@@ -896,11 +912,10 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                   alignment: Alignment.topRight,
                                   children: [
                                     AnimatedBuilder(
-                                      animation: _bounceController,
+                                      animation: _scaleController2,
                                       builder: (context, child) {
-                                        return Transform.translate(
-                                          offset:
-                                              Offset(0, _bounceAnimation.value),
+                                        return Transform.scale(
+                                          scale: _scaleAnimation2.value,
                                           child: Center(
                                             child: Container(
                                               alignment: Alignment.center,
@@ -913,7 +928,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                     BorderRadius.circular(145),
                                                 color: selectedCount >= 5
                                                     ? Colors.green
-                                                    : _colorAnimation.value,
+                                                    : _colorAnimation2.value,
                                               ),
                                               child: Text(
                                                   "x${selectedCount.toString()}",
@@ -922,7 +937,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                           screenWidth * 0.05,
                                                       color: selectedCount >= 5
                                                           ? Colors.white
-                                                          : _colorAnimationText
+                                                          : _colorAnimationText2
                                                               .value,
                                                       fontWeight:
                                                           FontWeight.w700)),
@@ -992,7 +1007,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
               left: screenWidth * 0.04,
               child: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
+                  reloadApp(context);
                 },
                 child: Container(
                     decoration: BoxDecoration(

@@ -1,12 +1,36 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+import 'package:grabpromogame/losingScreen.dart';
+import 'package:grabpromogame/main.dart';
 
 bool english = true;
-final AudioPlayer clickPlayer = AudioPlayer();
-final AudioPlayer startPlayer = AudioPlayer();
-final AudioPlayer correctPlayer = AudioPlayer();
-final AudioPlayer wrongPlayer = AudioPlayer();
-final AudioPlayer countdownPlayer = AudioPlayer();
-final AudioPlayer endPlayer = AudioPlayer();
+late AudioPlayer clickPlayer;
+late AudioPlayer startPlayer;
+late AudioPlayer correctPlayer;
+late AudioPlayer wrongPlayer;
+late AudioPlayer countdownPlayer;
+late AudioPlayer endPlayer;
+
+void initializeAudioPlayers() {
+  clickPlayer = AudioPlayer();
+  startPlayer = AudioPlayer();
+  correctPlayer = AudioPlayer();
+  wrongPlayer = AudioPlayer();
+  countdownPlayer = AudioPlayer();
+  endPlayer = AudioPlayer();
+}
+
+void reloadApp(BuildContext context) {
+  buttonSound();
+  disposeAudioPlayers();
+  initializeAudioPlayers();
+
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => const MyApp()),
+    (route) => false,
+  );
+}
 
 void buttonSound() {
   clickPlayer.play(
@@ -38,11 +62,12 @@ void explosionSound() {
       .play(AssetSource("sound/end.mp3")); // Ensure this file exists in assets
 }
 
-void dispose() {
+void disposeAudioPlayers() {
   clickPlayer.dispose();
   startPlayer.dispose();
   correctPlayer.dispose();
   wrongPlayer.dispose();
   countdownPlayer.dispose();
   endPlayer.dispose();
+  print('sound dispose complete');
 }

@@ -120,7 +120,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
   @override
   void initState() {
     getPlayerData(widget.playerSessionID);
-
+    // dispose();
     // TODO: implement initState
     super.initState();
   }
@@ -133,13 +133,6 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     String name = 'empty';
     int score = 0;
     //getPlayerData(widget.playerSessionID);
-    void reloadApp(BuildContext context) {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const MyApp()),
-        (route) => false,
-      );
-    }
 
     LinearGradient getGradient(rank) {
       switch (rank) {
