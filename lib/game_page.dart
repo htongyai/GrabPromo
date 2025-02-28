@@ -340,7 +340,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     gameOver = true;
     _timer?.cancel();
     // showTimeUpScreen();
-    if (selectedCount >= 5) {
+    if (selectedCount >= 2) {
       Future.delayed(const Duration(milliseconds: 1000), () {
         setState(() {
           Navigator.pushReplacement(

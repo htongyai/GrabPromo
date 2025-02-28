@@ -89,12 +89,14 @@ class _TutorialScreenState extends State<TutorialScreen> {
                           child: ClipPath(
                             clipper: CustomCurveClipper(),
                             child: Container(
-                              height: screenHeight * 0.6,
-                              color: Colors.red,
-                            ),
+                                height: screenHeight * 0.6,
+                                child: Image.asset(
+                                  page['image']!,
+                                  width: screenWidth,
+                                  fit: BoxFit.fill,
+                                )),
                           ),
                         ),
-                        // child: Image.asset(page['image']!, width: 300)),
                         Container(
                           color: Colors.white,
                           child: Column(
