@@ -16,7 +16,7 @@ class NameSubmissionScreen extends StatefulWidget {
 class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
   final TextEditingController _nameController = TextEditingController();
   bool _loading = false;
-
+  bool caps = true;
   Future<int> updateHighScore(int newScore) async {
     try {
       DocumentReference leaderboardRef =
@@ -200,13 +200,34 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                     ],
                   ),
                   Container(
+                    margin: EdgeInsets.all(50),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(90),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 10,
+                          offset: Offset(5, 5),
+                        ),
+                      ],
+                    ),
                     height: screenHeight * 0.3,
                     child: VirtualKeyboard(
+                      alwaysCaps: caps,
                       height: screenHeight * 0.3,
-                      fontSize: 100,
+                      fontSize: screenWidth * 0.03,
                       postKeyPress: (a) {
                         setState(() {
-                          _nameController.text += a.text ?? "";
+                          if (_nameController.text.isEmpty) {
+                            a.capsText;
+
+                            _nameController.text +=
+                                (a.text?.toUpperCase() ?? "");
+                            caps = false;
+                          } else {
+                            _nameController.text += a.text ?? "";
+                          }
                         });
                       },
                       type: VirtualKeyboardType.Alphanumeric,
