@@ -79,11 +79,12 @@ class _WinningScreenState extends State<WinningScreen> {
               ),
               //  SizedBox(height: screenHeight * 0.0105),
               Text(
+                textAlign: TextAlign.center,
                 english
-                    ? "You collected enough promo to win!"
-                    : 'คุณสะสมส่วนลดได้ครบตามกำหนด',
+                    ? "You have successfully collected all the Hot Deals."
+                    : 'คุณเก็บ Hot Deal ได้ครบตามกำหนด',
                 style: TextStyle(
-                    fontSize: screenWidth * 0.05, color: Colors.black54),
+                    fontSize: screenWidth * 0.045, color: Colors.black54),
               ),
               SizedBox(height: screenHeight * 0.05),
               Container(

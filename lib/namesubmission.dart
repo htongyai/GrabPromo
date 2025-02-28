@@ -15,6 +15,41 @@ class NameSubmissionScreen extends StatefulWidget {
 class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
   final TextEditingController _nameController = TextEditingController();
   bool _loading = false;
+
+  Future<int> updateHighScore(int newScore) async {
+    try {
+      DocumentReference leaderboardRef =
+          FirebaseFirestore.instance.collection('EventInfo').doc('Leaderboard');
+
+      // Fetch current high score
+      DocumentSnapshot snapshot = await leaderboardRef.get();
+
+      if (snapshot.exists && snapshot.data() != null) {
+        Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+        int currentHighScore = data["highScore"] ?? 0;
+
+        // Compare and update if new score is higher
+        if (newScore > currentHighScore) {
+          await leaderboardRef.update({"highScore": newScore});
+          print("🎉 New high score: $newScore updated in Firestore!");
+          return newScore;
+        } else {
+          print(
+              "❌ Score not high enough. Current high score: $currentHighScore");
+          return currentHighScore;
+        }
+      } else {
+        // If no high score exists, create one
+        await leaderboardRef.set({"highScore": newScore});
+        print("🏆 First high score set: $newScore");
+        return newScore;
+      }
+    } catch (e) {
+      print("⚠️ Error updating high score: $e");
+      return newScore;
+    }
+  }
+
   void _submitName() async {
     setState(() {
       _loading = true;
@@ -31,17 +66,22 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
           'score': widget.score, // Example score, replace with actual score
           'timestamp': FieldValue.serverTimestamp(),
         }).then((_) {
-          Future.delayed(const Duration(milliseconds: 2000), () {
-            if (mounted) {
-              setState(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LeaderboardScreen(playerSessionID),
-                  ),
-                );
-              });
-            }
+          updateHighScore(widget.score).then((passingScore) {
+            Future.delayed(const Duration(milliseconds: 2000), () {
+              if (mounted) {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LeaderboardScreen(
+                        highScore: passingScore,
+                        playerSessionID: playerSessionID,
+                      ),
+                    ),
+                  );
+                });
+              }
+            });
           });
         });
       } catch (error) {
@@ -87,7 +127,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                     height: screenHeight * 0.2,
                   ),
                   Text(
-                    english ? 'Please Enter your name' : 'โปรดระบุชื่อ',
+                    english ? 'Please Enter your name' : 'โปรดระบุชื่อของคุณ',
                     style: TextStyle(
                         fontSize: screenWidth * 0.06,
                         color: const Color.fromRGBO(4, 41, 35, 1),
@@ -95,7 +135,9 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                   ),
                   // SizedBox(height: screenHeight * 0.01),
                   Text(
-                    english ? 'for our leaderboard' : 'สำหรับกระดานคะแนนของเรา',
+                    english
+                        ? 'To be listed among the game winners.'
+                        : 'เพื่อลงรายชื่อผู้ชนะเกม',
                     style: TextStyle(
                         fontSize: screenWidth * 0.05,
                         color: Color.fromRGBO(112, 112, 112, 1)),
@@ -130,10 +172,19 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                     ),
                     onPressed: () {
                       buttonSound();
-                      _submitName();
+                      if (_nameController.text.isNotEmpty) {
+                        _submitName();
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Name cannot be empty!"),
+                            backgroundColor: Colors.orange,
+                          ),
+                        );
+                      }
                     },
                     child: Text(
-                      english ? "Next" : 'ถัดไป',
+                      english ? "Confirm" : 'ยืนยัน',
                       style: TextStyle(
                           fontSize: screenWidth * 0.05, color: Colors.white),
                     ),

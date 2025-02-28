@@ -5,6 +5,7 @@ import 'package:grabpromogame/Start_page.dart';
 import 'package:grabpromogame/firebase_options.dart';
 import 'package:grabpromogame/leaderboard.dart';
 import 'package:grabpromogame/losingScreen.dart';
+import 'package:grabpromogame/namesubmission.dart';
 import 'package:grabpromogame/util.dart';
 
 import 'package:grabpromogame/winningScreen.dart';
@@ -33,9 +34,12 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: 'GrabCommunitySolidTH',
         ),
-        home: StartScreen()
+        home:
+            //NameSubmissionScreen(score: 7)
 
-        // StartScreen()
-        );
+            // LeaderboardScreen(
+            //     highScore: 6, playerSessionID: "11112025-02-18 17:33:35.171"),
+
+            StartScreen());
   }
 }

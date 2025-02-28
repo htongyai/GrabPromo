@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:grabpromogame/loadingscreen.dart';
 import 'package:grabpromogame/main.dart';
 import 'package:grabpromogame/util.dart';
 
 class LeaderboardScreen extends StatefulWidget {
-  LeaderboardScreen(this.playerSessionID, {super.key});
-  String playerSessionID;
-
+  LeaderboardScreen(
+      {required this.playerSessionID, required this.highScore, super.key});
+  final String playerSessionID;
+  final int highScore;
   @override
   State<LeaderboardScreen> createState() => _LeaderboardScreenState();
 }
@@ -18,6 +20,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     {'rank': 3, 'name': 'PAVINA', 'score': 9},
   ];
   String tempID = '';
+  bool No1 = false;
+  bool _loading = true;
 
   Future<List<Map<String, dynamic>>> _fetchLeaderboard() async {
     List<Map<String, dynamic>> leaderboard = [];
@@ -58,10 +62,20 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
       for (var doc in querySnapshotA.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+
         print(data);
         if (data['playerSessionID'] == playerSessionID) {
+          print(data['score']);
+          print("Checking if match:${widget.highScore}");
+          if (data['score'] == widget.highScore) {
+            print("Match Found");
+            No1 = true;
+          } else {
+            No1 = false;
+          }
           print("Dound");
           finalRank = rank;
+
           print(rank);
           //return rank; // Return rank when player is found
         }
@@ -94,18 +108,22 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     return playerData;
   }
 
-  Future<int?> fetchPlayerRank(String playerSessionID) async {
+  Future<int> fetchPlayerRank(String playerSessionID) async {
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection(playerSessionID)
           .orderBy('score', descending: false)
           .get();
 
-      int rank = 1;
+      int rank = 0;
       for (var doc in querySnapshot.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
         if (data['playerSessionID'] == playerSessionID) {
+          if (data['score'] == widget.highScore) {
+            print("Match Found");
+            No1 = true;
+          }
           return rank; // Return rank when player is found
         }
         rank++; // Increment rank for next player
@@ -114,12 +132,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       debugPrint("Error fetching player rank: $error");
     }
 
-    return null; // Return null if player is not found
+    return 0; // Return null if player is not found
   }
 
   @override
   void initState() {
-    getPlayerData(widget.playerSessionID);
+    getPlayerData(widget.playerSessionID).then((rank) {});
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      setState(() {
+        _loading = false;
+      });
+    });
     // dispose();
     // TODO: implement initState
     super.initState();
@@ -180,7 +203,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                     child: Column(
                       children: [
                         Text(
-                          english ? 'Leaderboard' : 'กระดานคะแนน',
+                          english ? 'Leaderboard' : 'อันดับคะแนน',
                           style: TextStyle(
                               fontSize: screenWidth * 0.06,
                               fontWeight: FontWeight.bold,
@@ -225,6 +248,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               final player = leaderboard[index];
                               bool isUser = player['playerSessionID'] ==
                                   widget.playerSessionID;
+
                               return Container(
                                   width: screenWidth * 0.9,
                                   height: screenHeight * 0.075,
@@ -271,15 +295,22 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                   width: screenWidth * 0.1,
                                                   height: screenWidth * 0.1,
                                                   decoration: BoxDecoration(
-                                                    gradient: getGradient(
-                                                        player['rank']),
+                                                    gradient: player['score'] ==
+                                                            widget.highScore
+                                                        ? getGradient(1)
+                                                        : getGradient(
+                                                            player['rank']),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             60),
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    player['rank'].toString(),
+                                                    player['score'] ==
+                                                            widget.highScore
+                                                        ? '1'
+                                                        : player['rank']
+                                                            .toString(),
                                                     style: TextStyle(
                                                         fontSize:
                                                             screenWidth * 0.05,
@@ -321,7 +352,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: screenWidth * 0.07,
+                                                width: screenWidth * 0.1,
                                                 child: Text(
                                                   'x${player['score']}',
                                                   style: TextStyle(
@@ -429,6 +460,12 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               final player = leaderboard[index];
                               bool isUser = player['playerSessionID'] ==
                                   widget.playerSessionID;
+                              if (player['rank'] == 1) {
+                                No1 = true;
+                              } else {
+                                // No1 = false;
+                              }
+
                               return Column(
                                 children: [
                                   Container(
@@ -475,7 +512,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    player['rank'].toString(),
+                                                    player['score'] ==
+                                                            widget.highScore
+                                                        ? '1'
+                                                        : player['rank']
+                                                            .toString(),
                                                     style: TextStyle(
                                                         fontSize:
                                                             screenWidth * 0.05,
@@ -517,7 +558,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: screenWidth * 0.07,
+                                                width: screenWidth * 0.1,
                                                 child: Text(
                                                   'x${player['score']}',
                                                   style: TextStyle(
@@ -540,66 +581,73 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.03),
-                    Container(
-                      height: screenHeight * 0.11,
-                      width: screenWidth * 0.9,
-                      //padding: EdgeInsets.all(screenWidth * 0.03),
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(212, 251, 219, 1),
-                        borderRadius: BorderRadius.circular(120),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(
-                                left: english
-                                    ? screenWidth * 0.1
-                                    : screenWidth * 0.02),
-                            width: english
-                                ? screenWidth * 0.7
-                                : screenWidth * 0.75,
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    english
-                                        ? 'The first-place winner has a chance to win additional prizes.'
-                                        : 'ผู้ชนะอันดับ 1 ลุ้นรับของรางวัลเพิ่มเติม',
-                                    style: TextStyle(
-                                        fontSize: english
-                                            ? screenWidth * 0.03
-                                            : screenWidth * 0.04,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    english
-                                        ? "Please stay tuned for the prize announcement on March 7, 2025."
-                                        : 'โปรดติดตามประกาศผลรางวัลวันที่ 7 มีนาคม 2568',
-                                    style: TextStyle(
-                                        fontSize: english
-                                            ? screenWidth * 0.025
-                                            : screenWidth * 0.03,
-                                        fontWeight: FontWeight.normal),
-                                  ),
-                                ],
-                              ),
+                    No1
+                        ? Container(
+                            height: screenHeight * 0.11,
+                            width: screenWidth * 0.9,
+                            //padding: EdgeInsets.all(screenWidth * 0.03),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(212, 251, 219, 1),
+                              borderRadius: BorderRadius.circular(120),
                             ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                child: Image.asset('assets/FBIcon.png',
-                                    width: screenWidth * 0.15),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      left: english
+                                          ? screenWidth * 0.1
+                                          : screenWidth * 0.02),
+                                  width: english
+                                      ? screenWidth * 0.7
+                                      : screenWidth * 0.75,
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: screenWidth * 0.7,
+                                          child: Text(
+                                            english
+                                                ? 'If you get first place, don’t forget to take a selfie with your score and post it with the tag @grabth for a chance to win a special prize.'
+                                                : 'ถ้าคุณได้ที่ 1 อย่าลืม selfie กับผลคะแนนของคุณและโพสและ tag @grabth เพื่อลุ้นรับรางวัลพิเศษ',
+                                            style: TextStyle(
+                                                fontSize: english
+                                                    ? screenWidth * 0.027
+                                                    : screenWidth * 0.03,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        // Text(
+                                        //   english
+                                        //       ? "Please stay tuned for the prize announcement on March 7, 2025."
+                                        //       : 'โปรดติดตามประกาศผลรางวัลวันที่ 7 มีนาคม 2568',
+                                        //   style: TextStyle(
+                                        //       fontSize: english
+                                        //           ? screenWidth * 0.025
+                                        //           : screenWidth * 0.03,
+                                        //       fontWeight: FontWeight.normal),
+                                        // ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      child: Image.asset('assets/FBIcon.png',
+                                          width: screenWidth * 0.15),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        : SizedBox(),
                     Padding(
                       padding: EdgeInsets.all(screenWidth * 0.03),
                       child: Column(
@@ -619,7 +667,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               reloadApp(context);
                             },
                             child: Text(
-                              english ? 'Back to the Start' : 'กลับสู่หน้าแรก',
+                              english ? 'Back to Home' : 'กลับสู่หน้าแรก',
                               style: TextStyle(
                                   fontSize: screenWidth * 0.06,
                                   color: Colors.white),
@@ -646,7 +694,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                     alignment: Alignment.bottomCenter),
               ),
             ),
-          )
+          ),
+          _loading ? LoadingScreen() : SizedBox()
         ],
       ),
     );

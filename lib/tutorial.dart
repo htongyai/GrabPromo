@@ -15,41 +15,40 @@ class _TutorialScreenState extends State<TutorialScreen> {
 
   final List<Map<String, String>> tutorialPages = [
     {
-      'image': 'assets/tutorial_1.png',
-      'title': 'คำอธิบายบายแรก',
+      'image': 'assets/tutorial.png',
+      'title': 'เก็บ Hot deal สูงสุด 80%',
       'description':
-          'บรรยายวิธีการเล่นจากคำอธิบายแรกเพิ่มเติมว่าผู้เล่นต้องทำอย่างไร',
+          'เก็บส่วนลด 80% ให้ครบ 5 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
     },
     {
-      'image': 'assets/tutorial_2.png',
-      'title': 'เลือกโปรโมชัน',
-      'description':
-          'กดเลือกเฉพาะร้านอาหารที่มีส่วนลด 80% เท่านั้นเพื่อสะสมคะแนน',
+      'image': 'assets/tutorial.png',
+      'title': 'ระวังอย่าเก็บผิดนะ!',
+      'description': 'หากเก็บส่วนลดที่ไม่ใช่ 80% เวลาจะลดลง 3 วินาที',
     },
     {
-      'image': 'assets/tutorial_3.png',
-      'title': 'ชนะเกม',
-      'description': 'สะสมครบมากกว่า 5 ร้านอาหารที่มีส่วนลด 80% เพื่อชนะเกม',
+      'image': 'assets/tutorial.png',
+      'title': 'ยิ่งเก็บมาก ยิ่งได้มาก',
+      'description': 'สเก็บส่วนลดให้ได้มากที่สุดเพื่อลุ้นรับรางวัลพิเศษ',
     }
   ];
   final List<Map<String, String>> tutorialPagesEn = [
     {
-      'image': 'assets/tutorial_1.png',
-      'title': 'First Explanation',
+      'image': 'assets/tutorial.png',
+      'title': 'Collect Hot Deals up to 80%',
       'description':
-          'Describe how to play starting with the first explanation, detailing what the player needs to do.',
+          'Collect five 80% discount deals within 30 seconds to pass the game.',
     },
     {
-      'image': 'assets/tutorial_2.png',
-      'title': 'Select Promotions',
+      'image': 'assets/tutorial.png',
+      'title': 'Be careful not to pick the wrong ones!',
       'description':
-          'Tap to select only restaurants that offer an 80% discount to collect points.',
+          'If you collect a discount that is not 80%, your time will be reduced by 3 seconds.',
     },
     {
-      'image': 'assets/tutorial_3.png',
-      'title': 'Win the Game',
+      'image': 'assets/tutorial.png',
+      'title': 'The more you collect, the more you win!',
       'description':
-          'Collect more than 5 restaurants with an 80% discount to win the game.',
+          'Collect as many discounts as possible for a chance to win special prizes.',
     }
   ];
   @override
@@ -102,9 +101,12 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             children: [
                               SizedBox(height: screenHeight * 0.03),
                               Text(
+                                textAlign: TextAlign.center,
                                 page['title']!,
                                 style: TextStyle(
-                                    fontSize: screenWidth * 0.08,
+                                    fontSize: english
+                                        ? screenWidth * 0.07
+                                        : screenWidth * 0.06,
                                     fontWeight: FontWeight.bold,
                                     color: const Color.fromRGBO(4, 41, 35, 1)),
                               ),
@@ -119,8 +121,8 @@ class _TutorialScreenState extends State<TutorialScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: english
-                                          ? screenWidth * 0.045
-                                          : screenWidth * 0.05,
+                                          ? screenWidth * 0.04
+                                          : screenWidth * 0.055,
                                       color: const Color.fromRGBO(
                                           112, 112, 112, 1)),
                                 ),
@@ -179,14 +181,14 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 child: english
                     ? Text(
                         _currentPage == tutorialPages.length - 1
-                            ? 'Start'
+                            ? 'Start Game'
                             : 'Next',
                         style: TextStyle(
                             fontSize: screenWidth * 0.06, color: Colors.white),
                       )
                     : Text(
                         _currentPage == tutorialPages.length - 1
-                            ? 'เริ่มเล่น'
+                            ? 'เริ่มเล่นเกม'
                             : 'ถัดไป',
                         style: TextStyle(
                             fontSize: screenWidth * 0.06, color: Colors.white),

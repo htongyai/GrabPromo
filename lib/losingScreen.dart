@@ -33,15 +33,15 @@ class LosingScreen extends StatelessWidget {
           ),
           SizedBox(height: screenHeight * 0.03),
           Text(
-            english ? "So Close!" : 'พลาดไปนิดเดียว',
+            english ? "Almost there!" : 'อีกแค่นิดเดียวเอง',
             style: TextStyle(
                 fontSize: screenWidth * 0.08, fontWeight: FontWeight.bold),
           ),
           //SizedBox(height: screenHeight * 0.01),
           Text(
             english
-                ? "You didn’t collect enough discounts to win!"
-                : 'คุณสะสมส่วนลดได้ไม่ครบตามกำหนด',
+                ? "You didn’t collect all the required Hot Deals."
+                : 'คุณเก็บ Hot Deal ได้ไม่ครบตามกำหนด',
             style: TextStyle(
                 fontSize: english ? screenWidth * 0.04 : screenWidth * 0.05,
                 color: Colors.black54),
@@ -114,18 +114,18 @@ class LosingScreen extends StatelessWidget {
                       Text(
                         english ? "But don't worry!" : 'แต่ไม่ต้องเสียใจไป!',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.04,
+                            fontSize: screenWidth * 0.05,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         english
-                            ? "Even though you missed the discounts in this game, \nyou can still grab amazing Hot Deals on GRAB!"
-                            : 'ถึงแม้คุณจะเก็บส่วนลดไม่ครบในเกมนี้ \nคุณยังสามารถเก็บ Hot Deal สุดคุ้มใน GRAB ได้อยู่นะ',
+                            ? "But don’t worry, we have a consolation prize for you!"
+                            : 'ไม่เป็นเรามีรางวัลปลอบใจให้คุณนะ!',
                         style: TextStyle(
                             fontSize: english
-                                ? screenWidth * 0.024
-                                : screenWidth * 0.028,
+                                ? screenWidth * 0.03
+                                : screenWidth * 0.04,
                             color: Colors.black87),
                       ),
                     ],
