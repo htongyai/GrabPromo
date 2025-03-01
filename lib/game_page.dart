@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grabpromogame/losingScreen.dart';
 import 'package:grabpromogame/resteraunt_data.dart';
@@ -30,10 +31,14 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   List<Restaurant> restaurants = [];
   Set<String> selectedRestaurants = {};
   Set<String> selectedRestaurants2 = {};
+  bool onScreen = false;
   int selectedCount = 0;
+  int winningScore = 4;
   bool gameOver = false;
   Timer? _timer;
   int _timeLeft = 30;
+  Timestamp? startTime;
+  Timestamp? endtime;
   bool right = false;
   //double progress = 1.0;
   // bool showWrongSelectionGraphic = false;
@@ -65,6 +70,23 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   bool collectedShow = false;
   final player = AudioPlayer();
   List<Star> stars = [];
+
+  bool _hasConsecutive80Discounts() {
+    for (int i = 0; i < restaurants.length - 1; i++) {
+      if (restaurants[i].discount == 80 && restaurants[i + 1].discount == 80) {
+        return true;
+      }
+      for (int j = 1; j <= 4; j++) {
+        if (i + j < restaurants.length &&
+            restaurants[i].discount == 80 &&
+            restaurants[i + j].discount == 80) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -72,7 +94,9 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         AnimationController(vsync: this, duration: Duration(seconds: 1));
 
     loadRestaurants();
-    restaurants.shuffle(Random());
+    do {
+      restaurants.shuffle(Random());
+    } while (_hasConsecutive80Discounts());
     startSound();
     startCountdownOverlay();
 
@@ -277,6 +301,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       } else {
         timer.cancel();
         player.play(AssetSource("sound/bgm.mp3"));
+        startTime = Timestamp.now();
+        print(startTime);
         setState(() {
           _showCountdownOverlay = false;
           startTimer();
@@ -287,8 +313,11 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
 
   void SlidestartAnimation() {
     _slideController.forward();
+    onScreen = true;
     Future.delayed(const Duration(seconds: 2), () {
       _slideController.reverse(); // Move back out after 3 seconds
+    }).then((onValue) {
+      onScreen = false;
     });
   }
 
@@ -333,6 +362,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   }
 
   void checkWinCondition() {
+    int durationInSeconds = 0;
+    int durationInMilliseconds = 0;
     _showEndOverlay = true;
     setState(() {});
     player.stop();
@@ -340,7 +371,14 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     gameOver = true;
     _timer?.cancel();
     // showTimeUpScreen();
-    if (selectedCount >= 2) {
+    if (selectedCount >= winningScore) {
+      if (startTime != null && endtime != null) {
+        Duration duration = endtime!.toDate().difference(startTime!.toDate());
+        print(
+            'Time taken: ${duration.inSeconds} seconds (${duration.inMilliseconds} milliseconds)');
+        durationInSeconds = duration.inSeconds;
+        durationInMilliseconds = duration.inMilliseconds;
+      }
       Future.delayed(const Duration(milliseconds: 1000), () {
         setState(() {
           Navigator.pushReplacement(
@@ -348,6 +386,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
               MaterialPageRoute(
                   builder: (context) => WinningScreen(
                         selectedCount,
+                        durationInSeconds,
+                        durationInMilliseconds,
                       )));
         });
       });
@@ -402,11 +442,18 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       if (restaurant.discount == 80) {
         correntSound();
         playColelcted();
-        slideIdol();
+        if (onScreen == false) {
+          slideIdol();
+        }
+
         startAnimation();
         startSAnimation();
         _startStartAnimation();
         selectedCount++;
+        if (selectedCount == winningScore) {
+          endtime = Timestamp.now();
+          print(endtime);
+        }
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
             // collectedShow=false;
@@ -534,10 +581,14 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                           color: Colors.grey),
                                       height: screenWidth * 0.25,
                                       width: screenWidth * 0.25,
-                                      child: Image.network(restaurant.imageUrl,
-                                          width: screenWidth * 0.25,
-                                          height: screenWidth * 0.25,
-                                          fit: BoxFit.cover),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(90),
+                                        child: Image.network(
+                                            restaurant.imageUrl,
+                                            width: screenWidth * 0.25,
+                                            height: screenWidth * 0.25,
+                                            fit: BoxFit.cover),
+                                      ),
                                     ),
                                     SizedBox(
                                       width: screenWidth * 0.04,
@@ -926,7 +977,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                               decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(145),
-                                                color: selectedCount >= 5
+                                                color: selectedCount >=
+                                                        winningScore
                                                     ? Colors.green
                                                     : _colorAnimation2.value,
                                               ),
@@ -935,7 +987,8 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                   style: TextStyle(
                                                       fontSize:
                                                           screenWidth * 0.05,
-                                                      color: selectedCount >= 5
+                                                      color: selectedCount >=
+                                                              winningScore
                                                           ? Colors.white
                                                           : _colorAnimationText2
                                                               .value,
@@ -972,19 +1025,21 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/idol1.png"),
-                        fit: BoxFit.fitHeight,
-                        alignment: Alignment.bottomCenter),
+            IgnorePointer(
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: SlideTransition(
+                  position: _slideAnimation,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/idol1.png"),
+                          fit: BoxFit.fitHeight,
+                          alignment: Alignment.bottomCenter),
+                    ),
+                    width: screenWidth * 0.5,
+                    height: screenHeight * 0.6,
                   ),
-                  width: screenWidth * 0.5,
-                  height: screenHeight * 0.6,
                 ),
               ),
             ),

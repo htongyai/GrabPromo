@@ -6,8 +6,12 @@ import 'package:grabpromogame/namesubmission.dart';
 import 'package:grabpromogame/util.dart';
 
 class WinningScreen extends StatefulWidget {
-  WinningScreen(this.collectedDiscounts, {super.key});
+  WinningScreen(this.collectedDiscounts, this.durationInSeconds,
+      this.durationInMilliseconds,
+      {super.key});
   int collectedDiscounts;
+  int durationInSeconds;
+  int durationInMilliseconds;
 
   @override
   State<WinningScreen> createState() => _WinningScreenState();
@@ -150,7 +154,11 @@ class _WinningScreenState extends State<WinningScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => NameSubmissionScreen(
-                              score: widget.collectedDiscounts)));
+                                score: widget.collectedDiscounts,
+                                durationInMilliseconds:
+                                    widget.durationInMilliseconds,
+                                durationInSeconds: widget.durationInSeconds,
+                              )));
                 },
                 child: Text(
                   english ? "Next" : 'ถัดไป',

@@ -27,13 +27,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     List<Map<String, dynamic>> leaderboard = [];
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-          .collection('testLeaderboard')
+          .collection('testLeaderboard2')
           .orderBy('score', descending: true)
+          .orderBy('durationS', descending: false)
+          .orderBy('durationMs', descending: false)
           .get();
 
       int rank = 1;
       for (var doc in querySnapshot.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        print("With time");
+        print(data);
         leaderboard.add({
           'playerID': data['playerSessionID'],
           'rank': rank,
@@ -56,24 +60,24 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     int finalRank = 1;
     try {
       QuerySnapshot querySnapshotA = await FirebaseFirestore.instance
-          .collection('testLeaderboard')
+          .collection('testLeaderboard2')
           .orderBy('score', descending: true)
           .get();
 
       for (var doc in querySnapshotA.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
-        print(data);
+        // print(data);
         if (data['playerSessionID'] == playerSessionID) {
-          print(data['score']);
-          print("Checking if match:${widget.highScore}");
+          // print(data['score']);
+          // print("Checking if match:${widget.highScore}");
           if (data['score'] == widget.highScore) {
-            print("Match Found");
+            //   print("Match Found");
             No1 = true;
           } else {
             No1 = false;
           }
-          print("Dound");
+          //  print("Dound");
           finalRank = rank;
 
           print(rank);
@@ -86,7 +90,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     }
     try {
       DocumentSnapshot querySnapshot = await FirebaseFirestore.instance
-          .collection('testLeaderboard')
+          .collection('testLeaderboard2')
           .doc(playerSessionID)
           .get();
       Map<String, dynamic> data = querySnapshot.data() as Map<String, dynamic>;
@@ -104,7 +108,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     } catch (error) {
       debugPrint("Error fetching player data: $error");
     }
-    print(playerData);
+    // print(playerData);
     return playerData;
   }
 

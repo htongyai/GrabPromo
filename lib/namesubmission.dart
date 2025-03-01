@@ -7,7 +7,15 @@ import 'package:virtual_keyboard_multi_language/virtual_keyboard_multi_language.
 
 class NameSubmissionScreen extends StatefulWidget {
   final int score;
-  const NameSubmissionScreen({super.key, required this.score});
+  final int durationInSeconds;
+  final int durationInMilliseconds;
+
+  const NameSubmissionScreen({
+    super.key,
+    required this.score,
+    required this.durationInSeconds,
+    required this.durationInMilliseconds,
+  });
 
   @override
   _NameSubmissionScreenState createState() => _NameSubmissionScreenState();
@@ -59,13 +67,15 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
     if (_nameController.text.isNotEmpty) {
       try {
         await FirebaseFirestore.instance
-            .collection('testLeaderboard')
+            .collection('testLeaderboard2')
             .doc(playerSessionID)
             .set({
           'playerSessionID': playerSessionID,
           'name': _nameController.text,
           'score': widget.score, // Example score, replace with actual score
           'timestamp': FieldValue.serverTimestamp(),
+          'durationS': widget.durationInSeconds,
+          'durationMs': widget.durationInMilliseconds
         }).then((_) {
           updateHighScore(widget.score).then((passingScore) {
             Future.delayed(const Duration(milliseconds: 2000), () {

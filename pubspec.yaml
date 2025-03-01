@@ -2,7 +2,7 @@ name: grabpromogame
 description: "A Project for a Grab Hot Deal Promo Event"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: _none_ # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -92,6 +92,158 @@ flutter:
   - assets/animations/bomb-Animation-black-transparent.json
   - assets/animations/bomb.json
   - assets/animations/firework.json
+
+  - assets/food/KFC.jpg
+  - assets/food/Popcorn Major Cineplex.jpg
+  - assets/food/Auntie Anne_s.jpg
+  - assets/food/BonChon2.jpg
+  - assets/food/BonChon.jpg
+  - assets/food/Burger King.jpg
+  - assets/food/Burger King2.jpg
+  - assets/food/Shinkanzen Sushi.jpg
+  - assets/food/Swensen_s.jpg
+  - assets/food/Yayoi.jpg
+  - assets/food/S&P1.jpg
+  - assets/food/S&P2.jpg
+  - assets/food/Chester_s.jpg
+  - assets/food/Pizza Hut.jpg
+  - assets/food/Mister Donut.jpg
+  - assets/food/Potato Corner.jpg
+  - assets/food/TPC.jpg
+  - assets/food/เจ๊แดงสามย่าน.jpg
+  - assets/food/ChaTraMue.jpg
+  - assets/food/BBQ.jpg
+  - assets/food/Dairy Queen.jpg
+  - assets/food/Sizzler1.jpg
+  - assets/food/Inthanin.jpg
+  - assets/food/Eat am are.jpg
+  - assets/food/A Ramen.jpg
+  - assets/food/กาแฟพันธุ์ไทย.jpg
+  - assets/food/Taco Bell.jpg
+  - assets/food/Olino Crepe.jpg
+  - assets/food/คุ้มสึ.jpg
+  - assets/food/Wall.jpg
+  - assets/food/Laemcharoen.jpg
+  - assets/food/QQ.jpg
+  - assets/food/mrfat.jpg
+  - assets/food/Five star2.jpg
+  - assets/food/Ootoya.jpg
+  - assets/food/Sizzler2.jpg
+  - assets/food/Dairy Queen2.jpg
+  - assets/food/KFC2.jpg
+  - assets/food/Bearhouse1.jpg
+  - assets/food/Bearhouse2.jpg
+  - assets/food/TPC2.jpg
+  - assets/food/Pepper Lunch.jpg
+  - assets/food/Five Star.jpg
+  - assets/food/Taco Bell2.jpg
+  - assets/food/Salad Factory.jpg
+  - assets/food/Katsuya.jpg
+  - assets/food/Kouen Sushi Bar.jpg
+  - assets/food/Chester_s2.jpg
+  - assets/food/Pizza Hut2.jpg
+  - assets/food/GUGU.jpg
+  - assets/food/GUGU2.jpg
+  - assets/food/McDonald_s.jpg
+  - assets/food/getfresh.jpg
+  - assets/food/QQ2.jpg
+  - assets/food/ZEN Restaurant.jpg
+  - assets/food/Kouen2.jpg
+  - assets/food/McDonald_s2.jpg
+  - assets/food/McDonald_s3.jpg
+  - assets/food/getfresh2.jpg
+  - assets/food/Olino Crepe2.jpg
+  - assets/food/Olino Crepe3.jpg
+  - assets/food/Olino Crepe4.jpg
+  - assets/food/Olino Crepe5.jpg
+  - assets/food/Olino Crepe6.jpg
+  - assets/food/BHC.jpg
+  - assets/food/Santa Fe.jpg
+  - assets/food/Santa Fe2.jpg
+  - assets/food/Santa Fe3.jpg
+  - assets/food/Fuku2.jpg
+  - assets/food/Katsuya2.jpg
+  - assets/food/Katsuya3.jpg
+  - assets/food/Pepper Lunch3.jpg
+  - assets/food/Pepper Lunch4.jpg
+  - assets/food/Pepper Lunch5.jpg
+  - assets/food/Pepper Lunch6.jpg
+  - assets/food/Pepper Lunch7.jpg
+  - assets/food/Wall_s2.jpg
+  - assets/food/Wall_s3.jpg
+  - assets/food/Kiiro Sushi.jpg
+  - assets/food/Kiiro Sushi2.jpg
+  - assets/food/Auntie Anne_s2.jpg
+  - assets/food/Kabocha.jpg
+  - assets/food/Kabocha2.jpg
+  - assets/food/Kabocha3.jpg
+  - assets/food/Mister Donut2.jpg
+  - assets/food/Mister Donut3.jpg
+  - assets/food/Khao Don.jpg
+  - assets/food/Khao Don2.jpg
+  - assets/food/Khao Don3.jpg
+  - assets/food/Khao Don4.jpg
+  - assets/food/Khao Don5.jpg
+  - assets/food/Taliew.jpg
+  - assets/food/Taliew2.jpg
+  - assets/food/Taliew3.jpg
+  - assets/food/Elbasha.jpg
+  - assets/food/Elbasha2.jpg
+  - assets/food/BonChon3.jpg
+  - assets/food/MK.jpg
+  - assets/food/ATM.jpg
+  - assets/food/ATM2.jpg
+  - assets/food/soho.jpg
+  - assets/food/soho2.jpg
+  - assets/food/Sizzler4.jpg
+  - assets/food/Sizzler3.jpg
+  - assets/food/Sizzler5.jpg
+  - assets/food/Sizzler6.jpg
+  - assets/food/Sizzler7.jpg
+  - assets/food/TPC3.jpg
+  - assets/food/S&P3.jpg
+  - assets/food/S&P5.jpg
+  - assets/food/On the table.jpg
+  - assets/food/HAAB.jpg
+  - assets/food/Royal.jpg
+  - assets/food/Royal2.jpg
+  - assets/food/Burger King3.jpg
+  - assets/food/BBQ2.jpg
+  - assets/food/MAGURO.jpg
+  - assets/food/ZEN Restaurant2.jpg
+  - assets/food/Eat Am Are2.jpg
+  - assets/food/KHIANG.jpg
+  - assets/food/Shinkanzen Sushi2.jpg
+  - assets/food/Yayoi2.jpg
+  - assets/food/Potato Corner2.jpg
+  - assets/food/Potato Corner3.jpg
+  - assets/food/Shichi.jpg
+  - assets/food/Shichi2.jpg
+  - assets/food/Oishi Kitchen.jpg
+  - assets/food/Auntie Anne_s3.jpg
+  - assets/food/ATM3.jpg
+  - assets/food/The Rolling Pinn.jpg
+  - assets/food/Thong Smith.jpg
+  - assets/food/mini.jpg
+  - assets/food/เจริญแกง.jpg
+  - assets/food/Roots.jpg
+  - assets/food/Roots2.jpg
+  - assets/food/YOLE.jpg
+  - assets/food/ฉันจะกินชาเย็นทุกวัน.jpg
+  - assets/food/ฉันจะกินชาเย็นทุกวัน2.jpg
+  - assets/food/Molly Tea.jpg
+  - assets/food/Emily.jpg
+  - assets/food/Oh! Juice.jpg
+  - assets/food/Fuku.jpg
+  - assets/food/Holiday Pastry.jpg
+  - assets/food/1_2 Coffee.jpg
+  - assets/food/MOLTO.jpg
+  - assets/food/Seoulchon.jpg
+  - assets/food/Boost.jpg
+  - assets/food/Kaew Boutique.jpg
+  - assets/food/HOTPOT MAN.jpg
+  - assets/food/Yolk.jpg
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
