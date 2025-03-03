@@ -33,10 +33,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -66,4 +63,15 @@ class DefaultFirebaseOptions {
     projectId: 'grab-hot-deal-feb55',
     storageBucket: 'grab-hot-deal-feb55.firebasestorage.app',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAR9DaxJNI3svmvWmQZuC829ld6E66tcP8',
+    appId: '1:869995630085:web:42f0d28312882be767566c',
+    messagingSenderId: '869995630085',
+    projectId: 'grab-hot-deal-feb55',
+    authDomain: 'grab-hot-deal-feb55.firebaseapp.com',
+    storageBucket: 'grab-hot-deal-feb55.firebasestorage.app',
+    measurementId: 'G-B4YHQD733N',
+  );
+
 }

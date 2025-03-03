@@ -15,37 +15,37 @@ class _TutorialScreenState extends State<TutorialScreen> {
 
   final List<Map<String, String>> tutorialPages = [
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-01.jpg',
       'title': 'เก็บ Hot deal สูงสุด 80%',
       'description':
-          'เก็บส่วนลด 80% ให้ครบ 5 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
+          'เก็บส่วนลด 80% ให้ครบ 4 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
     },
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-02.jpg',
       'title': 'ระวังอย่าเก็บผิดนะ!',
       'description': 'หากเก็บส่วนลดที่ไม่ใช่ 80% เวลาจะลดลง 3 วินาที',
     },
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-03.jpg',
       'title': 'ยิ่งเก็บมาก ยิ่งได้มาก',
       'description': 'สเก็บส่วนลดให้ได้มากที่สุดเพื่อลุ้นรับรางวัลพิเศษ',
     }
   ];
   final List<Map<String, String>> tutorialPagesEn = [
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-01.jpg',
       'title': 'Collect Hot Deals up to 80%',
       'description':
-          'Collect five 80% discount deals within 30 seconds to pass the game.',
+          'Collect four 80% discount deals within 30 seconds to pass the game.',
     },
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-02.jpg',
       'title': 'Be careful not to pick the wrong ones!',
       'description':
           'If you collect a discount that is not 80%, your time will be reduced by 3 seconds.',
     },
     {
-      'image': 'assets/tutorial.png',
+      'image': 'tutorial_images-03.jpg',
       'title': 'The more you collect, the more you win!',
       'description':
           'Collect as many discounts as possible for a chance to win special prizes.',

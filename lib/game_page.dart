@@ -406,13 +406,15 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
 
   Widget EndScreen() {
     var size = MediaQuery.of(context).size;
-    return Lottie.asset(
-      'assets/animations/bomb.json',
-      repeat: false,
-      alignment: Alignment.center,
-      width: size.width,
-      height: size.height * 0.6,
-      fit: BoxFit.cover,
+    return Center(
+      child: Lottie.asset(
+        'assets/animations/bomb.json',
+        repeat: false,
+        alignment: Alignment.center,
+        width: size.width,
+        height: size.height * 0.6,
+        fit: BoxFit.fitWidth,
+      ),
     );
   }
 
@@ -442,9 +444,9 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       if (restaurant.discount == 80) {
         correntSound();
         playColelcted();
-        if (onScreen == false) {
-          slideIdol();
-        }
+        // if (onScreen == false) {
+        //   slideIdol();
+        // }
 
         startAnimation();
         startSAnimation();
@@ -742,11 +744,12 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                       ),
                     ),
                     if (_showEndOverlay)
-                      Positioned.fill(
-                        child: Container(
-                          color: Colors.white.withOpacity(0.8),
-                          child: Center(child: EndScreen()),
-                        ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: screenWidth,
+                        height: screenHeight,
+                        //color: Colors.red,
+                        child: Center(child: EndScreen()),
                       ),
                     if (_showCountdownOverlay)
                       Positioned.fill(
@@ -862,9 +865,9 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                 padding:
                                     EdgeInsets.only(left: screenWidth * 0.05),
                                 // alignment: Alignment.center,
-                                // color: Colors.red,
+                                //  color: Colors.red,
                                 width: screenWidth,
-                                height: screenHeight * 0.0325,
+                                height: screenHeight * 0.035,
                                 child: Stack(
                                   alignment: Alignment.centerLeft,
                                   children: [
@@ -896,16 +899,26 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                       ),
                                     ),
                                     Positioned(
-                                      top: -screenHeight * 0.009,
+                                      top: -screenHeight * 0.002,
                                       left: _timeLeft > 5
-                                          ? (screenWidth * 0.74) *
-                                              (progress - 0.005)
-                                          : (screenWidth * 0.74) *
-                                              (progress - 0.008),
+                                          ? (progress * screenWidth * 0.775) -
+                                              20
+                                          : _timeLeft == 0
+                                              ? (progress *
+                                                      screenWidth *
+                                                      0.775) -
+                                                  15
+                                              : (progress *
+                                                      screenWidth *
+                                                      0.775) -
+                                                  50,
+                                      //     (progress - 0.005)
+                                      // : (screenWidth * 0.74) *
+                                      //     (progress - 0.008),
                                       child: Image.asset(
                                         'assets/slider_selector.png',
-                                        width: screenWidth * 0.08,
-                                        height: screenWidth * 0.08,
+                                        width: screenWidth * 0.07,
+                                        height: screenWidth * 0.07,
                                       ),
                                     ),
                                   ],

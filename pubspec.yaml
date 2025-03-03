@@ -243,7 +243,12 @@ flutter:
   - assets/food/Kaew Boutique.jpg
   - assets/food/HOTPOT MAN.jpg
   - assets/food/Yolk.jpg
-
+  - assets/tutorial_images-01.jpg
+  - assets/tutorial_images-02.jpg
+  - assets/tutorial_images-03.jpg
+  - assets/tutorial_images-01.jpeg
+  - assets/tutorial_images-02.jpeg
+  - assets/tutorial_images-03.jpeg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
