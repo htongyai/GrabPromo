@@ -585,8 +585,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                       width: screenWidth * 0.25,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(90),
-                                        child: Image.network(
-                                            restaurant.imageUrl,
+                                        child: Image.asset(restaurant.imageUrl,
                                             width: screenWidth * 0.25,
                                             height: screenWidth * 0.25,
                                             fit: BoxFit.cover),

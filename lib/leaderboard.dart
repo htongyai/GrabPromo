@@ -44,6 +44,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           'name': data['name'],
           'score': data['score'],
           'timestamp': data['timestamp'],
+          'sec': data['durationS'],
+          'mSec': data['durationMs'],
         });
         rank++;
       }
@@ -62,6 +64,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       QuerySnapshot querySnapshotA = await FirebaseFirestore.instance
           .collection('testLeaderboard2')
           .orderBy('score', descending: true)
+          .orderBy('durationS', descending: false)
+          .orderBy('durationMs', descending: false)
           .get();
 
       for (var doc in querySnapshotA.docs) {
@@ -71,12 +75,12 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
         if (data['playerSessionID'] == playerSessionID) {
           // print(data['score']);
           // print("Checking if match:${widget.highScore}");
-          if (data['score'] == widget.highScore) {
-            //   print("Match Found");
-            No1 = true;
-          } else {
-            No1 = false;
-          }
+          // if (data['score'] == widget.highScore) {
+          //   //   print("Match Found");
+          //   No1 = true;
+          // } else {
+          //   No1 = false;
+          // }
           //  print("Dound");
           finalRank = rank;
 
@@ -101,6 +105,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           'name': data['name'],
           'score': data['score'],
           'timestamp': data['timestamp'],
+          'sec': data['durationS'],
+          'mSec': data['durationMs'],
         });
       } else {
         debugPrint("No player data found for session: $playerSessionID");
@@ -117,17 +123,18 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection(playerSessionID)
           .orderBy('score', descending: false)
+          .orderBy('durationS', descending: false)
+          .orderBy('durationMs', descending: false)
           .get();
-
       int rank = 0;
       for (var doc in querySnapshot.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
         if (data['playerSessionID'] == playerSessionID) {
-          if (data['score'] == widget.highScore) {
-            print("Match Found");
-            No1 = true;
-          }
+          // if (data['score'] == widget.highScore) {
+          //   print("Match Found");
+          //   No1 = true;
+          // }
           return rank; // Return rank when player is found
         }
         rank++; // Increment rank for next player
@@ -252,6 +259,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               final player = leaderboard[index];
                               bool isUser = player['playerSessionID'] ==
                                   widget.playerSessionID;
+                              String mili = player['mSec'].toString().substring(
+                                  2, player['mSec'].toString().length - 1);
 
                               return Container(
                                   width: screenWidth * 0.9,
@@ -263,13 +272,6 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                   decoration: BoxDecoration(
                                     // color: Colors.white,
                                     borderRadius: BorderRadius.circular(25),
-                                    border: isUser
-                                        ? Border.all(
-                                            color: Colors.green, width: 2)
-                                        : Border.all(
-                                            color: const Color.fromRGBO(
-                                                219, 219, 219, 1),
-                                            width: 1),
                                   ),
                                   child: Container(
                                     alignment: Alignment.center,
@@ -310,11 +312,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    player['score'] ==
-                                                            widget.highScore
-                                                        ? '1'
-                                                        : player['rank']
-                                                            .toString(),
+                                                    player['rank'].toString(),
                                                     style: TextStyle(
                                                         fontSize:
                                                             screenWidth * 0.05,
@@ -365,6 +363,34 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                       fontWeight:
                                                           FontWeight.w600),
                                                   textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal:
+                                                        screenWidth * 0.02,
+                                                    vertical:
+                                                        screenHeight * 0.01),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border.all(
+                                                      color:
+                                                          const Color.fromRGBO(
+                                                              0, 177, 79, 1),
+                                                      width: 2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(45),
+                                                ),
+                                                child: Text(
+                                                  '00:${player['sec']}:${mili}',
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.04,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color:
+                                                          const Color.fromRGBO(
+                                                              0, 177, 79, 1)),
                                                 ),
                                               ),
                                             ],
@@ -469,7 +495,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               } else {
                                 // No1 = false;
                               }
-
+                              String mili = player['mSec'].toString().substring(
+                                  2, player['mSec'].toString().length - 1);
                               return Column(
                                 children: [
                                   Container(
@@ -491,7 +518,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     //     horizontal: screenWidth * 0.05,
                                     //     vertical: screenHeight * 0.005),
                                     decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        //color: Colors.white,
                                         borderRadius: BorderRadius.circular(90),
                                         border: Border.all(
                                             color: const Color.fromRGBO(
@@ -516,11 +543,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    player['score'] ==
-                                                            widget.highScore
-                                                        ? '1'
-                                                        : player['rank']
-                                                            .toString(),
+                                                    player['rank'].toString(),
                                                     style: TextStyle(
                                                         fontSize:
                                                             screenWidth * 0.05,
@@ -571,6 +594,34 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                       fontWeight:
                                                           FontWeight.w600),
                                                   textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal:
+                                                        screenWidth * 0.02,
+                                                    vertical:
+                                                        screenHeight * 0.01),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  border: Border.all(
+                                                      color:
+                                                          const Color.fromRGBO(
+                                                              0, 177, 79, 1),
+                                                      width: 2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(45),
+                                                ),
+                                                child: Text(
+                                                  '00:${player['sec']}:${mili}',
+                                                  style: TextStyle(
+                                                      fontSize:
+                                                          screenWidth * 0.04,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color:
+                                                          const Color.fromRGBO(
+                                                              0, 177, 79, 1)),
                                                 ),
                                               ),
                                             ],
