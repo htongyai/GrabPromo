@@ -161,7 +161,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                       SizedBox(height: screenWidth * 0.05),
                       TextField(
                         maxLines: 1,
-                        maxLength: 15,
+                        maxLength: 6,
                         controller: _nameController,
                         textAlign: TextAlign.center,
                         style: TextStyle(

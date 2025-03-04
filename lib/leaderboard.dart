@@ -278,8 +278,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     width: screenWidth * 0.9,
                                     height: screenHeight * 0.075,
                                     padding: EdgeInsets.only(
-                                        left: screenWidth * 0.011,
-                                        right: screenWidth * 0.03),
+                                        left: screenWidth * 0.015,
+                                        right: screenWidth * 0.015),
                                     // margin: EdgeInsets.symmetric(
                                     //     horizontal: screenWidth * 0.05,
                                     //     vertical: screenHeight * 0.005),
@@ -513,7 +513,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     height: screenHeight * 0.075,
                                     padding: EdgeInsets.only(
                                         left: screenWidth * 0.0075,
-                                        right: screenWidth * 0.03),
+                                        right: screenWidth * 0.015),
                                     // margin: EdgeInsets.symmetric(
                                     //     horizontal: screenWidth * 0.05,
                                     //     vertical: screenHeight * 0.005),
@@ -646,15 +646,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               borderRadius: BorderRadius.circular(120),
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.only(
-                                      left: english
-                                          ? screenWidth * 0.1
-                                          : screenWidth * 0.02),
                                   width: english
-                                      ? screenWidth * 0.7
+                                      ? screenWidth * 0.75
                                       : screenWidth * 0.75,
                                   child: Center(
                                     child: Column(
@@ -663,42 +659,39 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          width: screenWidth * 0.7,
-                                          child: Text(
-                                            english
-                                                ? 'If you get first place, don’t forget to take a selfie with your score and post it with the tag @grabth for a chance to win a special prize.'
-                                                : 'ถ้าคุณได้ที่ 1 อย่าลืม selfie กับผลคะแนนของคุณและโพสและ tag @grabth เพื่อลุ้นรับรางวัลพิเศษ',
-                                            style: TextStyle(
-                                                fontSize: english
-                                                    ? screenWidth * 0.027
-                                                    : screenWidth * 0.03,
-                                                fontWeight: FontWeight.bold),
-                                          ),
+                                        Text(
+                                          english
+                                              ? 'Congrats! You just won the 1st place.'
+                                              : 'ยินดีด้วย - คุณ คือ ผู้ชนะอันดับ 1  ',
+                                          style: TextStyle(
+                                              fontSize: english
+                                                  ? screenWidth * 0.035
+                                                  : screenWidth * 0.04,
+                                              fontWeight: FontWeight.bold),
                                         ),
-                                        // Text(
-                                        //   english
-                                        //       ? "Please stay tuned for the prize announcement on March 7, 2025."
-                                        //       : 'โปรดติดตามประกาศผลรางวัลวันที่ 7 มีนาคม 2568',
-                                        //   style: TextStyle(
-                                        //       fontSize: english
-                                        //           ? screenWidth * 0.025
-                                        //           : screenWidth * 0.03,
-                                        //       fontWeight: FontWeight.normal),
-                                        // ),
+                                        Text(
+                                          english
+                                              ? "Each 1st place winner will receive a special gift from GRAB"
+                                              : 'ผู้ชนะอันดับ 1 ของแต่ละรอบ รับรางวัลพิเศษจากเราไปเลย',
+                                          style: TextStyle(
+                                              fontSize: english
+                                                  ? screenWidth * 0.025
+                                                  : screenWidth * 0.032,
+                                              fontWeight: FontWeight.normal),
+                                        ),
                                       ],
                                     ),
                                   ),
                                 ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      child: Image.asset('assets/FBIcon.png',
-                                          width: screenWidth * 0.15),
-                                    ),
-                                  ],
-                                ),
+                                // Column(
+                                //   mainAxisAlignment: MainAxisAlignment.end,
+                                //   children: [
+                                //     Container(
+                                //       child: Image.asset('assets/FBIcon.png',
+                                //           width: screenWidth * 0.15),
+                                //     ),
+                                //   ],
+                                // ),
                               ],
                             ),
                           )

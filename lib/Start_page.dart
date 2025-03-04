@@ -13,15 +13,26 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 177, 79, 1),
       body: Center(
-        child: Container(height: screenHeight,width: screenWidth,
+        child: Container(
+          height: screenHeight,
+          width: screenWidth,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/bg.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-               SizedBox(
-                  height: screenHeight * 0.1,
-                ),
-              Image.asset('assets/title.png', width: screenWidth * 0.6),
+              SizedBox(
+                height: screenHeight * 0.1,
+              ),
+              SizedBox(
+                height: screenHeight * 0.5,
+              ),
+              // Image.asset('assets/title.png', width: screenWidth * 0.6),
               const Spacer(),
               SizedBox(
                 height: screenHeight * 0.08,
@@ -34,7 +45,7 @@ class StartScreen extends StatelessWidget {
                   minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08),
                 ),
                 onPressed: () {
-                buttonSound();
+                  buttonSound();
                   english = false;
                   Navigator.push(
                     context,
@@ -57,7 +68,8 @@ class StartScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(180)),
                     minimumSize: Size(screenWidth * 0.8, screenHeight * 0.08)),
-                onPressed: () { buttonSound();
+                onPressed: () {
+                  buttonSound();
                   english = true;
                   Navigator.push(
                     context,
@@ -73,7 +85,7 @@ class StartScreen extends StatelessWidget {
                       color: const Color.fromRGBO(0, 177, 79, 1)),
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 height: screenHeight * 0.03,
               ),
               Text(
@@ -83,7 +95,7 @@ class StartScreen extends StatelessWidget {
                     fontSize: screenWidth * 0.025,
                     fontWeight: FontWeight.w700),
               ),
-            SizedBox(
+              SizedBox(
                 height: screenHeight * 0.05,
               ),
             ],

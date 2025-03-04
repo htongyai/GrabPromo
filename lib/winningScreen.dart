@@ -63,12 +63,12 @@ class _WinningScreenState extends State<WinningScreen> {
                 width: screenWidth * 0.4,
                 child: Center(
                   child: Container(
-                    height: screenWidth * 0.25,
-                    width: screenWidth * 0.25,
+                    height: screenWidth * 0.35,
+                    width: screenWidth * 0.35,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       image: const DecorationImage(
-                          image: AssetImage("assets/winningicon.png"),
+                          image: AssetImage("assets/success.png"),
                           fit: BoxFit.fitHeight,
                           alignment: Alignment.bottomCenter),
                     ),
@@ -85,8 +85,8 @@ class _WinningScreenState extends State<WinningScreen> {
               Text(
                 textAlign: TextAlign.center,
                 english
-                    ? "You have successfully collected all the Hot Deals."
-                    : 'คุณเก็บ Hot Deal ได้ครบตามกำหนด',
+                    ? "You collected the required Hot Deals."
+                    : 'คุณเก็บ Hot Deals ได้ครบตามกำหนด',
                 style: TextStyle(
                     fontSize: screenWidth * 0.045, color: Colors.black54),
               ),
@@ -109,8 +109,8 @@ class _WinningScreenState extends State<WinningScreen> {
                       children: [
                         Text(
                           english
-                              ? "80% Promo Collected"
-                              : 'ส่วนลด 80% ที่เก็บได้',
+                              ? "80% Hot Deals Collected"
+                              : 'Hot Deals 80% ที่เก็บได้',
                           style: TextStyle(
                               fontSize: screenWidth * 0.04,
                               color: Colors.black54),

@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:grabpromogame/Start_page.dart';
 
 import 'package:grabpromogame/firebase_options.dart';
-import 'package:grabpromogame/game_page.dart';
 import 'package:grabpromogame/leaderboard.dart';
 import 'package:grabpromogame/losingScreen.dart';
 import 'package:grabpromogame/namesubmission.dart';
 import 'package:grabpromogame/util.dart';
-
+import 'dart:io';
 import 'package:grabpromogame/winningScreen.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -17,12 +16,21 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await windowManager.ensureInitialized();
-  await WindowManager.instance.waitUntilReadyToShow().then((_) async {
-    await windowManager.setFullScreen(true);
-    await windowManager.show();
-    await windowManager.focus();
-  });
+
+  // await windowManager.ensureInitialized();
+  // await WindowManager.instance.waitUntilReadyToShow().then((onValue) async {
+  //   await windowManager.setFullScreen(true);
+  //   await windowManager.show();
+  //   await windowManager.focus();
+  // });
+
+  //running on Windows Only
+  // await windowManager.ensureInitialized();
+  // await WindowManager.instance.waitUntilReadyToShow().then((onValue) async {
+  //   await windowManager.setFullScreen(true);
+  //   await windowManager.show();
+  //   await windowManager.focus();
+  // });
   initializeAudioPlayers();
   runApp(const MyApp());
 }
@@ -42,13 +50,13 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: 'GrabCommunitySolidTH',
         ),
-        home: PromoSelectionGame()
-        //NameSubmissionScreen(score: 7)
+        home:
+            //NameSubmissionScreen(score: 7)
 
-        // LeaderboardScreen(
-        //     highScore: 6, playerSessionID: "Nont2025-03-01 18:01:19.412"),
-        );
+            // LeaderboardScreen(
+            //     highScore: 6, playerSessionID: "Nont2025-03-01 18:01:19.412"),
+            //);
 
-    // StartScreen());
+            StartScreen());
   }
 }

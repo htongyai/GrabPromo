@@ -16,39 +16,37 @@ class _TutorialScreenState extends State<TutorialScreen> {
   final List<Map<String, String>> tutorialPages = [
     {
       'image': 'tutorial_images-01.jpg',
-      'title': 'เก็บ Hot deal สูงสุด 80%',
-      'description':
-          'เก็บส่วนลด 80% ให้ครบ 4 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
+      'title': 'เก็บ Hot Deals 80%',
+      'description': 'เก็บให้ครบ 4 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
     },
     {
       'image': 'tutorial_images-02.jpg',
       'title': 'ระวังอย่าเก็บผิดนะ!',
-      'description': 'หากเก็บส่วนลดที่ไม่ใช่ 80% เวลาจะลดลง 3 วินาที',
+      'description': 'หากเก็บ Hot Deals ที่ไม่ใช่ 80% เวลาจะลดลง 3 วินาที',
     },
     {
       'image': 'tutorial_images-03.jpg',
-      'title': 'ยิ่งเก็บมาก ยิ่งได้มาก',
-      'description': 'สเก็บส่วนลดให้ได้มากที่สุดเพื่อลุ้นรับรางวัลพิเศษ',
+      'title': 'รับรางวัลพิเศษ เมื่อเก็บได้อันดับ 1',
+      'description': 'เก็บส่วนลด Hot Deals ให้ได้มากที่สุดเพื่อรับรางวัลพิเศษ',
     }
   ];
   final List<Map<String, String>> tutorialPagesEn = [
     {
       'image': 'tutorial_images-01.jpg',
-      'title': 'Collect Hot Deals up to 80%',
-      'description':
-          'Collect four 80% discount deals within 30 seconds to pass the game.',
+      'title': 'Collect Hot Deals 80%',
+      'description': 'Collect 4 Hot Deals within 30 seconds to pass the game.',
     },
     {
       'image': 'tutorial_images-02.jpg',
       'title': 'Be careful not to pick the wrong ones!',
       'description':
-          'If you collect a discount that is not 80%, your time will be reduced by 3 seconds.',
+          'If you collect any Hot Deals below 80%, your time will be reduced by 3 seconds.',
     },
     {
       'image': 'tutorial_images-03.jpg',
-      'title': 'The more you collect, the more you win!',
+      'title': 'Earn a special reward when you reach Rank 1',
       'description':
-          'Collect as many discounts as possible for a chance to win special prizes.',
+          'Collect as many Hot Deals as possible to receive a special reward.',
     }
   ];
   @override
@@ -102,21 +100,25 @@ class _TutorialScreenState extends State<TutorialScreen> {
                           child: Column(
                             children: [
                               SizedBox(height: screenHeight * 0.03),
-                              Text(
-                                textAlign: TextAlign.center,
-                                page['title']!,
-                                style: TextStyle(
-                                    fontSize: english
-                                        ? screenWidth * 0.07
-                                        : screenWidth * 0.06,
-                                    fontWeight: FontWeight.bold,
-                                    color: const Color.fromRGBO(4, 41, 35, 1)),
+                              Container(
+                                width: screenWidth * 0.9,
+                                child: Text(
+                                  textAlign: TextAlign.center,
+                                  page['title']!,
+                                  style: TextStyle(
+                                      fontSize: english
+                                          ? screenWidth * 0.07
+                                          : screenWidth * 0.06,
+                                      fontWeight: FontWeight.bold,
+                                      color:
+                                          const Color.fromRGBO(4, 41, 35, 1)),
+                                ),
                               ),
                               SizedBox(height: screenHeight * 0.008),
                               Container(
-                                width: screenWidth * 0.85,
+                                width: screenWidth * 0.9,
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.027,
+                                  horizontal: screenWidth * 0.01,
                                 ),
                                 child: Text(
                                   page['description']!,
@@ -196,7 +198,17 @@ class _TutorialScreenState extends State<TutorialScreen> {
                             fontSize: screenWidth * 0.06, color: Colors.white),
                       ),
               ),
-              SizedBox(height: screenHeight * 0.06),
+              SizedBox(height: screenHeight * 0.025),
+              Text(
+                english
+                    ? "*Only participating stores. Terms and conditions are as determined by the company."
+                    : "*เฉพาะร้านค้าที่ร่วมรายการ เงื่อนไขเป็นไปตามที่บริษัทกำหนด",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: english ? screenWidth * 0.02 : screenWidth * 0.03,
+                    color: const Color.fromRGBO(112, 112, 112, 1)),
+              ),
+              SizedBox(height: screenHeight * 0.025),
             ],
           ),
           Positioned(

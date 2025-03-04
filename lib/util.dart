@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:grabpromogame/losingScreen.dart';
 import 'package:grabpromogame/main.dart';
 
-bool english = true;
+bool english = false;
 late AudioPlayer clickPlayer;
 late AudioPlayer startPlayer;
 late AudioPlayer correctPlayer;

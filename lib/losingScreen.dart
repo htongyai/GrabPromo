@@ -41,7 +41,7 @@ class LosingScreen extends StatelessWidget {
           Text(
             english
                 ? "You didn’t collect all the required Hot Deals."
-                : 'คุณเก็บ Hot Deal ได้ไม่ครบตามกำหนด',
+                : 'คุณเก็บ Hot Deals ได้ไม่ครบตามกำหนด',
             style: TextStyle(
                 fontSize: english ? screenWidth * 0.04 : screenWidth * 0.05,
                 color: Colors.black54),
@@ -63,7 +63,9 @@ class LosingScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      english ? '80% Promo collected' : 'ส่วนลด 80% ที่เก็บได้',
+                      english
+                          ? "80% Hot Deals Collected"
+                          : 'Hot Deals 80% ที่เก็บได้',
                       style: TextStyle(
                           fontSize: screenWidth * 0.04, color: Colors.black54),
                     ),
@@ -95,7 +97,7 @@ class LosingScreen extends StatelessWidget {
           ),
           SizedBox(height: screenHeight * 0.03),
           Container(
-            height: screenHeight * 0.15,
+            height: screenHeight * 0.12,
             margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
             padding: EdgeInsets.all(screenWidth * 0.04),
             decoration: BoxDecoration(
@@ -114,24 +116,24 @@ class LosingScreen extends StatelessWidget {
                       Text(
                         english ? "But don't worry!" : 'แต่ไม่ต้องเสียใจไป!',
                         style: TextStyle(
-                            fontSize: screenWidth * 0.05,
+                            fontSize: screenWidth * 0.04,
                             color: Colors.black,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         english
-                            ? "But don’t worry, we have a consolation prize for you!"
+                            ? "We have a consolation prize for you!"
                             : 'ไม่เป็นเรามีรางวัลปลอบใจให้คุณนะ!',
                         style: TextStyle(
                             fontSize: english
-                                ? screenWidth * 0.03
+                                ? screenWidth * 0.035
                                 : screenWidth * 0.04,
                             color: Colors.black87),
                       ),
                     ],
                   ),
                 ),
-                Image.asset('assets/hotdeal.png', width: screenWidth * 0.08),
+                // Image.asset('assets/hotdeal.png', width: screenWidth * 0.08),
               ],
             ),
           ),
