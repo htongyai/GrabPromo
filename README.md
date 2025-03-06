@@ -1,131 +1,89 @@
-# Grab Hot Deal Game
+# GrabPromo - Grab Hot Deal Game
 
-## 📌 Overview
+## Overview
+GrabPromo is an interactive promotional selection game developed for Android TV (TR3DK Series) devices with multi-touch support. Players are challenged to select at least five restaurant promotions offering an 80% discount before the timer expires. The game features real-time leaderboards, allowing participants to compete for high scores.
 
-**Grab Hot Deal Game** is an interactive **restaurant promo selection game** designed for **Android TV (TR3DK Series)** running at **3840 x 2160 (portrait) with multi-touch support**. The game challenges players to select at least **5 restaurant promotions** with an **80% discount** before the **timer runs out**.
+## Features
 
-Players can **compete for high scores**, submit their names to the leaderboard via **Firebase**, and track rankings in real-time.
+- **Android TV Optimization:** Designed specifically for TR3DK Series devices running at 3840 x 2160 resolution in portrait mode.
+- **Multi-Touch Support:** Enables efficient and responsive player interactions.
+- **Firebase Integration:** Stores player names and scores, facilitating real-time leaderboard updates.
+- **Structured Game Flow:** Guides players from the start screen through tutorials, gameplay, and leaderboards.
+- **Challenging Gameplay:** Players must quickly identify correct promotions under time constraints, enhancing engagement.
 
-## 🚀 Features
-
-- **Android TV-Optimized UI:** Tailored for **TR3DK Series** running at **3840 x 2160 (portrait)**.
-- **Multi-Touch Support:** Allows players to interact efficiently.
-- **Firebase Integration:** Stores player names and scores for the leaderboard.
-- **Step-by-Step Game Flow:** From tutorial to leaderboard.
-- **Progressive Gameplay:** Time-based challenge requiring quick decision-making.
-
-## 📱 Screens & Flow
+## Screens & Flow
 
 1. **Start Page:**
-   - Displays the game title and allows players to begin.
+   - Displays the game title with an option to begin.
 2. **Tutorial Page:**
-   - Explains the game rules: Select **at least 5 promos** with **80% off** before **time runs out**.
+   - Provides game rules: Select at least five promotions with an 80% discount before time runs out.
 3. **Game Page:**
-   - Players tap promo offers to make their selection.
-   - **Countdown Timer:** Reduces time if incorrect promo is selected.
-   - **Win Condition:** Select 5 correct promos before **50% of the time expires**.
-   - **Lose Condition:** Failing to meet the win condition before time runs out.
-4. **Win Screen:**
-   - Player submits their **name & score**.
-   - Data is stored in **Firebase**.
-   - Redirects to the **Leaderboard Page**.
-5. **Leaderboard Page:**
-   - Displays top scores from Firebase.
-   - Allows competitive tracking.
+   - Interactive selection of promo offers.
+   - **Countdown Timer:** Penalizes incorrect selections by reducing available time.
+   - **Win Condition:** Select five correct promotions before 50% of the time elapses.
+   - **Lose Condition:** Failure to meet the win condition within the allotted time.
+4. **Leaderboard Page:**
+   - Displays top player rankings based on scores stored in Firebase.
 
-## 🏗️ Tech Stack
+## Installation & Setup
 
-- **Flutter (Dart)**: Core framework for app development.
-- **Firebase (Firestore & Authentication)**: Manages user scores and leaderboard.
-- **Confetti Animation**: Celebration effect on winning.
-- **Leanback Library**: Optimizes UI for **Android TV**.
+To deploy GrabPromo on a compatible Android TV device:
 
-## 🎨 UI Design
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/htongyai/GrabPromo.git
+   ```
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd GrabPromo
+   ```
+3. **Open the Project in Android Studio:**
+   - Ensure you have the latest version of [Android Studio](https://developer.android.com/studio) installed.
+4. **Connect the Android TV Device:**
+   - Enable developer options and USB debugging on the device.
+   - Connect the device to your development machine via USB or ensure both are on the same network for wireless debugging.
+5. **Build and Run the Application:**
+   - In Android Studio, select the appropriate build variant.
+   - Click 'Run' to deploy the application to the connected device.
 
-- **Multi-Touch Interaction:** Enables smooth gameplay.
-- **Portrait Mode (3840 x 2160):** Optimized for large screens.
-- **TV-Friendly Navigation:** Supports **touch & remote input**.
-- **Dynamic Timer Bar:** Turns **red** when time is low.
+## Event Performance Summary
 
-## 🛠️ Setup & Installation
+During the Grab Hot Deals Event on March 5, 2025, the software was deployed successfully with the following outcomes:
 
-### 1. Clone the Repository
+- **Total Successful Players:** 340 (achieved 4 or more points)
+- **Total Failed Attempts:** Over 400 (specific data not collected)
+- **Identified Issues:**
+  - Screen power settings and screensaver interruptions.
+  - Minor UI bugs in leaderboard rankings (e.g., gold No. 1 color inconsistencies and millisecond display errors).
+  - Insufficient on-site staff training for troubleshooting and maintenance.
 
-```sh
-$ git clone https://github.com/yourusername/grab-hot-deal-game.git
-$ cd grab-hot-deal-game
-```
+## Known Issues & Recommendations
 
-### 2. Install Dependencies
+- **Screen Settings:** Disable screensaver and power-saving modes before deployment to prevent interruptions.
+- **Staff Training:** Provide comprehensive training to on-site staff on basic troubleshooting, including restarting the software and managing display settings.
+- **UI Enhancements:** Address leaderboard color inconsistencies and timing display errors in future updates.
+- **Screen Maintenance:** Implement regular screen cleaning protocols (e.g., every 30 minutes) to maintain optimal visibility and responsiveness.
 
-```sh
-$ flutter pub get
-```
+## Future Enhancements
 
-### 3. Run the App
+- **Enhanced Leaderboard UI:** Improve visual consistency and accuracy.
+- **Auto-Restart Functionality:** Implement automatic recovery mechanisms to handle potential software crashes or freezes.
+- **Comprehensive Data Collection:** Capture detailed metrics on both successful and failed attempts for better analysis.
+- **Detailed Staff Documentation:** Provide on-site staff with thorough troubleshooting guides and maintenance procedures.
 
-#### For Android TV (TR3DK Series)
+## Contributing
 
-```sh
-$ flutter build apk --release
-$ adb install build/app/outputs/flutter-apk/app-release.apk
-```
+Contributions are welcome! To propose enhancements or report bugs:
 
-### 4. Configure Firebase
+1. **Fork the Repository:** Click the 'Fork' button at the top right corner of the repository page.
+2. **Create a New Branch:** Use a descriptive name for your branch (e.g., `feature-enhancement`).
+3. **Commit Your Changes:** Provide clear and concise commit messages.
+4. **Submit a Pull Request:** Ensure your pull request describes the changes made and references any relevant issues.
 
-- Set up **Firebase project**.
-- Enable **Firestore Database & Authentication**.
-- Download `google-services.json` and place it in `android/app/`.
+## License
 
-## 📂 File Structure
+This project is licensed under the [MIT License](LICENSE).
 
-```
-lib/
- ├── main.dart               # Entry point
- ├── pages/
- │   ├── start_page.dart      # Start screen
- │   ├── tutorial_page.dart   # Instructions & rules
- │   ├── game_page.dart       # Game logic & timer
- │   ├── win_screen.dart      # Name submission form
- │   ├── leaderboard.dart     # Top player rankings
- ├── services/
- │   ├── firebase_service.dart # Handles Firebase operations
- ├── widgets/
- │   ├── promo_card.dart      # UI component for promo selections
-```
+## Contact
 
-## 🖥️ Android TV & Multi-Touch Support
-
-- **Manifest Updates**: `LEANBACK_LAUNCHER` intent ensures **TV compatibility**.
-- **Gradle Configuration**:
-  - `minSdkVersion 21`
-  - `targetSdkVersion 33`
-  - `androidx.leanback:leanback:1.1.0`
-  - `androidx.multidex:multidex:2.0.1`
-
-## 🎉 Win Screen Celebration
-
-- **Confetti Animation** on successful win.
-- **Firebase Upload** for leaderboard tracking.
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
-## 🤝 Contributing
-
-1. Fork the repo.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Submit a Pull Request.
-
-## 📬 Contact
-
-For any questions or suggestions, feel free to reach out:
-
-- 📧 Email: [your.email@example.com](mailto\:your.email@example.com)
-- 💬 Instagram: [@tonythetechie](https://instagram.com/tonythetechie)
-
-
-
+For inquiries or support, please contact [Your Name] at [your.email@example.com].
