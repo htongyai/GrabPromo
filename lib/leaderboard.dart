@@ -271,7 +271,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                       vertical: screenHeight * 0.005),
                                   decoration: BoxDecoration(
                                     // color: Colors.white,
-                                    borderRadius: BorderRadius.circular(25),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                   child: Container(
                                     alignment: Alignment.center,
@@ -285,11 +285,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     //     vertical: screenHeight * 0.005),
                                     decoration: BoxDecoration(
                                         //color: Colors.white,
-                                        borderRadius: BorderRadius.circular(90),
+                                        borderRadius: BorderRadius.circular(40),
                                         border: Border.all(
                                             color: const Color.fromRGBO(
                                                 219, 219, 219, 1),
-                                            width: 5)),
+                                            width: 3)),
                                     child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -308,7 +308,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                             player['rank']),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            60),
+                                                            30),
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
@@ -379,7 +379,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                               0, 177, 79, 1),
                                                       width: 2),
                                                   borderRadius:
-                                                      BorderRadius.circular(45),
+                                                      BorderRadius.circular(30),
                                                 ),
                                                 child: Text(
                                                   '00:${player['sec']}:${mili}',
@@ -519,11 +519,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                     //     vertical: screenHeight * 0.005),
                                     decoration: BoxDecoration(
                                         //color: Colors.white,
-                                        borderRadius: BorderRadius.circular(90),
+                                        borderRadius: BorderRadius.circular(40),
                                         border: Border.all(
                                             color: const Color.fromRGBO(
                                                 0, 177, 79, 1),
-                                            width: 12)),
+                                            width: 6)),
                                     child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -539,7 +539,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                         8, 73, 51, 1),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            60),
+                                                           30),
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
@@ -610,7 +610,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                               0, 177, 79, 1),
                                                       width: 2),
                                                   borderRadius:
-                                                      BorderRadius.circular(45),
+                                                      BorderRadius.circular(30),
                                                 ),
                                                 child: Text(
                                                   '00:${player['sec']}:${mili}',
@@ -643,7 +643,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                             //padding: EdgeInsets.all(screenWidth * 0.03),
                             decoration: BoxDecoration(
                               color: const Color.fromRGBO(212, 251, 219, 1),
-                              borderRadius: BorderRadius.circular(120),
+                              borderRadius: BorderRadius.circular(50),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,

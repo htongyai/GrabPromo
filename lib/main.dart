@@ -17,12 +17,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // await windowManager.ensureInitialized();
-  // await WindowManager.instance.waitUntilReadyToShow().then((onValue) async {
-  //   await windowManager.setFullScreen(true);
-  //   await windowManager.show();
-  //   await windowManager.focus();
-  // });
+  await windowManager.ensureInitialized();
+  await WindowManager.instance.waitUntilReadyToShow().then((onValue) async {
+    await windowManager.setFullScreen(true);
+    await windowManager.show();
+    await windowManager.focus();
+  });
 
   //running on Windows Only
   // await windowManager.ensureInitialized();
@@ -50,13 +50,16 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: 'GrabCommunitySolidTH',
         ),
-        home:
+        home: StartScreen()
+       // NameSubmissionScreen(score: 5, durationInSeconds: 5, durationInMilliseconds: 5)
+        //WinningScreen(5, 5, 5)
+        //LosingScreen(collectedDiscounts: 5)
             //NameSubmissionScreen(score: 7)
 
             // LeaderboardScreen(
             //     highScore: 6, playerSessionID: "Nont2025-03-01 18:01:19.412"),
-            //);
+           // );
 
-            StartScreen());
+        );
   }
 }

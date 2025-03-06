@@ -175,7 +175,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                         padding:
                             EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
                         child: const Divider(
-                            thickness: 10,
+                            thickness: 6,
                             color: Color.fromRGBO(219, 219, 219, 1)),
                       ),
                       SizedBox(height: screenHeight * 0.05),
@@ -213,7 +213,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                     margin: EdgeInsets.all(50),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(90),
+                      borderRadius: BorderRadius.circular(50),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black26,
@@ -223,21 +223,44 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                       ],
                     ),
                     height: screenHeight * 0.3,
-                    child: VirtualKeyboard(
+                    child: VirtualKeyboard( 
                       alwaysCaps: caps,
                       height: screenHeight * 0.3,
                       fontSize: screenWidth * 0.03,
                       postKeyPress: (a) {
                         setState(() {
-                          if (_nameController.text.isEmpty) {
+
+                              String text = _nameController.text;
+    
+    if (a.keyType == VirtualKeyboardKeyType.String) {
+        if (_nameController.text.isEmpty) {
                             a.capsText;
 
                             _nameController.text +=
                                 (a.text?.toUpperCase() ?? "");
                             caps = false;
-                          } else {
-                            _nameController.text += a.text ?? "";
+                          } else{
+ _nameController.text += a.text!;
                           }
+      // Append the key value to the text
+     
+    } else if (a.keyType == VirtualKeyboardKeyType.Action &&
+        a.action == VirtualKeyboardKeyAction.Backspace) {
+      // Handle backspace
+      if (text.isNotEmpty) {
+        _nameController.text = text.substring(0, text.length - 1);
+      }
+    }
+
+    // Move cursor to the end after editing text
+    _nameController.selection = TextSelection.fromPosition(
+      TextPosition(offset: _nameController.text.length),
+    );
+                         
+                        
+                          //else {
+                          //   _nameController.text += a.text ?? "";
+                          // }
                         });
                       },
                       type: VirtualKeyboardType.Alphanumeric,

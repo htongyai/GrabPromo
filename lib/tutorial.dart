@@ -15,35 +15,35 @@ class _TutorialScreenState extends State<TutorialScreen> {
 
   final List<Map<String, String>> tutorialPages = [
     {
-      'image': 'tutorial_images-01.jpg',
+      'image': 'assets/tutorial_images-01.jpg',
       'title': 'เก็บ Hot Deals 80%',
       'description': 'เก็บให้ครบ 4 รายการ ภายใน 30 วินาที เพื่อผ่านเกม',
     },
     {
-      'image': 'tutorial_images-02.jpg',
+      'image': 'assets/tutorial_images-02.jpg',
       'title': 'ระวังอย่าเก็บผิดนะ!',
       'description': 'หากเก็บ Hot Deals ที่ไม่ใช่ 80% เวลาจะลดลง 3 วินาที',
     },
     {
-      'image': 'tutorial_images-03.jpg',
+      'image': 'assets/tutorial_images-03.jpg',
       'title': 'รับรางวัลพิเศษ เมื่อเก็บได้อันดับ 1',
       'description': 'เก็บส่วนลด Hot Deals ให้ได้มากที่สุดเพื่อรับรางวัลพิเศษ',
     }
   ];
   final List<Map<String, String>> tutorialPagesEn = [
     {
-      'image': 'tutorial_images-01.jpg',
+      'image': 'assets/tutorial_images-01.jpg',
       'title': 'Collect Hot Deals 80%',
       'description': 'Collect 4 Hot Deals within 30 seconds to pass the game.',
     },
     {
-      'image': 'tutorial_images-02.jpg',
+      'image': 'assets/tutorial_images-02.jpg',
       'title': 'Be careful not to pick the wrong ones!',
       'description':
           'If you collect any Hot Deals below 80%, your time will be reduced by 3 seconds.',
     },
     {
-      'image': 'tutorial_images-03.jpg',
+      'image': 'assets/tutorial_images-03.jpg',
       'title': 'Earn a special reward when you reach Rank 1',
       'description':
           'Collect as many Hot Deals as possible to receive a special reward.',

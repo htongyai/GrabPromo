@@ -97,7 +97,7 @@ class _WinningScreenState extends State<WinningScreen> {
                     horizontal: screenWidth * 0.05,
                     vertical: screenHeight * 0.015),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(120),
+                  borderRadius: BorderRadius.circular(60),
                   border: Border.all(
                       color: const Color.fromRGBO(219, 219, 219, 1), width: 4),
                 ),

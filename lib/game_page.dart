@@ -76,7 +76,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       if (restaurants[i].discount == 80 && restaurants[i + 1].discount == 80) {
         return true;
       }
-      for (int j = 1; j <= 4; j++) {
+      for (int j = 1; j <= 3; j++) {
         if (i + j < restaurants.length &&
             restaurants[i].discount == 80 &&
             restaurants[i + j].discount == 80) {
@@ -579,12 +579,12 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                     Container(
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(90),
+                                              BorderRadius.circular(60),
                                           color: Colors.grey),
                                       height: screenWidth * 0.25,
                                       width: screenWidth * 0.25,
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(90),
+                                        borderRadius: BorderRadius.circular(60),
                                         child: Image.asset(restaurant.imageUrl,
                                             width: screenWidth * 0.25,
                                             height: screenWidth * 0.25,
@@ -667,7 +667,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          60),
+                                                                          30),
                                                               border: Border.all(
                                                                   color: const Color
                                                                       .fromRGBO(
@@ -675,7 +675,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                                       219,
                                                                       219,
                                                                       1),
-                                                                  width: 5),
+                                                                  width: 3),
                                                             ),
                                                             child: Row(
                                                               mainAxisAlignment:
@@ -772,7 +772,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                 child: Container(
                   // margin: EdgeInsets.only(bottom: screenHeight * 0.01),
                   width: screenWidth * 0.925,
-                  height: screenHeight * 0.3,
+                  height: screenHeight * 0.31,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -781,7 +781,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                           blurRadius: 80,
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(90),
+                      borderRadius: BorderRadius.circular(60),
                       //  border: Border.all(color: Colors.grey),
                       color: Colors.white),
                   child: Center(

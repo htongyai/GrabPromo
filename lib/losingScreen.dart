@@ -52,7 +52,7 @@ class LosingScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: screenWidth * 0.05, vertical: screenHeight * 0.015),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(120),
+              borderRadius: BorderRadius.circular(60),
               border: Border.all(
                   color: const Color.fromRGBO(219, 219, 219, 1), width: 4),
             ),
@@ -102,7 +102,7 @@ class LosingScreen extends StatelessWidget {
             padding: EdgeInsets.all(screenWidth * 0.04),
             decoration: BoxDecoration(
               color: const Color.fromRGBO(212, 251, 219, 1),
-              borderRadius: BorderRadius.circular(120),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

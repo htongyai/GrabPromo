@@ -40,6 +40,11 @@ final List<Map<String, dynamic>> promotionsThai = [
     "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
     "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
     "discount": 80
+  }, {
+    "promoName": "ป๊อปคอร์น ซิปล็อค 85 ออนซ์ 4 ถุง   ",
+    "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
+    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "discount": 80
   },
   {
     "promoName": "Almond Pretzel",
@@ -55,6 +60,11 @@ final List<Map<String, dynamic>> promotionsThai = [
   },
   {
     "promoName": "Almond Pretzel  ",
+    "name": "อานตี้ แอนส์",
+    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "discount": 80
+  },  {
+    "promoName": "Almond Pretzel   ",
     "name": "อานตี้ แอนส์",
     "imageUrl": "assets/food/Auntie Anne_s.jpg",
     "discount": 80
@@ -787,184 +797,184 @@ final List<Map<String, dynamic>> promotionsThai = [
     "imageUrl": "assets/food/Shinkanzen Sushi2.jpg",
     "discount": 45
   },
-  {
-    "promoName": "อิ่มอร่อยสุดคุ้ม A",
-    "name": "ยาโยอิ",
-    "imageUrl": "assets/food/Yayoi2.jpg",
-    "discount": 50
-  },
+  // {
+  //   "promoName": "อิ่มอร่อยสุดคุ้ม A",
+  //   "name": "ยาโยอิ",
+  //   "imageUrl": "assets/food/Yayoi2.jpg",
+  //   "discount": 50
+  // },
   {
     "promoName": "เมกา เซล ชุด 1",
     "name": "โปเตโต้ คอร์เนอร์",
     "imageUrl": "assets/food/Potato Corner2.jpg",
     "discount": 50
   },
-  {
-    "promoName": "เมกา เซล ชุด 2",
-    "name": "โปเตโต้ คอร์เนอร์",
-    "imageUrl": "assets/food/Potato Corner3.jpg",
-    "discount": 50
-  },
-  {
-    "promoName":
-        "ชิชิ โรล + เอบิ เทมปุระ + ชิราอุโอะ สลัด + เกี๊ยวซ่า + ฮิยาชิ วากาเมะ",
-    "name": "ชิชิ เจแปนนิส เรสเตอรองต์",
-    "imageUrl": "assets/food/Shichi.jpg",
-    "discount": 40
-  },
-  {
-    "promoName":
-        "แซลมอนซาชิมิ 500 กรัม + ฮิยาชิ วากาเมะ + คานิ สไปซี่ ทาทากิ + ข้าว 2 ที่",
-    "name": "ชิชิ เจแปนนิส เรสเตอรองต์",
-    "imageUrl": "assets/food/Shichi2.jpg",
-    "discount": 40
-  },
-  {
-    "promoName": "ซาบะ เบนโตะ ฟรี ข้าวหน้าไก่ป๊อบซอสเกาหลี",
-    "name": "โออิชิ คิทเช่น",
-    "imageUrl": "assets/food/Oishi Kitchen.jpg",
-    "discount": 43
-  },
-  {
-    "promoName": "แฮมแอนด์ชีส แซนด์วิช เพรตเซล 2 กล่อง ฟรี ชีซี่ ชิกเก้น ไบท์ส",
-    "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s3.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "กาแล็กซี่ คริสตัล (M) 2 แก้ว",
-    "name": "เอทีเอ็ม ที บาร์",
-    "imageUrl": "assets/food/ATM3.jpg",
-    "discount": 40
-  },
-  {
-    "promoName": "ดูไบมิลค์ช็อกโกแลต",
-    "name": "เดอะโรลลิ่งพิน",
-    "imageUrl": "assets/food/The Rolling Pinn.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "น้ำตกหมูคุโรบูตะสไลซ์",
-    "name": " ทองสมิทธ์",
-    "imageUrl": "assets/food/Thong Smith.jpg",
-    "discount": 15
-  },
-  {
-    "promoName":
-        "เคลียร์ มัทฉะ x โกโก้ (หรือ) มัทฉะ x ยูซุ (หรือ) กาแฟ x โกโก้ (หรือ) กาแฟ x ยูซุ",
-    "name": "มินิ โอเรียนทอล สปีดบาร์",
-    "imageUrl": "assets/food/mini.jpg",
-    "discount": 27
-  },
-  {
-    "promoName": "ข้าวราดแกง 2 อย่าง",
-    "name": "เจริญแกง",
-    "imageUrl": "assets/food/เจริญแกง.jpg",
-    "discount": 27
-  },
-  {
-    "promoName": "กาแฟส้ม",
-    "name": "รูทส์",
-    "imageUrl": "assets/food/Roots.jpg",
-    "discount": 39
-  },
-  {
-    "promoName": "ช็อกโกแลตกับเบอร์รี่",
-    "name": "รูทส์",
-    "imageUrl": "assets/food/Roots2.jpg",
-    "discount": 31
-  },
-  {
-    "promoName": "เลือกได้ตามใจ",
-    "name": "โยเล่",
-    "imageUrl": "assets/food/YOLE.jpg",
-    "discount": 62
-  },
-  {
-    "promoName": "ชาไทยเย็น",
-    "name": "ฉันจะกินชาเย็นทุกวัน",
-    "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
-    "discount": 42
-  },
-  {
-    "promoName": "สเลอปี้",
-    "name": "ฉันจะกินชาเย็นทุกวัน",
-    "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
-    "discount": 18
-  },
-  {
-    "promoName": "ชามะลิ",
-    "name": "มอลลี่ ที",
-    "imageUrl": "assets/food/Molly Tea.jpg",
-    "discount": 61
-  },
-  {
-    "promoName": "เส้นหมี่ไก่ฉีก",
-    "name": "เอมิลี่ไก่ฉีก",
-    "imageUrl": "assets/food/Emily.jpg",
-    "discount": 15
-  },
-  {
-    "promoName": "มาเทอเรียล เกิร์ล สมูทตี้",
-    "name": "โอ้ จู๊ซ",
-    "imageUrl": "assets/food/Oh! Juice.jpg",
-    "discount": 33
-  },
-  {
-    "promoName": "ดับเบิ้ลแบลคชานมหอมมะลิ",
-    "name": "ฟุกุมัทชะ",
-    "imageUrl": "assets/food/Fuku.jpg",
-    "discount": 34
-  },
-  {
-    "promoName": "ชีสทาร์ต",
-    "name": "ฮอลิเดย์ พาสทรี",
-    "imageUrl": "assets/food/Holiday Pastry.jpg",
-    "discount": 22
-  },
-  {
-    "promoName": "อเมริกาโน่เย็น",
-    "name": "1:2 คอฟฟี่",
-    "imageUrl": "assets/food/1_2 Coffee.jpg",
-    "discount": 18
-  },
-  {
-    "promoName": "ดูโอ สลัชชี่",
-    "name": "มอลโต้ เจลาโต้",
-    "imageUrl": "assets/food/MOLTO.jpg",
-    "discount": 53
-  },
-  {
-    "promoName": "ชุดแนชวิลล์ไก่ทอดออลสตาร์",
-    "name": "โซลชอน",
-    "imageUrl": "assets/food/Seoulchon.jpg",
-    "discount": 17
-  },
-  {
-    "promoName":
-        "ออล เบอรี่ แบง, แมงโก้ แมจิก, สตรอว์เบอร์รี่ สควีซ, บลูเบอร์รี่ บลาสท์, บานาน่า บัซ",
-    "name": "บูสท์จูซบาร์",
-    "imageUrl": "assets/food/Boost.jpg",
-    "discount": 19
-  },
-  {
-    "promoName": "ทองม้วนสด + ขนมชั้น",
-    "name": "แก้วบูทีค",
-    "imageUrl": "assets/food/Kaew Boutique.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "เกาเหลาหมาล่าหมู / เกาเหลาหมาล่าเนื้อ",
-    "name": "ฮอตพอตแมน",
-    "imageUrl": "assets/food/HOTPOT MAN.jpg",
-    "discount": 37
-  },
-  {
-    "promoName": "เซ็ตป้ายยา",
-    "name": "โยล์ค",
-    "imageUrl": "assets/food/Yolk.jpg",
-    "discount": 17
-  }
+  // {
+  //   "promoName": "เมกา เซล ชุด 2",
+  //   "name": "โปเตโต้ คอร์เนอร์",
+  //   "imageUrl": "assets/food/Potato Corner3.jpg",
+  //   "discount": 50
+  // },
+  // {
+  //   "promoName":
+  //       "ชิชิ โรล + เอบิ เทมปุระ + ชิราอุโอะ สลัด + เกี๊ยวซ่า + ฮิยาชิ วากาเมะ",
+  //   "name": "ชิชิ เจแปนนิส เรสเตอรองต์",
+  //   "imageUrl": "assets/food/Shichi.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName":
+  //       "แซลมอนซาชิมิ 500 กรัม + ฮิยาชิ วากาเมะ + คานิ สไปซี่ ทาทากิ + ข้าว 2 ที่",
+  //   "name": "ชิชิ เจแปนนิส เรสเตอรองต์",
+  //   "imageUrl": "assets/food/Shichi2.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName": "ซาบะ เบนโตะ ฟรี ข้าวหน้าไก่ป๊อบซอสเกาหลี",
+  //   "name": "โออิชิ คิทเช่น",
+  //   "imageUrl": "assets/food/Oishi Kitchen.jpg",
+  //   "discount": 43
+  // },
+  // {
+  //   "promoName": "แฮมแอนด์ชีส แซนด์วิช เพรตเซล 2 กล่อง ฟรี ชีซี่ ชิกเก้น ไบท์ส",
+  //   "name": "อานตี้ แอนส์",
+  //   "imageUrl": "assets/food/Auntie Anne_s3.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "กาแล็กซี่ คริสตัล (M) 2 แก้ว",
+  //   "name": "เอทีเอ็ม ที บาร์",
+  //   "imageUrl": "assets/food/ATM3.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName": "ดูไบมิลค์ช็อกโกแลต",
+  //   "name": "เดอะโรลลิ่งพิน",
+  //   "imageUrl": "assets/food/The Rolling Pinn.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "น้ำตกหมูคุโรบูตะสไลซ์",
+  //   "name": " ทองสมิทธ์",
+  //   "imageUrl": "assets/food/Thong Smith.jpg",
+  //   "discount": 15
+  // },
+  // {
+  //   "promoName":
+  //       "เคลียร์ มัทฉะ x โกโก้ (หรือ) มัทฉะ x ยูซุ (หรือ) กาแฟ x โกโก้ (หรือ) กาแฟ x ยูซุ",
+  //   "name": "มินิ โอเรียนทอล สปีดบาร์",
+  //   "imageUrl": "assets/food/mini.jpg",
+  //   "discount": 27
+  // },
+  // {
+  //   "promoName": "ข้าวราดแกง 2 อย่าง",
+  //   "name": "เจริญแกง",
+  //   "imageUrl": "assets/food/เจริญแกง.jpg",
+  //   "discount": 27
+  // },
+  // {
+  //   "promoName": "กาแฟส้ม",
+  //   "name": "รูทส์",
+  //   "imageUrl": "assets/food/Roots.jpg",
+  //   "discount": 39
+  // },
+  // {
+  //   "promoName": "ช็อกโกแลตกับเบอร์รี่",
+  //   "name": "รูทส์",
+  //   "imageUrl": "assets/food/Roots2.jpg",
+  //   "discount": 31
+  // },
+  // {
+  //   "promoName": "เลือกได้ตามใจ",
+  //   "name": "โยเล่",
+  //   "imageUrl": "assets/food/YOLE.jpg",
+  //   "discount": 62
+  // },
+  // {
+  //   "promoName": "ชาไทยเย็น",
+  //   "name": "ฉันจะกินชาเย็นทุกวัน",
+  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
+  //   "discount": 42
+  // },
+  // {
+  //   "promoName": "สเลอปี้",
+  //   "name": "ฉันจะกินชาเย็นทุกวัน",
+  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
+  //   "discount": 18
+  // },
+  // {
+  //   "promoName": "ชามะลิ",
+  //   "name": "มอลลี่ ที",
+  //   "imageUrl": "assets/food/Molly Tea.jpg",
+  //   "discount": 61
+  // },
+  // {
+  //   "promoName": "เส้นหมี่ไก่ฉีก",
+  //   "name": "เอมิลี่ไก่ฉีก",
+  //   "imageUrl": "assets/food/Emily.jpg",
+  //   "discount": 15
+  // },
+  // {
+  //   "promoName": "มาเทอเรียล เกิร์ล สมูทตี้",
+  //   "name": "โอ้ จู๊ซ",
+  //   "imageUrl": "assets/food/Oh! Juice.jpg",
+  //   "discount": 33
+  // },
+  // {
+  //   "promoName": "ดับเบิ้ลแบลคชานมหอมมะลิ",
+  //   "name": "ฟุกุมัทชะ",
+  //   "imageUrl": "assets/food/Fuku.jpg",
+  //   "discount": 34
+  // },
+  // {
+  //   "promoName": "ชีสทาร์ต",
+  //   "name": "ฮอลิเดย์ พาสทรี",
+  //   "imageUrl": "assets/food/Holiday Pastry.jpg",
+  //   "discount": 22
+  // },
+  // {
+  //   "promoName": "อเมริกาโน่เย็น",
+  //   "name": "1:2 คอฟฟี่",
+  //   "imageUrl": "assets/food/1_2 Coffee.jpg",
+  //   "discount": 18
+  // },
+  // {
+  //   "promoName": "ดูโอ สลัชชี่",
+  //   "name": "มอลโต้ เจลาโต้",
+  //   "imageUrl": "assets/food/MOLTO.jpg",
+  //   "discount": 53
+  // },
+  // {
+  //   "promoName": "ชุดแนชวิลล์ไก่ทอดออลสตาร์",
+  //   "name": "โซลชอน",
+  //   "imageUrl": "assets/food/Seoulchon.jpg",
+  //   "discount": 17
+  // },
+  // {
+  //   "promoName":
+  //       "ออล เบอรี่ แบง, แมงโก้ แมจิก, สตรอว์เบอร์รี่ สควีซ, บลูเบอร์รี่ บลาสท์, บานาน่า บัซ",
+  //   "name": "บูสท์จูซบาร์",
+  //   "imageUrl": "assets/food/Boost.jpg",
+  //   "discount": 19
+  // },
+  // {
+  //   "promoName": "ทองม้วนสด + ขนมชั้น",
+  //   "name": "แก้วบูทีค",
+  //   "imageUrl": "assets/food/Kaew Boutique.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "เกาเหลาหมาล่าหมู / เกาเหลาหมาล่าเนื้อ",
+  //   "name": "ฮอตพอตแมน",
+  //   "imageUrl": "assets/food/HOTPOT MAN.jpg",
+  //   "discount": 37
+  // },
+  // {
+  //   "promoName": "เซ็ตป้ายยา",
+  //   "name": "โยล์ค",
+  //   "imageUrl": "assets/food/Yolk.jpg",
+  //   "discount": 17
+  // }
 ];
 
 final List<Map<String, dynamic>> promotionsEnglish = [
@@ -1630,24 +1640,24 @@ final List<Map<String, dynamic>> promotionsEnglish = [
     "imageUrl": "assets/food/Elbasha.jpg",
     "discount": 40
   },
-  {
-    "promoName": "Mozzarella Beef Shawarma",
-    "name": "Elbasha Lebanese and Turkish Restaurant (Halal)",
-    "imageUrl": "assets/food/Elbasha2.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "Bonchon Wings + Kimchi Jjigae",
-    "name": "BonChon",
-    "imageUrl": "assets/food/BonChon3.jpg",
-    "discount": 40
-  },
-  {
-    "promoName": "Mega Value Set A",
-    "name": "MK Restaurants",
-    "imageUrl": "assets/food/MK.jpg",
-    "discount": 50
-  },
+  // {
+  //   "promoName": "Mozzarella Beef Shawarma",
+  //   "name": "Elbasha Lebanese and Turkish Restaurant (Halal)",
+  //   "imageUrl": "assets/food/Elbasha2.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "Bonchon Wings + Kimchi Jjigae",
+  //   "name": "BonChon",
+  //   "imageUrl": "assets/food/BonChon3.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName": "Mega Value Set A",
+  //   "name": "MK Restaurants",
+  //   "imageUrl": "assets/food/MK.jpg",
+  //   "discount": 50
+  // },
   {
     "promoName": "2 free 2 MILK TEA No.1 (M)",
     "name": "ATM Tea Bar",
@@ -1738,55 +1748,55 @@ final List<Map<String, dynamic>> promotionsEnglish = [
     "imageUrl": "assets/food/Royal.jpg",
     "discount": 50
   },
-  {
-    "promoName": "March Mega Feast",
-    "name": "Royal Pizza",
-    "imageUrl": "assets/food/Royal2.jpg",
-    "discount": 50
-  },
-  {
-    "promoName": "Pork Burger with Teriyaki Sauce",
-    "name": "Burger King",
-    "imageUrl": "assets/food/Burger King3.jpg",
-    "discount": 50
-  },
-  {
-    "promoName": "Spicy Fried Pork Belly Salad",
-    "name": "Bar B Q Plaza",
-    "imageUrl": "assets/food/BBQ2.jpg",
-    "discount": 31
-  },
-  {
-    "promoName": "Udon Set",
-    "name": "MAGURO Sushi",
-    "imageUrl": "assets/food/MAGURO.jpg",
-    "discount": 50
-  },
-  {
-    "promoName": "Hot Pan Salmon Steak (SET) + California Maki",
-    "name": "ZEN Restaurant",
-    "imageUrl": "assets/food/ZEN Restaurant2.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "Spicy Grilled Chicken + Fried Seafood Set + Coke",
-    "name": "Eat Am Are Good Steak",
-    "imageUrl": "assets/food/Eat Am Are2.jpg",
-    "discount": 40
-  },
-  {
-    "promoName": "Pork Holy Basil Rice or Chicken Holy Basil Rice",
-    "name": "KHIANG",
-    "imageUrl": "assets/food/KHIANG.jpg",
-    "discount": 40
-  },
-  {
-    "promoName":
-        "Chicken Karaage and Pickled Egg on Rice + Tempura Shrimp Roll with Sesame Salad + Crab Stick Salad",
-    "name": "Shinkanzen Sushi",
-    "imageUrl": "assets/food/Shinkanzen Sushi2.jpg",
-    "discount": 45
-  },
+  // {
+  //   "promoName": "March Mega Feast",
+  //   "name": "Royal Pizza",
+  //   "imageUrl": "assets/food/Royal2.jpg",
+  //   "discount": 50
+  // },
+  // {
+  //   "promoName": "Pork Burger with Teriyaki Sauce",
+  //   "name": "Burger King",
+  //   "imageUrl": "assets/food/Burger King3.jpg",
+  //   "discount": 50
+  // },
+  // {
+  //   "promoName": "Spicy Fried Pork Belly Salad",
+  //   "name": "Bar B Q Plaza",
+  //   "imageUrl": "assets/food/BBQ2.jpg",
+  //   "discount": 31
+  // },
+  // {
+  //   "promoName": "Udon Set",
+  //   "name": "MAGURO Sushi",
+  //   "imageUrl": "assets/food/MAGURO.jpg",
+  //   "discount": 50
+  // },
+  // {
+  //   "promoName": "Hot Pan Salmon Steak (SET) + California Maki",
+  //   "name": "ZEN Restaurant",
+  //   "imageUrl": "assets/food/ZEN Restaurant2.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "Spicy Grilled Chicken + Fried Seafood Set + Coke",
+  //   "name": "Eat Am Are Good Steak",
+  //   "imageUrl": "assets/food/Eat Am Are2.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName": "Pork Holy Basil Rice or Chicken Holy Basil Rice",
+  //   "name": "KHIANG",
+  //   "imageUrl": "assets/food/KHIANG.jpg",
+  //   "discount": 40
+  // },
+  // {
+  //   "promoName":
+  //       "Chicken Karaage and Pickled Egg on Rice + Tempura Shrimp Roll with Sesame Salad + Crab Stick Salad",
+  //   "name": "Shinkanzen Sushi",
+  //   "imageUrl": "assets/food/Shinkanzen Sushi2.jpg",
+  //   "discount": 45
+  // },
   {
     "promoName": "Mega Value Set A",
     "name": "Yayoi Japanese Restaurant",
@@ -1857,113 +1867,113 @@ final List<Map<String, dynamic>> promotionsEnglish = [
     "imageUrl": "assets/food/mini.jpg",
     "discount": 27
   },
-  {
-    "promoName": "Rice with 2 Curries",
-    "name": "Charoengang",
-    "imageUrl": "assets/food/เจริญแกง.jpg",
-    "discount": 27
-  },
-  {
-    "promoName": "Orange Tonic Coffee",
-    "name": "Roots",
-    "imageUrl": "assets/food/Roots.jpg",
-    "discount": 39
-  },
-  {
-    "promoName": "chocolate with mixed berries",
-    "name": "Roots",
-    "imageUrl": "assets/food/Roots2.jpg",
-    "discount": 31
-  },
-  {
-    "promoName": "Create Your Own Cup",
-    "name": "YOLE",
-    "imageUrl": "assets/food/YOLE.jpg",
-    "discount": 62
-  },
-  {
-    "promoName": "Iced Thai Tea",
-    "name": "ฉันจะกินชาเย็นทุกวัน",
-    "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
-    "discount": 42
-  },
-  {
-    "promoName": "Slurpee",
-    "name": "ฉันจะกินชาเย็นทุกวัน",
-    "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
-    "discount": 18
-  },
-  {
-    "promoName": "Premium Jasmine Milk Tea",
-    "name": "Molly Tea",
-    "imageUrl": "assets/food/Molly Tea.jpg",
-    "discount": 61
-  },
-  {
-    "promoName": "Pulled Chicken Noodles",
-    "name": "Emily’s Chicken Noodle",
-    "imageUrl": "assets/food/Emily.jpg",
-    "discount": 15
-  },
-  {
-    "promoName": "Material Girl Smoothie",
-    "name": "Oh! Juice",
-    "imageUrl": "assets/food/Oh! Juice.jpg",
-    "discount": 33
-  },
-  {
-    "promoName": "Double Black Jasmine Milk Tea",
-    "name": "Fuku Matcha",
-    "imageUrl": "assets/food/Fuku.jpg",
-    "discount": 34
-  },
-  {
-    "promoName": "The Best Cheeeese Tart",
-    "name": "Holiday Pastry",
-    "imageUrl": "assets/food/Holiday Pastry.jpg",
-    "discount": 22
-  },
-  {
-    "promoName": "Iced Americano",
-    "name": "1:2 Coffee",
-    "imageUrl": "assets/food/1_2 Coffee.jpg",
-    "discount": 18
-  },
-  {
-    "promoName": "Duo Slushie",
-    "name": "MOLTO GELATO",
-    "imageUrl": "assets/food/MOLTO.jpg",
-    "discount": 53
-  },
-  {
-    "promoName": "Nashville Fried Chicken All-Star Set",
-    "name": "Seoulchon",
-    "imageUrl": "assets/food/Seoulchon.jpg",
-    "discount": 17
-  },
-  {
-    "promoName":
-        "All Berry Bang, Mango Magic, Strawberry Squeeze, Blueberry Blast, Banana Buzz",
-    "name": "Boost Juice Bars",
-    "imageUrl": "assets/food/Boost.jpg",
-    "discount": 19
-  },
-  {
-    "promoName": "Fresh Thong Muan + Khanom Chan",
-    "name": "Kaew Boutique",
-    "imageUrl": "assets/food/Kaew Boutique.jpg",
-    "discount": 30
-  },
-  {
-    "promoName": "Mala Pork Soup / Mala Beef Soup",
-    "name": "HOTPOT Man",
-    "imageUrl": "assets/food/HOTPOT MAN.jpg",
-    "discount": 37
-  },
-  {
-    "promoName": "Happy Tart Set",
-    "name": "Yolk",
-    "imageUrl": "assets/food/Yolk.jpg",
-    "discount": 17
-  }
+  // {
+  //   "promoName": "Rice with 2 Curries",
+  //   "name": "Charoengang",
+  //   "imageUrl": "assets/food/เจริญแกง.jpg",
+  //   "discount": 27
+  // },
+  // {
+  //   "promoName": "Orange Tonic Coffee",
+  //   "name": "Roots",
+  //   "imageUrl": "assets/food/Roots.jpg",
+  //   "discount": 39
+  // },
+  // {
+  //   "promoName": "chocolate with mixed berries",
+  //   "name": "Roots",
+  //   "imageUrl": "assets/food/Roots2.jpg",
+  //   "discount": 31
+  // },
+  // {
+  //   "promoName": "Create Your Own Cup",
+  //   "name": "YOLE",
+  //   "imageUrl": "assets/food/YOLE.jpg",
+  //   "discount": 62
+  // },
+  // {
+  //   "promoName": "Iced Thai Tea",
+  //   "name": "ฉันจะกินชาเย็นทุกวัน",
+  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
+  //   "discount": 42
+  // },
+  // {
+  //   "promoName": "Slurpee",
+  //   "name": "ฉันจะกินชาเย็นทุกวัน",
+  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
+  //   "discount": 18
+  // },
+  // {
+  //   "promoName": "Premium Jasmine Milk Tea",
+  //   "name": "Molly Tea",
+  //   "imageUrl": "assets/food/Molly Tea.jpg",
+  //   "discount": 61
+  // },
+  // {
+  //   "promoName": "Pulled Chicken Noodles",
+  //   "name": "Emily’s Chicken Noodle",
+  //   "imageUrl": "assets/food/Emily.jpg",
+  //   "discount": 15
+  // },
+  // {
+  //   "promoName": "Material Girl Smoothie",
+  //   "name": "Oh! Juice",
+  //   "imageUrl": "assets/food/Oh! Juice.jpg",
+  //   "discount": 33
+  // },
+  // {
+  //   "promoName": "Double Black Jasmine Milk Tea",
+  //   "name": "Fuku Matcha",
+  //   "imageUrl": "assets/food/Fuku.jpg",
+  //   "discount": 34
+  // },
+  // {
+  //   "promoName": "The Best Cheeeese Tart",
+  //   "name": "Holiday Pastry",
+  //   "imageUrl": "assets/food/Holiday Pastry.jpg",
+  //   "discount": 22
+  // },
+  // {
+  //   "promoName": "Iced Americano",
+  //   "name": "1:2 Coffee",
+  //   "imageUrl": "assets/food/1_2 Coffee.jpg",
+  //   "discount": 18
+  // },
+  // {
+  //   "promoName": "Duo Slushie",
+  //   "name": "MOLTO GELATO",
+  //   "imageUrl": "assets/food/MOLTO.jpg",
+  //   "discount": 53
+  // },
+  // {
+  //   "promoName": "Nashville Fried Chicken All-Star Set",
+  //   "name": "Seoulchon",
+  //   "imageUrl": "assets/food/Seoulchon.jpg",
+  //   "discount": 17
+  // },
+  // {
+  //   "promoName":
+  //       "All Berry Bang, Mango Magic, Strawberry Squeeze, Blueberry Blast, Banana Buzz",
+  //   "name": "Boost Juice Bars",
+  //   "imageUrl": "assets/food/Boost.jpg",
+  //   "discount": 19
+  // },
+  // {
+  //   "promoName": "Fresh Thong Muan + Khanom Chan",
+  //   "name": "Kaew Boutique",
+  //   "imageUrl": "assets/food/Kaew Boutique.jpg",
+  //   "discount": 30
+  // },
+  // {
+  //   "promoName": "Mala Pork Soup / Mala Beef Soup",
+  //   "name": "HOTPOT Man",
+  //   "imageUrl": "assets/food/HOTPOT MAN.jpg",
+  //   "discount": 37
+  // },
+  // {
+  //   "promoName": "Happy Tart Set",
+  //   "name": "Yolk",
+  //   "imageUrl": "assets/food/Yolk.jpg",
+  //   "discount": 17
+  // }
 ];
