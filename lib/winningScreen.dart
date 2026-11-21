@@ -6,12 +6,12 @@ import 'package:grabpromogame/namesubmission.dart';
 import 'package:grabpromogame/util.dart';
 
 class WinningScreen extends StatefulWidget {
-  WinningScreen(this.collectedDiscounts, this.durationInSeconds,
+  const WinningScreen(this.collectedDiscounts, this.durationInSeconds,
       this.durationInMilliseconds,
       {super.key});
-  int collectedDiscounts;
-  int durationInSeconds;
-  int durationInMilliseconds;
+  final int collectedDiscounts;
+  final int durationInSeconds;
+  final int durationInMilliseconds;
 
   @override
   State<WinningScreen> createState() => _WinningScreenState();
@@ -25,9 +25,7 @@ class _WinningScreenState extends State<WinningScreen> {
     _controller =
         ConfettiController(duration: const Duration(milliseconds: 200));
     Future.delayed(const Duration(milliseconds: 200), () {
-      setState(() {
-        //_startConfetti();
-      });
+      if (mounted) _startConfetti();
     });
   }
 
@@ -45,7 +43,6 @@ class _WinningScreenState extends State<WinningScreen> {
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
-    _startConfetti();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -77,7 +74,7 @@ class _WinningScreenState extends State<WinningScreen> {
               ),
               SizedBox(height: screenHeight * 0.03),
               Text(
-                english ? "Congratulatons!" : 'ยินดีด้วย',
+                english ? "Congratulations!" : 'ยินดีด้วย',
                 style: TextStyle(
                     fontSize: screenWidth * 0.08, fontWeight: FontWeight.bold),
               ),

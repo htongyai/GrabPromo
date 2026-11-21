@@ -36,6 +36,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   int winningScore = 4;
   bool gameOver = false;
   Timer? _timer;
+  Timer? _countdownTimer;
   int _timeLeft = 30;
   Timestamp? startTime;
   Timestamp? endtime;
@@ -85,6 +86,11 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       }
     }
     return false;
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    if (mounted) super.setState(fn);
   }
 
   @override
@@ -253,7 +259,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         collectedShow = false;
-        sparkController.stop();
+        if (mounted) sparkController.stop();
         // showWrongSelectionGraphic = false;
         // selectedColor = Colors.white;
         //selectedRestaurants2.remove(restaurant.promoName);
@@ -289,18 +295,23 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
     _timeShakesController.dispose();
     sparkController.dispose();
     _timer?.cancel();
+    _countdownTimer?.cancel();
     super.dispose();
   }
 
   void startCountdownOverlay() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) {
+        timer.cancel();
+        return;
+      }
       if (_countdown > 1) {
         setState(() {
           _countdown--;
         });
       } else {
         timer.cancel();
-        player.play(AssetSource("sound/bgm.mp3"));
+        player.play(AssetSource("sound/bgm.mp3")).catchError((_) {});
         startTime = Timestamp.now();
         print(startTime);
         setState(() {
@@ -362,6 +373,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   }
 
   void checkWinCondition() {
+    if (gameOver) return;
     int durationInSeconds = 0;
     int durationInMilliseconds = 0;
     _showEndOverlay = true;
@@ -380,6 +392,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         durationInMilliseconds = duration.inMilliseconds;
       }
       Future.delayed(const Duration(milliseconds: 1000), () {
+        if (!mounted) return;
         setState(() {
           Navigator.pushReplacement(
               context,
@@ -393,6 +406,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
       });
     } else {
       Future.delayed(const Duration(milliseconds: 1000), () {
+        if (!mounted) return;
         setState(() {
           Navigator.pushReplacement(
               context,
@@ -437,7 +451,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   }
 
   void selectRestaurant(Restaurant restaurant) {
-    if (gameOver || selectedRestaurants.contains(restaurant.promoName)) return;
+    if (gameOver || _showCountdownOverlay || selectedRestaurants.contains(restaurant.promoName)) return;
     setState(() {
       selectedRestaurants.add(restaurant.promoName);
       selectedRestaurants2.add(restaurant.promoName);
@@ -472,6 +486,10 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
         startShake();
         _timeLeft = max(0, _timeLeft - 3);
         _startTimeShakesAnimation();
+        if (_timeLeft == 0) {
+          _timer?.cancel();
+          Future.microtask(checkWinCondition);
+        }
         // showWrongSelectionGraphic = true;
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
@@ -519,7 +537,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
-    final double progress = _timeLeft / 30;
+    final double progress = (_timeLeft / 30).clamp(0.0, 1.0);
     int selectedIndex = 0;
 
     return Scaffold(
@@ -556,6 +574,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                               isSelected && restaurant.discount == 80;
 
                           return GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               selectedIndex = index;
                               print(selectedIndex);
@@ -565,10 +584,39 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                             child: Container(
                               alignment: Alignment.center,
                               width: screenWidth * 0.8,
-                              margin:
-                                  EdgeInsets.only(top: screenHeight * 0.035),
-                              decoration:
-                                  const BoxDecoration(color: Colors.white),
+                              margin: EdgeInsets.only(
+                                  top: screenHeight * 0.018,
+                                  left: screenWidth * 0.04,
+                                  right: screenWidth * 0.04),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: screenHeight * 0.012),
+                              decoration: BoxDecoration(
+                                color: isSelected
+                                    ? (isCorrect
+                                        ? const Color.fromRGBO(
+                                            232, 250, 238, 1)
+                                        : const Color.fromRGBO(
+                                            253, 238, 236, 1))
+                                    : Colors.white,
+                                borderRadius: BorderRadius.circular(
+                                    screenWidth * 0.05),
+                                border: Border.all(
+                                    color: isSelected
+                                        ? (isCorrect
+                                            ? const Color.fromRGBO(
+                                                0, 177, 79, 1)
+                                            : const Color.fromRGBO(
+                                                229, 88, 75, 1))
+                                        : const Color.fromRGBO(
+                                            236, 236, 236, 1),
+                                    width: 3),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Color(0x14000000),
+                                      blurRadius: 12,
+                                      offset: Offset(0, 4)),
+                                ],
+                              ),
                               child: Center(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -588,7 +636,11 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                         child: Image.asset(restaurant.imageUrl,
                                             width: screenWidth * 0.25,
                                             height: screenWidth * 0.25,
-                                            fit: BoxFit.cover),
+                                            fit: BoxFit.cover,
+                                            errorBuilder: (_, __, ___) =>
+                                                Image.asset(
+                                                    'assets/placeholder.png',
+                                                    fit: BoxFit.cover)),
                                       ),
                                     ),
                                     SizedBox(
@@ -603,8 +655,10 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           SizedBox(
-                                            width: screenWidth * 0.6,
+                                            width: screenWidth * 0.52,
                                             child: Text(restaurant.promoName,
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
                                                     fontSize:
                                                         screenWidth * 0.035,
@@ -612,7 +666,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                                                         FontWeight.bold)),
                                           ),
                                           SizedBox(
-                                            width: screenWidth * 0.6,
+                                            width: screenWidth * 0.52,
                                             child: Text(restaurant.name,
                                                 style: TextStyle(
                                                     fontSize:
@@ -753,7 +807,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                     if (_showCountdownOverlay)
                       Positioned.fill(
                         child: Container(
-                          color: Colors.white.withOpacity(0.8),
+                          color: Colors.white.withValues(alpha: 0.85),
                           child: Center(
                             child: Image.asset(
                               'assets/$_countdown.png',
@@ -776,7 +830,7 @@ class _PromoSelectionGameState extends State<PromoSelectionGame>
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
+                          color: Colors.black.withValues(alpha: 0.25),
                           offset: const Offset(0, 4),
                           blurRadius: 80,
                         ),

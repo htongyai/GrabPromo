@@ -60,59 +60,45 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
   }
 
   void _submitName() async {
-    setState(() {
-      _loading = true;
-    });
-    String playerSessionID = _nameController.text + DateTime.now().toString();
-    if (_nameController.text.isNotEmpty) {
+    final name = _nameController.text.trim();
+    if (name.isEmpty || _loading) return;
+    setState(() => _loading = true);
+    final String playerSessionID =
+        '${name.replaceAll('/', '')}${DateTime.now()}';
+    final entry = {
+      'playerSessionID': playerSessionID,
+      'name': name,
+      'score': widget.score,
+      'durationS': widget.durationInSeconds,
+      'durationMs': widget.durationInMilliseconds,
+    };
+    localScores.add(entry);
+    int passingScore = widget.score;
+    if (firebaseReady) {
       try {
         await FirebaseFirestore.instance
             .collection('testLeaderboard2')
             .doc(playerSessionID)
-            .set({
-          'playerSessionID': playerSessionID,
-          'name': _nameController.text,
-          'score': widget.score, // Example score, replace with actual score
-          'timestamp': FieldValue.serverTimestamp(),
-          'durationS': widget.durationInSeconds,
-          'durationMs': widget.durationInMilliseconds
-        }).then((_) {
-          updateHighScore(widget.score).then((passingScore) {
-            Future.delayed(const Duration(milliseconds: 2000), () {
-              if (mounted) {
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LeaderboardScreen(
-                        highScore: passingScore,
-                        playerSessionID: playerSessionID,
-                      ),
-                    ),
-                  );
-                });
-              }
-            });
-          });
-        });
+            .set({...entry, 'timestamp': FieldValue.serverTimestamp()})
+            .timeout(const Duration(seconds: 6));
+        passingScore = await updateHighScore(widget.score)
+            .timeout(const Duration(seconds: 6), onTimeout: () => widget.score);
       } catch (error) {
-        debugPrint("Firestore Error: $error");
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Failed to save data: $error"),
-            backgroundColor: Colors.red,
-          ),
-        );
+        // Offline: fall back to the session-local leaderboard.
+        debugPrint("Firestore Error, using local leaderboard: $error");
+        firebaseReady = false;
       }
     }
-    // else {
-    //   // ScaffoldMessenger.of(context).showSnackBar(
-    //   //   const SnackBar(
-    //   //     content: Text("Name cannot be empty!"),
-    //   //     backgroundColor: Colors.orange,
-    //   //   ),
-    //   // );
-    // }
+    if (!mounted) return;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LeaderboardScreen(
+          highScore: passingScore,
+          playerSessionID: playerSessionID,
+        ),
+      ),
+    );
   }
 
   @override
@@ -142,7 +128,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                       ),
                       Text(
                         english
-                            ? 'Please Enter your name'
+                            ? 'Please enter your name'
                             : 'โปรดระบุชื่อของคุณ',
                         style: TextStyle(
                             fontSize: screenWidth * 0.06,
@@ -162,13 +148,20 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                       TextField(
                         maxLines: 1,
                         maxLength: 6,
+                        autofocus: true,
+                        textCapitalization: TextCapitalization.characters,
+                        onSubmitted: (_) => _submitName(),
                         controller: _nameController,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: screenWidth * 0.08,
                             fontWeight: FontWeight.bold),
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: InputBorder.none,
+                          counterText: '',
+                          hintText: english ? 'NAME' : 'ชื่อ',
+                          hintStyle: const TextStyle(
+                              color: Color.fromRGBO(210, 210, 210, 1)),
                         ),
                       ),
                       Padding(
@@ -193,8 +186,8 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                             _submitName();
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text("Name cannot be empty!"),
+                              SnackBar(
+                                content: Text(english ? "Please enter your name" : "กรุณาระบุชื่อ"),
                                 backgroundColor: Colors.orange,
                               ),
                             );
@@ -233,7 +226,9 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
                               String text = _nameController.text;
     
     if (a.keyType == VirtualKeyboardKeyType.String) {
-        if (_nameController.text.isEmpty) {
+        if (text.length >= 6) {
+          // respect the 6-character limit
+        } else if (_nameController.text.isEmpty) {
                             a.capsText;
 
                             _nameController.text +=
@@ -249,6 +244,7 @@ class _NameSubmissionScreenState extends State<NameSubmissionScreen> {
       // Handle backspace
       if (text.isNotEmpty) {
         _nameController.text = text.substring(0, text.length - 1);
+        if (_nameController.text.isEmpty) caps = true;
       }
     }
 

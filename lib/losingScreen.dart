@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grabpromogame/Start_page.dart';
 import 'package:grabpromogame/util.dart';
 
 class LosingScreen extends StatelessWidget {
@@ -123,7 +122,7 @@ class LosingScreen extends StatelessWidget {
                       Text(
                         english
                             ? "We have a consolation prize for you!"
-                            : 'ไม่เป็นเรามีรางวัลปลอบใจให้คุณนะ!',
+                            : 'ไม่เป็นไร เรามีรางวัลปลอบใจให้คุณนะ!',
                         style: TextStyle(
                             fontSize: english
                                 ? screenWidth * 0.035
@@ -149,7 +148,7 @@ class LosingScreen extends StatelessWidget {
               reloadApp(context);
             },
             child: Text(
-              english ? "Back start" : 'กลับสู่หน้าแรก',
+              english ? "Back to Home" : 'กลับสู่หน้าแรก',
               style:
                   TextStyle(fontSize: screenWidth * 0.06, color: Colors.white),
             ),

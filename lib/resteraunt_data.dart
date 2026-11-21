@@ -26,47 +26,47 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ป๊อปคอร์น ซิปล็อค 85 ออนซ์ 4 ถุง",
     "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "ป๊อปคอร์น ซิปล็อค 85 ออนซ์ 4 ถุง ",
     "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "ป๊อปคอร์น ซิปล็อค 85 ออนซ์ 4 ถุง  ",
     "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   }, {
     "promoName": "ป๊อปคอร์น ซิปล็อค 85 ออนซ์ 4 ถุง   ",
     "name": "ป๊อปคอร์น เมเจอร์ ซีนีเพล็กซ์",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel",
     "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel ",
     "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel  ",
     "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },  {
     "promoName": "Almond Pretzel   ",
     "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
@@ -85,32 +85,32 @@ final List<Map<String, dynamic>> promotionsThai = [
     "promoName":
         "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เฟรนช์ฟรายส์ขนาดเล็ก + โค้ก 16 ออนซ์",
     "name": "เบอร์เกอร์ คิง",
-    "imageUrl": "assets/food/Burger King.jpg",
+    "imageUrl": "assets/food/Burger_King.jpg",
     "discount": 80
   },
   {
     "promoName": "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เบอร์เกอร์หมู ซอสเทริยากิ",
     "name": "เบอร์เกอร์ คิง",
-    "imageUrl": "assets/food/Burger King2.jpg",
+    "imageUrl": "assets/food/Burger_King2.jpg",
     "discount": 60
   },
   {
     "promoName": "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เบอร์เกอร์หมู ซอสเทริยากิ ",
     "name": "เบอร์เกอร์ คิง",
-    "imageUrl": "assets/food/Burger King2.jpg",
+    "imageUrl": "assets/food/Burger_King2.jpg",
     "discount": 60
   },
   {
     "promoName":
         "เบอร์เกอร์ไก่กรอบ ซอสบาร์บีคิว + เบอร์เกอร์หมู ซอสเทริยากิ   ",
     "name": "เบอร์เกอร์ คิง",
-    "imageUrl": "assets/food/Burger King2.jpg",
+    "imageUrl": "assets/food/Burger_King2.jpg",
     "discount": 60
   },
   {
     "promoName": "ซูชิ 1 ชิ้น",
     "name": "ชินคันเซ็น ซูชิ",
-    "imageUrl": "assets/food/Shinkanzen Sushi.jpg",
+    "imageUrl": "assets/food/Shinkanzen_Sushi.jpg",
     "discount": 60
   },
   {
@@ -128,13 +128,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ชุดข้าวแช่ + ข้าวเหนียวมะม่วง",
     "name": "เอส แอนด์ พี",
-    "imageUrl": "assets/food/S&P1.jpg",
+    "imageUrl": "assets/food/S_P1.jpg",
     "discount": 27
   },
   {
     "promoName": "ข้าวพร้อมกับข้าว 3 อย่าง + น้ำ",
     "name": "เอส แอนด์ พี",
-    "imageUrl": "assets/food/S&P2.jpg",
+    "imageUrl": "assets/food/S_P2.jpg",
     "discount": 37
   },
   {
@@ -146,19 +146,19 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ฮัท 1 ฟรี 1 ไก่นิวออร์ลีนส์",
     "name": "พิซซ่าฮัท",
-    "imageUrl": "assets/food/Pizza Hut.jpg",
+    "imageUrl": "assets/food/Pizza_Hut.jpg",
     "discount": 62
   },
   {
     "promoName": "ช็อกโกแลต โดนัท 6 ชิ้น",
     "name": "มิสเตอร์ โดนัท",
-    "imageUrl": "assets/food/Mister Donut.jpg",
+    "imageUrl": "assets/food/Mister_Donut.jpg",
     "discount": 60
   },
   {
     "promoName": "เมก้าชีสสติ๊ก 3 ชิ้น & เฟรนช์ฟราย",
     "name": "โปเตโต้ คอร์เนอร์",
-    "imageUrl": "assets/food/Potato Corner.jpg",
+    "imageUrl": "assets/food/Potato_Corner.jpg",
     "discount": 23
   },
   {
@@ -170,7 +170,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "คอหมูย่าง + ข้าวเหนียว",
     "name": "เจ๊แดงสามย่าน ส้มตำ คอหมูย่าง",
-    "imageUrl": "assets/food/เจ๊แดงสามย่าน.jpg",
+    "imageUrl": "assets/food/th_eca8fe06.jpg",
     "discount": 47
   },
   {
@@ -188,7 +188,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "1 แถม 1 บลิซซาร์ด® ไซส์ควอท",
     "name": "แดรี่ ควีน",
-    "imageUrl": "assets/food/Dairy Queen.jpg",
+    "imageUrl": "assets/food/Dairy_Queen.jpg",
     "discount": 56
   },
   {
@@ -206,38 +206,38 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "สปาเก็ตตี้คาโบนาร่า+โค้ก",
     "name": "อีท แอม อา",
-    "imageUrl": "assets/food/Eat am are.jpg",
+    "imageUrl": "assets/food/Eat_am_are.jpg",
     "discount": 50
   },
   {
     "promoName": "ราเมงต้นตำรับ",
     "name": "เอ ราเมงข้อสอบ",
-    "imageUrl": "assets/food/A Ramen.jpg",
+    "imageUrl": "assets/food/A_Ramen.jpg",
     "discount": 25
   },
   {
     "promoName": "ซื้อ 2 แก้ว แถม 1 ขวด",
     "name": "กาแฟพันธุ์ไทย",
-    "imageUrl": "assets/food/กาแฟพันธุ์ไทย.jpg",
+    "imageUrl": "assets/food/th_363c647f.jpg",
     "discount": 50
   },
   {
     "promoName": "ทาโก้ซูพรีมแป้งกรอบ",
     "name": "ทาโก้เบลล์",
-    "imageUrl": "assets/food/Taco Bell.jpg",
+    "imageUrl": "assets/food/Taco_Bell.jpg",
     "discount": 67
   },
   {
     "promoName": "1 ฟรี 1 เครปหมูหย็องแฮมพริกเผา ฟรี ชาข้าวหอม",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe.jpg",
+    "imageUrl": "assets/food/Olino_Crepe.jpg",
     "discount": 35
   },
   {
     "promoName":
         "1 แถม 1 ข้าวผัดกระเทียมเนื้อริบอายพ่นไฟ XL แถม ข้าวหน้าเนื้อริบอายพ่นไฟ M",
     "name": "คุ้มสึ",
-    "imageUrl": "assets/food/คุ้มสึ.jpg",
+    "imageUrl": "assets/food/th_015d5097.jpg",
     "discount": 42
   },
   {
@@ -267,7 +267,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ชุดอิ่มครบมื้อ 1",
     "name": "ห้าดาว",
-    "imageUrl": "assets/food/Five star2.jpg",
+    "imageUrl": "assets/food/Five_star2.jpg",
     "discount": 23
   },
   {
@@ -285,7 +285,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "บลิซซาร์ด® ไซส์ S 3 ถ้วย",
     "name": "แดรี่ ควีน",
-    "imageUrl": "assets/food/Dairy Queen2.jpg",
+    "imageUrl": "assets/food/Dairy_Queen2.jpg",
     "discount": 43
   },
   {
@@ -315,25 +315,25 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ข้าวเปปเปอร์หมู",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch.jpg",
     "discount": 50
   },
   {
     "promoName": "ห้าดาวซิกเนเจอร์ เซต 1",
     "name": "ห้าดาว",
-    "imageUrl": "assets/food/Five Star.jpg",
+    "imageUrl": "assets/food/Five_Star.jpg",
     "discount": 50
   },
   {
     "promoName": "ทาโก้แป้งนุ่มไก่บด + กริลเลอร์สอดไส้ไก่บด",
     "name": "ทาโก้เบลล์",
-    "imageUrl": "assets/food/Taco Bell2.jpg",
+    "imageUrl": "assets/food/Taco_Bell2.jpg",
     "discount": 54
   },
   {
     "promoName": "สลัดอกไก่ย่างงาญี่ปุ่น",
     "name": "สลัดแฟคทอรี่",
-    "imageUrl": "assets/food/Salad Factory.jpg",
+    "imageUrl": "assets/food/Salad_Factory.jpg",
     "discount": 42
   },
   {
@@ -345,7 +345,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ข้าวหน้าปลาแซลมอน",
     "name": "โคเอ็น ซูชิ บาร์",
-    "imageUrl": "assets/food/Kouen Sushi Bar.jpg",
+    "imageUrl": "assets/food/Kouen_Sushi_Bar.jpg",
     "discount": 24
   },
   {
@@ -357,7 +357,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "เมลทส์ + ฟรายส์",
     "name": "พิซซ่าฮัท",
-    "imageUrl": "assets/food/Pizza Hut2.jpg",
+    "imageUrl": "assets/food/Pizza_Hut2.jpg",
     "discount": 44
   },
   {
@@ -393,7 +393,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ปลาแซลมอนย่างซีอิ๊ว / เกลือ",
     "name": "เซ็น เรสเตอร์รองท์",
-    "imageUrl": "assets/food/ZEN Restaurant.jpg",
+    "imageUrl": "assets/food/ZEN_Restaurant.jpg",
     "discount": 27
   },
   {
@@ -423,32 +423,32 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ชาข้าวหอม On the Go 10 ขวด",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe2.jpg",
+    "imageUrl": "assets/food/Olino_Crepe2.jpg",
     "discount": 58
   },
   {
     "promoName": "ชาข้าวหอม On the Go 7 ขวด",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe3.jpg",
+    "imageUrl": "assets/food/Olino_Crepe3.jpg",
     "discount": 52
   },
   {
     "promoName": "2 ฟรี 2 สวิสโกโก้ดาร์กเกอร์ 2 แก้ว + โคคุโตะเฟรชมิลค์ 2 แก้ว",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe4.jpg",
+    "imageUrl": "assets/food/Olino_Crepe4.jpg",
     "discount": 50
   },
   {
     "promoName": "ชาข้าวหอมลำไยครีมชีส",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe5.jpg",
+    "imageUrl": "assets/food/Olino_Crepe5.jpg",
     "discount": 34
   },
   {
     "promoName":
         "1 ฟรี 3 ชาอู่หลงข้าวหอมพรีเมียม ตรา โอลิโนะ ฟรี ชาข้าวหอม OTG 3 ขวด",
     "name": "โอลิโนะ เครปชา",
-    "imageUrl": "assets/food/Olino Crepe6.jpg",
+    "imageUrl": "assets/food/Olino_Crepe6.jpg",
     "discount": 30
   },
   {
@@ -460,20 +460,20 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "สเต๊กคูโรบูตะพอร์คช้อป ซอสพริกไทยดำ ผักโขม + ซุปเห็ด",
     "name": "ซานตา เฟ่ สเต๊ก",
-    "imageUrl": "assets/food/Santa Fe.jpg",
+    "imageUrl": "assets/food/Santa_Fe.jpg",
     "discount": 44
   },
   {
     "promoName": "ดับเบิ้ลสเต๊กไก่",
     "name": "ซานตา เฟ่ สเต๊ก",
-    "imageUrl": "assets/food/Santa Fe2.jpg",
+    "imageUrl": "assets/food/Santa_Fe2.jpg",
     "discount": 50
   },
   {
     "promoName":
         "สปาเก็ตตี้เบคอนและเห็ดครีมซอส + ข้าวญี่ปุ่นสเต๊กไก่ ซอสแจ่ว+ชามะนาว 2 แก้ว",
     "name": "ซานตา เฟ่ สเต๊ก",
-    "imageUrl": "assets/food/Santa Fe3.jpg",
+    "imageUrl": "assets/food/Santa_Fe3.jpg",
     "discount": 46
   },
   {
@@ -498,32 +498,32 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ข้าวเปปเปอร์หมู + ซุปมิโซะ + ชาเขียวเย็น",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch3.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch3.jpg",
     "discount": 31
   },
   {
     "promoName": "เฟรนช์ฟรายส์บาร์บิคิวชีส",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch4.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch4.jpg",
     "discount": 45
   },
   {
     "promoName":
         "ยากินุกุหมูและไข่ พร้อมข้าว + ข้าวเปปเปอร์หมู + หอมทอด + ชาเขียวเย็น 2 แก้ว",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch5.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch5.jpg",
     "discount": 31
   },
   {
     "promoName": "พาสต้าเบคอนพริกแห้ง + ชาเขียวเย็น",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch6.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch6.jpg",
     "discount": 33
   },
   {
     "promoName": "หอมทอด + เฟรนช์ฟรายส์บาร์บีคิวชีส + สลัดไก่ย่าง",
     "name": "เปปเปอร์ ลันช์",
-    "imageUrl": "assets/food/Pepper Lunch7.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch7.jpg",
     "discount": 33
   },
   {
@@ -541,19 +541,19 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ข้าวหน้าแซลมอนดิบหั่นเต๋า ไข่ดอง",
     "name": "คิโระ ซูชิ",
-    "imageUrl": "assets/food/Kiiro Sushi.jpg",
+    "imageUrl": "assets/food/Kiiro_Sushi.jpg",
     "discount": 40
   },
   {
     "promoName": "เบนโตะ แซลมอนย่าง สไปซี่",
     "name": "คิโระ ซูชิ",
-    "imageUrl": "assets/food/Kiiro Sushi2.jpg",
+    "imageUrl": "assets/food/Kiiro_Sushi2.jpg",
     "discount": 50
   },
   {
     "promoName": "เพรทเซลชีส + ชีสซี่ชิคเก้นไบท์ + อัลมอนด์สติ๊ก",
     "name": "อานตี้ แอนส์",
-    "imageUrl": "assets/food/Auntie Anne_s2.jpg",
+    "imageUrl": "assets/food/Auntie_Anne_s2.jpg",
     "discount": 32
   },
   {
@@ -577,44 +577,44 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ปาร์ตี้โดนัท 8 ฟรี 8",
     "name": "มิสเตอร์ โดนัท",
-    "imageUrl": "assets/food/Mister Donut2.jpg",
+    "imageUrl": "assets/food/Mister_Donut2.jpg",
     "discount": 50
   },
   {
     "promoName": "ช็อกโกแลต โดนัท 10 ชิ้น",
     "name": "มิสเตอร์ โดนัท",
-    "imageUrl": "assets/food/Mister Donut3.jpg",
+    "imageUrl": "assets/food/Mister_Donut3.jpg",
     "discount": 40
   },
   {
     "promoName": "ข้าวด้งเนื้อแองกัสย่างไฟ + ยำปูอัด",
     "name": "ข้าวด้ง",
-    "imageUrl": "assets/food/Khao Don.jpg",
+    "imageUrl": "assets/food/Khao_Don.jpg",
     "discount": 46
   },
   {
     "promoName": "ข้าวด้งหมูย่างไฟ + เกี๊ยวซ่าหมู",
     "name": "ข้าวด้ง",
-    "imageUrl": "assets/food/Khao Don2.jpg",
+    "imageUrl": "assets/food/Khao_Don2.jpg",
     "discount": 41
   },
   {
     "promoName": "ข้าวด้งหมูย่างไฟ + ข้าวด้งหมูผัดซอสโคชูจังเกาหลี + ยำปูอัด",
     "name": "ข้าวด้ง",
-    "imageUrl": "assets/food/Khao Don3.jpg",
+    "imageUrl": "assets/food/Khao_Don3.jpg",
     "discount": 50
   },
   {
     "promoName": "ข้าวหมูย่างยากินิคุ + ข้าวด้งหมูผัดกิมจิ + ซุปมิโซะ 2 ถ้วย",
     "name": "ข้าวด้ง",
-    "imageUrl": "assets/food/Khao Don4.jpg",
+    "imageUrl": "assets/food/Khao_Don4.jpg",
     "discount": 45
   },
   {
     "promoName":
         "ข้าวหน้าเนื้อวากิวย่างยากินิคุ + ข้าวด้งหมูผัดซอสโคชูจังเกาหลี + ข้าวเบคอนรมควันย่างยากินิคุ + เกี๊ยวซ่าหมู",
     "name": "ข้าวด้ง",
-    "imageUrl": "assets/food/Khao Don5.jpg",
+    "imageUrl": "assets/food/Khao_Don5.jpg",
     "discount": 40
   },
   {
@@ -722,19 +722,19 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "1 แถม 1 เครื่องดื่มเย็น",
     "name": "เอส แอนด์ พี",
-    "imageUrl": "assets/food/S&P3.jpg",
+    "imageUrl": "assets/food/S_P3.jpg",
     "discount": 50
   },
   {
     "promoName": "ชุดพายคละรส 5 ชิ้น",
     "name": "เอส แอนด์ พี",
-    "imageUrl": "assets/food/S&P5.jpg",
+    "imageUrl": "assets/food/S_P5.jpg",
     "discount": 15
   },
   {
     "promoName": "ปาร์ตี้เซ็ท",
     "name": "ออน เดอะ เทเบิล",
-    "imageUrl": "assets/food/On the table.jpg",
+    "imageUrl": "assets/food/On_the_table.jpg",
     "discount": 50
   },
   {
@@ -758,7 +758,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "เบอร์เกอร์หมู ซอสเทอริยากิ",
     "name": "เบอร์เกอร์ คิง",
-    "imageUrl": "assets/food/Burger King3.jpg",
+    "imageUrl": "assets/food/Burger_King3.jpg",
     "discount": 50
   },
   {
@@ -776,13 +776,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "สเต๊กปลาแซลมอนกระทะร้อน (SET) + แคลิฟอร์เนียมากิ",
     "name": "เซ็น เรสเตอร์รองท์",
-    "imageUrl": "assets/food/ZEN Restaurant2.jpg",
+    "imageUrl": "assets/food/ZEN_Restaurant2.jpg",
     "discount": 30
   },
   {
     "promoName": "ไก่ย่างสไปซี่ + ชุดซีฟู้ดทอด + โค้ก",
     "name": "อีท แอม อา",
-    "imageUrl": "assets/food/Eat Am Are2.jpg",
+    "imageUrl": "assets/food/Eat_Am_Are2.jpg",
     "discount": 40
   },
   {
@@ -794,7 +794,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "ข้าวหน้าไก่คาราเกะ ไข่ดอง + โรลกุ้งเทมปุระสลัดงา + ยำปูอัด",
     "name": "ชินคันเซ็น ซูชิ",
-    "imageUrl": "assets/food/Shinkanzen Sushi2.jpg",
+    "imageUrl": "assets/food/Shinkanzen_Sushi2.jpg",
     "discount": 45
   },
   // {
@@ -806,13 +806,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   {
     "promoName": "เมกา เซล ชุด 1",
     "name": "โปเตโต้ คอร์เนอร์",
-    "imageUrl": "assets/food/Potato Corner2.jpg",
+    "imageUrl": "assets/food/Potato_Corner2.jpg",
     "discount": 50
   },
   // {
   //   "promoName": "เมกา เซล ชุด 2",
   //   "name": "โปเตโต้ คอร์เนอร์",
-  //   "imageUrl": "assets/food/Potato Corner3.jpg",
+  //   "imageUrl": "assets/food/Potato_Corner3.jpg",
   //   "discount": 50
   // },
   // {
@@ -832,13 +832,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ซาบะ เบนโตะ ฟรี ข้าวหน้าไก่ป๊อบซอสเกาหลี",
   //   "name": "โออิชิ คิทเช่น",
-  //   "imageUrl": "assets/food/Oishi Kitchen.jpg",
+  //   "imageUrl": "assets/food/Oishi_Kitchen.jpg",
   //   "discount": 43
   // },
   // {
   //   "promoName": "แฮมแอนด์ชีส แซนด์วิช เพรตเซล 2 กล่อง ฟรี ชีซี่ ชิกเก้น ไบท์ส",
   //   "name": "อานตี้ แอนส์",
-  //   "imageUrl": "assets/food/Auntie Anne_s3.jpg",
+  //   "imageUrl": "assets/food/Auntie_Anne_s3.jpg",
   //   "discount": 30
   // },
   // {
@@ -850,13 +850,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ดูไบมิลค์ช็อกโกแลต",
   //   "name": "เดอะโรลลิ่งพิน",
-  //   "imageUrl": "assets/food/The Rolling Pinn.jpg",
+  //   "imageUrl": "assets/food/The_Rolling_Pinn.jpg",
   //   "discount": 30
   // },
   // {
   //   "promoName": "น้ำตกหมูคุโรบูตะสไลซ์",
   //   "name": " ทองสมิทธ์",
-  //   "imageUrl": "assets/food/Thong Smith.jpg",
+  //   "imageUrl": "assets/food/Thong_Smith.jpg",
   //   "discount": 15
   // },
   // {
@@ -869,7 +869,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ข้าวราดแกง 2 อย่าง",
   //   "name": "เจริญแกง",
-  //   "imageUrl": "assets/food/เจริญแกง.jpg",
+  //   "imageUrl": "assets/food/th_9052277c.jpg",
   //   "discount": 27
   // },
   // {
@@ -893,19 +893,19 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ชาไทยเย็น",
   //   "name": "ฉันจะกินชาเย็นทุกวัน",
-  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
+  //   "imageUrl": "assets/food/th_f4198881.jpg",
   //   "discount": 42
   // },
   // {
   //   "promoName": "สเลอปี้",
   //   "name": "ฉันจะกินชาเย็นทุกวัน",
-  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
+  //   "imageUrl": "assets/food/th_f2f4fd2d.jpg",
   //   "discount": 18
   // },
   // {
   //   "promoName": "ชามะลิ",
   //   "name": "มอลลี่ ที",
-  //   "imageUrl": "assets/food/Molly Tea.jpg",
+  //   "imageUrl": "assets/food/Molly_Tea.jpg",
   //   "discount": 61
   // },
   // {
@@ -917,7 +917,7 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "มาเทอเรียล เกิร์ล สมูทตี้",
   //   "name": "โอ้ จู๊ซ",
-  //   "imageUrl": "assets/food/Oh! Juice.jpg",
+  //   "imageUrl": "assets/food/Oh_Juice.jpg",
   //   "discount": 33
   // },
   // {
@@ -929,13 +929,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ชีสทาร์ต",
   //   "name": "ฮอลิเดย์ พาสทรี",
-  //   "imageUrl": "assets/food/Holiday Pastry.jpg",
+  //   "imageUrl": "assets/food/Holiday_Pastry.jpg",
   //   "discount": 22
   // },
   // {
   //   "promoName": "อเมริกาโน่เย็น",
   //   "name": "1:2 คอฟฟี่",
-  //   "imageUrl": "assets/food/1_2 Coffee.jpg",
+  //   "imageUrl": "assets/food/1_2_Coffee.jpg",
   //   "discount": 18
   // },
   // {
@@ -960,13 +960,13 @@ final List<Map<String, dynamic>> promotionsThai = [
   // {
   //   "promoName": "ทองม้วนสด + ขนมชั้น",
   //   "name": "แก้วบูทีค",
-  //   "imageUrl": "assets/food/Kaew Boutique.jpg",
+  //   "imageUrl": "assets/food/Kaew_Boutique.jpg",
   //   "discount": 30
   // },
   // {
   //   "promoName": "เกาเหลาหมาล่าหมู / เกาเหลาหมาล่าเนื้อ",
   //   "name": "ฮอตพอตแมน",
-  //   "imageUrl": "assets/food/HOTPOT MAN.jpg",
+  //   "imageUrl": "assets/food/HOTPOT_MAN.jpg",
   //   "discount": 37
   // },
   // {
@@ -1005,49 +1005,49 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Popcorn (85 oz) – 4 Bags",
     "name": "Popcorn Major Cineplex",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "Popcorn (85 oz) – 4 Bags ",
     "name": "Popcorn Major Cineplex",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "Popcorn (85 oz) – 4 Bags  ",
     "name": "Popcorn Major Cineplex",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "Popcorn (85 oz) – 4 Bags   ",
     "name": "Popcorn Major Cineplex",
-    "imageUrl": "assets/food/Popcorn Major Cineplex.jpg",
+    "imageUrl": "assets/food/Popcorn_Major_Cineplex.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel ",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel  ",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
     "promoName": "Almond Pretzel   ",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s.jpg",
     "discount": 80
   },
   {
@@ -1066,46 +1066,46 @@ final List<Map<String, dynamic>> promotionsEnglish = [
     "promoName":
         "Crispy Chicken Burger with BBQ Sauce + Small French Fries + Coke (16 oz)",
     "name": "Burger King",
-    "imageUrl": "assets/food/Burger King.jpg",
+    "imageUrl": "assets/food/Burger_King.jpg",
     "discount": 80
   },
   {
     "promoName":
         "Crispy Chicken Burger with BBQ Sauce + Small French Fries + Coke (16 oz) ",
     "name": "Burger King",
-    "imageUrl": "assets/food/Burger King.jpg",
+    "imageUrl": "assets/food/Burger_King.jpg",
     "discount": 80
   },
   {
     "promoName":
         "Crispy Chicken Burger with BBQ Sauce + Small French Fries + Coke (16 oz)  ",
     "name": "Burger King",
-    "imageUrl": "assets/food/Burger King.jpg",
+    "imageUrl": "assets/food/Burger_King.jpg",
     "discount": 80
   },
   {
     "promoName":
         "Crispy Chicken Burger with BBQ Sauce + Small French Fries + Coke (16 oz)   ",
     "name": "Burger King",
-    "imageUrl": "assets/food/Burger King.jpg",
+    "imageUrl": "assets/food/Burger_King.jpg",
     "discount": 80
   },
   {
     "promoName":
         "Crispy Chicken Burger with BBQ Sauce + Pork Burger with Teriyaki Sauce",
     "name": "Burger King",
-    "imageUrl": "assets/food/Burger King2.jpg",
+    "imageUrl": "assets/food/Burger_King2.jpg",
     "discount": 60
   },
   {
     "promoName": "Sushi 1 piece",
     "name": "Shinkanzen Sushi",
-    "imageUrl": "assets/food/Shinkanzen Sushi.jpg",
+    "imageUrl": "assets/food/Shinkanzen_Sushi.jpg",
     "discount": 60
   },
   {
     "promoName": "1 free 1 Ice Cream Quart",
-    "name": "Swensen_s",
+    "name": "Swensen's",
     "imageUrl": "assets/food/Swensen_s.jpg",
     "discount": 54
   },
@@ -1118,37 +1118,37 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Khao Chae + Mango Sticky Rice Set",
     "name": "S&P",
-    "imageUrl": "assets/food/S&P1.jpg",
+    "imageUrl": "assets/food/S_P1.jpg",
     "discount": 27
   },
   {
     "promoName": "Rice with 3 Side Dishes + Drink",
     "name": "S&P",
-    "imageUrl": "assets/food/S&P2.jpg",
+    "imageUrl": "assets/food/S_P2.jpg",
     "discount": 37
   },
   {
     "promoName": "1 free 1 Chester_s Signature Set",
-    "name": "Chester_s",
+    "name": "Chester's",
     "imageUrl": "assets/food/Chester_s.jpg",
     "discount": 57
   },
   {
     "promoName": "1 free 1 New Orleans Chicken",
     "name": "Pizza Hut",
-    "imageUrl": "assets/food/Pizza Hut.jpg",
+    "imageUrl": "assets/food/Pizza_Hut.jpg",
     "discount": 62
   },
   {
     "promoName": "Chocolate Donut 6 pcs",
     "name": "Mister Donut",
-    "imageUrl": "assets/food/Mister Donut.jpg",
+    "imageUrl": "assets/food/Mister_Donut.jpg",
     "discount": 60
   },
   {
     "promoName": "Mega Cheese Sticks 3 pcs & French Fries",
     "name": "Potato Corner",
-    "imageUrl": "assets/food/Potato Corner.jpg",
+    "imageUrl": "assets/food/Potato_Corner.jpg",
     "discount": 23
   },
   {
@@ -1160,7 +1160,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Grilled Pork Neck + Sticky Rice",
     "name": "เจ๊แดงสามย่าน ส้มตำ คอหมูย่าง",
-    "imageUrl": "assets/food/เจ๊แดงสามย่าน.jpg",
+    "imageUrl": "assets/food/th_eca8fe06.jpg",
     "discount": 47
   },
   {
@@ -1178,7 +1178,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "1 free 1 Blizzard® Quart Size",
     "name": "Dairy Queen",
-    "imageUrl": "assets/food/Dairy Queen.jpg",
+    "imageUrl": "assets/food/Dairy_Queen.jpg",
     "discount": 56
   },
   {
@@ -1196,43 +1196,43 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Spaghetti Carbonara + Coke",
     "name": "Eat Am Are Good Steak",
-    "imageUrl": "assets/food/Eat am are.jpg",
+    "imageUrl": "assets/food/Eat_am_are.jpg",
     "discount": 50
   },
   {
     "promoName": "Original Ramen",
     "name": "A Ramen",
-    "imageUrl": "assets/food/A Ramen.jpg",
+    "imageUrl": "assets/food/A_Ramen.jpg",
     "discount": 25
   },
   {
     "promoName": "Buy 2 Drinks, Get 1 Free Bottle",
     "name": "กาแฟพันธุ์ไทย",
-    "imageUrl": "assets/food/กาแฟพันธุ์ไทย.jpg",
+    "imageUrl": "assets/food/th_363c647f.jpg",
     "discount": 50
   },
   {
     "promoName": "Crispy Supreme Taco",
     "name": "Taco Bell",
-    "imageUrl": "assets/food/Taco Bell.jpg",
+    "imageUrl": "assets/food/Taco_Bell.jpg",
     "discount": 67
   },
   {
     "promoName": "1 free 1 Ham & Pork Floss Crepe + Free Jasmine Rice Tea",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe.jpg",
+    "imageUrl": "assets/food/Olino_Crepe.jpg",
     "discount": 35
   },
   {
     "promoName":
         "1 free 1 XL Grilled Rib-Eye Beef Garlic Fried Rice + Free M Grilled Rib-Eye Beef on Rice",
     "name": "คุ้มสึ",
-    "imageUrl": "assets/food/คุ้มสึ.jpg",
+    "imageUrl": "assets/food/th_015d5097.jpg",
     "discount": 42
   },
   {
     "promoName": "Magnum 4 pieces",
-    "name": "Wall_s Ice Cream",
+    "name": "Wall's Ice Cream",
     "imageUrl": "assets/food/Wall.jpg",
     "discount": 21
   },
@@ -1258,7 +1258,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Full Meal Set 1",
     "name": "Five Star",
-    "imageUrl": "assets/food/Five star2.jpg",
+    "imageUrl": "assets/food/Five_star2.jpg",
     "discount": 23
   },
   {
@@ -1277,7 +1277,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Blizzard® Size S 3 cups",
     "name": "Dairy Queen",
-    "imageUrl": "assets/food/Dairy Queen2.jpg",
+    "imageUrl": "assets/food/Dairy_Queen2.jpg",
     "discount": 43
   },
   {
@@ -1307,25 +1307,25 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Pork Pepper Rice",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch.jpg",
     "discount": 50
   },
   {
     "promoName": "Five Star Signature Set 1",
     "name": "Five Star",
-    "imageUrl": "assets/food/Five Star.jpg",
+    "imageUrl": "assets/food/Five_Star.jpg",
     "discount": 50
   },
   {
     "promoName": "Soft Taco Ground Chicken + Loaded Griller Ground Chicken",
     "name": "Taco Bell",
-    "imageUrl": "assets/food/Taco Bell2.jpg",
+    "imageUrl": "assets/food/Taco_Bell2.jpg",
     "discount": 54
   },
   {
     "promoName": "Japanese Sesame Grilled Chicken Breast Salad",
     "name": "Salad Factory",
-    "imageUrl": "assets/food/Salad Factory.jpg",
+    "imageUrl": "assets/food/Salad_Factory.jpg",
     "discount": 42
   },
   {
@@ -1337,19 +1337,19 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Salmon Don",
     "name": "Kouen Sushi Bar",
-    "imageUrl": "assets/food/Kouen Sushi Bar.jpg",
+    "imageUrl": "assets/food/Kouen_Sushi_Bar.jpg",
     "discount": 24
   },
   {
     "promoName": "Spicy Grilled Chicken 1 pieces",
-    "name": "Chester_s",
+    "name": "Chester's",
     "imageUrl": "assets/food/Chester_s2.jpg",
     "discount": 47
   },
   {
     "promoName": "Melts + Fries",
     "name": "Pizza Hut",
-    "imageUrl": "assets/food/Pizza Hut2.jpg",
+    "imageUrl": "assets/food/Pizza_Hut2.jpg",
     "discount": 44
   },
   {
@@ -1366,7 +1366,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   },
   {
     "promoName": "Pepper Chicken Burger & French Fries Set",
-    "name": "McDonald_s",
+    "name": "McDonald's",
     "imageUrl": "assets/food/McDonald_s.jpg",
     "discount": 50
   },
@@ -1385,7 +1385,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Grilled Salmon with Soy Sauce / Salt",
     "name": "ZEN Restaurant",
-    "imageUrl": "assets/food/ZEN Restaurant.jpg",
+    "imageUrl": "assets/food/ZEN_Restaurant.jpg",
     "discount": 27
   },
   {
@@ -1396,13 +1396,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   },
   {
     "promoName": "Big Mac Full Set",
-    "name": "McDonald_s",
+    "name": "McDonald's",
     "imageUrl": "assets/food/McDonald_s2.jpg",
     "discount": 44
   },
   {
     "promoName": "McFish free Pepper Chicken Burger",
-    "name": "McDonald_s",
+    "name": "McDonald's",
     "imageUrl": "assets/food/McDonald_s3.jpg",
     "discount": 34
   },
@@ -1415,33 +1415,33 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "On-the-Go Fragrant Rice Tea 10 Bottles",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe2.jpg",
+    "imageUrl": "assets/food/Olino_Crepe2.jpg",
     "discount": 58
   },
   {
     "promoName": "On-the-Go Fragrant Rice Tea 7 Bottles",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe3.jpg",
+    "imageUrl": "assets/food/Olino_Crepe3.jpg",
     "discount": 52
   },
   {
     "promoName":
         "2 free 2 Swiss Cocoa Darker (2 Cups) + Kokuto Fresh Milk (2 Cups)",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe4.jpg",
+    "imageUrl": "assets/food/Olino_Crepe4.jpg",
     "discount": 50
   },
   {
     "promoName": "Longan Rice Tea with Cream Cheese",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe5.jpg",
+    "imageUrl": "assets/food/Olino_Crepe5.jpg",
     "discount": 34
   },
   {
     "promoName":
         "1 free 3 Premium Oolong Rice Tea (Olino Brand) + Free 3 Bottles of OTG Fragrant Rice Tea",
     "name": "Olino Crepe & Tea",
-    "imageUrl": "assets/food/Olino Crepe6.jpg",
+    "imageUrl": "assets/food/Olino_Crepe6.jpg",
     "discount": 30
   },
   {
@@ -1453,21 +1453,21 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName":
         "Kurobuta Pork Chop Steak with Black Pepper Sauce, Spinach & Mushroom Soup",
-    "name": "Santa Fe_ Steak",
-    "imageUrl": "assets/food/Santa Fe.jpg",
+    "name": "Santa Fe' Steak",
+    "imageUrl": "assets/food/Santa_Fe.jpg",
     "discount": 44
   },
   {
     "promoName": "Double Chicken Steak",
-    "name": "Santa Fe_ Steak",
-    "imageUrl": "assets/food/Santa Fe2.jpg",
+    "name": "Santa Fe' Steak",
+    "imageUrl": "assets/food/Santa_Fe2.jpg",
     "discount": 50
   },
   {
     "promoName":
         "Spaghetti with Bacon & Mushroom Cream Sauce + Japanese Chicken Steak Rice with Jaew Sauce + 2 Cups of Lemon Tea",
-    "name": "Santa Fe_ Steak",
-    "imageUrl": "assets/food/Santa Fe3.jpg",
+    "name": "Santa Fe' Steak",
+    "imageUrl": "assets/food/Santa_Fe3.jpg",
     "discount": 46
   },
   {
@@ -1493,63 +1493,63 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Pepper Pork Rice + Miso Soup + Iced Green Tea",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch3.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch3.jpg",
     "discount": 31
   },
   {
     "promoName": "French Fries with Barbecue Cheese",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch4.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch4.jpg",
     "discount": 45
   },
   {
     "promoName":
         "Pork and egg yakinuku with rice + pork pepper with rice + fried onions + ice green tea",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch5.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch5.jpg",
     "discount": 31
   },
   {
     "promoName": "Dried Chili Bacon Pasta + Iced Green Tea",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch6.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch6.jpg",
     "discount": 33
   },
   {
     "promoName":
         "Fried Onions + BBQ Cheese French Fries + Grilled Chicken Salad",
     "name": "Pepper Lunch",
-    "imageUrl": "assets/food/Pepper Lunch7.jpg",
+    "imageUrl": "assets/food/Pepper_Lunch7.jpg",
     "discount": 33
   },
   {
     "promoName": "Cornetto Royal 4 pieces",
-    "name": "Wall_s Ice Cream",
+    "name": "Wall's Ice Cream",
     "imageUrl": "assets/food/Wall_s2.jpg",
     "discount": 25
   },
   {
     "promoName": "Wall_s Ice Cream 10 pieces",
-    "name": "Wall_s Ice Cream",
+    "name": "Wall's Ice Cream",
     "imageUrl": "assets/food/Wall_s3.jpg",
     "discount": 26
   },
   {
     "promoName": "Rice topped with diced raw salmon and pickled egg",
     "name": "Kiiro Sushi",
-    "imageUrl": "assets/food/Kiiro Sushi.jpg",
+    "imageUrl": "assets/food/Kiiro_Sushi.jpg",
     "discount": 40
   },
   {
     "promoName": "Bento Spicy Grilled Salmon",
     "name": "Kiiro Sushi",
-    "imageUrl": "assets/food/Kiiro Sushi2.jpg",
+    "imageUrl": "assets/food/Kiiro_Sushi2.jpg",
     "discount": 50
   },
   {
     "promoName": "Cheese Pretzel + Cheesy Chicken Bite + Almond Stick",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s2.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s2.jpg",
     "discount": 32
   },
   {
@@ -1573,46 +1573,46 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "8 free 8 Donut Party",
     "name": "Mister Donut",
-    "imageUrl": "assets/food/Mister Donut2.jpg",
+    "imageUrl": "assets/food/Mister_Donut2.jpg",
     "discount": 50
   },
   {
     "promoName": "Chocolate donuts 10 pieces",
     "name": "Mister Donut",
-    "imageUrl": "assets/food/Mister Donut3.jpg",
+    "imageUrl": "assets/food/Mister_Donut3.jpg",
     "discount": 40
   },
   {
     "promoName": "Grilled Angus beef over rice + crab stick salad",
     "name": "Khao Don",
-    "imageUrl": "assets/food/Khao Don.jpg",
+    "imageUrl": "assets/food/Khao_Don.jpg",
     "discount": 46
   },
   {
     "promoName": "Grilled Pork Donut + Pork Gyoza",
     "name": "Khao Don",
-    "imageUrl": "assets/food/Khao Don2.jpg",
+    "imageUrl": "assets/food/Khao_Don2.jpg",
     "discount": 41
   },
   {
     "promoName":
         "Grilled Pork Don with Rice + Stir-fried Pork with Gochujang Sauce + Crab Stick Salad",
     "name": "Khao Don",
-    "imageUrl": "assets/food/Khao Don3.jpg",
+    "imageUrl": "assets/food/Khao_Don3.jpg",
     "discount": 50
   },
   {
     "promoName":
         "Yakiniku Grilled Pork Rice + Kimchi Stir-Fried Pork Don Rice + 2 Cups of Miso Soup",
     "name": "Khao Don",
-    "imageUrl": "assets/food/Khao Don4.jpg",
+    "imageUrl": "assets/food/Khao_Don4.jpg",
     "discount": 45
   },
   {
     "promoName":
         "Yakiniku Grilled Wagyu Beef Rice + Korean Gochujang Sauce Fried Pork Don Rice + Yakiniku Grilled Smoked Bacon Rice + Pork Gyoza",
     "name": "Khao Don",
-    "imageUrl": "assets/food/Khao Don5.jpg",
+    "imageUrl": "assets/food/Khao_Don5.jpg",
     "discount": 40
   },
   {
@@ -1721,19 +1721,19 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "1 Free 1 Cold Drinks",
     "name": "S&P",
-    "imageUrl": "assets/food/S&P3.jpg",
+    "imageUrl": "assets/food/S_P3.jpg",
     "discount": 50
   },
   {
     "promoName": "5 Mixed Pies Set",
     "name": "S&P",
-    "imageUrl": "assets/food/S&P5.jpg",
+    "imageUrl": "assets/food/S_P5.jpg",
     "discount": 15
   },
   {
     "promoName": "TOH JUNG PARTY SET",
     "name": "On The Table",
-    "imageUrl": "assets/food/On the table.jpg",
+    "imageUrl": "assets/food/On_the_table.jpg",
     "discount": 50
   },
   {
@@ -1757,7 +1757,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Pork Burger with Teriyaki Sauce",
   //   "name": "Burger King",
-  //   "imageUrl": "assets/food/Burger King3.jpg",
+  //   "imageUrl": "assets/food/Burger_King3.jpg",
   //   "discount": 50
   // },
   // {
@@ -1775,13 +1775,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Hot Pan Salmon Steak (SET) + California Maki",
   //   "name": "ZEN Restaurant",
-  //   "imageUrl": "assets/food/ZEN Restaurant2.jpg",
+  //   "imageUrl": "assets/food/ZEN_Restaurant2.jpg",
   //   "discount": 30
   // },
   // {
   //   "promoName": "Spicy Grilled Chicken + Fried Seafood Set + Coke",
   //   "name": "Eat Am Are Good Steak",
-  //   "imageUrl": "assets/food/Eat Am Are2.jpg",
+  //   "imageUrl": "assets/food/Eat_Am_Are2.jpg",
   //   "discount": 40
   // },
   // {
@@ -1794,7 +1794,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   //   "promoName":
   //       "Chicken Karaage and Pickled Egg on Rice + Tempura Shrimp Roll with Sesame Salad + Crab Stick Salad",
   //   "name": "Shinkanzen Sushi",
-  //   "imageUrl": "assets/food/Shinkanzen Sushi2.jpg",
+  //   "imageUrl": "assets/food/Shinkanzen_Sushi2.jpg",
   //   "discount": 45
   // },
   {
@@ -1806,13 +1806,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "GrabFood Mega Sale Set 1",
     "name": "Potato Corner",
-    "imageUrl": "assets/food/Potato Corner2.jpg",
+    "imageUrl": "assets/food/Potato_Corner2.jpg",
     "discount": 50
   },
   {
     "promoName": "GrabFood Mega Sale Set 2",
     "name": "Potato Corner",
-    "imageUrl": "assets/food/Potato Corner3.jpg",
+    "imageUrl": "assets/food/Potato_Corner3.jpg",
     "discount": 50
   },
   {
@@ -1832,14 +1832,14 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Saba Bento free Korean Pop Chicken Rice",
     "name": "Oishi Kitchen",
-    "imageUrl": "assets/food/Oishi Kitchen.jpg",
+    "imageUrl": "assets/food/Oishi_Kitchen.jpg",
     "discount": 43
   },
   {
     "promoName":
         "Ham_n Cheese Sandwich Pretzel (2 boxes) + Free Cheesy Chicken Bites",
-    "name": "Auntie Anne_s",
-    "imageUrl": "assets/food/Auntie Anne_s3.jpg",
+    "name": "Auntie Anne's",
+    "imageUrl": "assets/food/Auntie_Anne_s3.jpg",
     "discount": 30
   },
   {
@@ -1851,13 +1851,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   {
     "promoName": "Dubai Milk Chocolate",
     "name": "The Rolling Pinn",
-    "imageUrl": "assets/food/The Rolling Pinn.jpg",
+    "imageUrl": "assets/food/The_Rolling_Pinn.jpg",
     "discount": 30
   },
   {
     "promoName": "Kurobuta Pork Slices",
     "name": "Thong Smith",
-    "imageUrl": "assets/food/Thong Smith.jpg",
+    "imageUrl": "assets/food/Thong_Smith.jpg",
     "discount": 15
   },
   {
@@ -1870,7 +1870,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Rice with 2 Curries",
   //   "name": "Charoengang",
-  //   "imageUrl": "assets/food/เจริญแกง.jpg",
+  //   "imageUrl": "assets/food/th_9052277c.jpg",
   //   "discount": 27
   // },
   // {
@@ -1894,19 +1894,19 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Iced Thai Tea",
   //   "name": "ฉันจะกินชาเย็นทุกวัน",
-  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน.JPG",
+  //   "imageUrl": "assets/food/th_f4198881.jpg",
   //   "discount": 42
   // },
   // {
   //   "promoName": "Slurpee",
   //   "name": "ฉันจะกินชาเย็นทุกวัน",
-  //   "imageUrl": "assets/food/ฉันจะกินชาเย็นทุกวัน2.JPG",
+  //   "imageUrl": "assets/food/th_f2f4fd2d.jpg",
   //   "discount": 18
   // },
   // {
   //   "promoName": "Premium Jasmine Milk Tea",
   //   "name": "Molly Tea",
-  //   "imageUrl": "assets/food/Molly Tea.jpg",
+  //   "imageUrl": "assets/food/Molly_Tea.jpg",
   //   "discount": 61
   // },
   // {
@@ -1918,7 +1918,7 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Material Girl Smoothie",
   //   "name": "Oh! Juice",
-  //   "imageUrl": "assets/food/Oh! Juice.jpg",
+  //   "imageUrl": "assets/food/Oh_Juice.jpg",
   //   "discount": 33
   // },
   // {
@@ -1930,13 +1930,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "The Best Cheeeese Tart",
   //   "name": "Holiday Pastry",
-  //   "imageUrl": "assets/food/Holiday Pastry.jpg",
+  //   "imageUrl": "assets/food/Holiday_Pastry.jpg",
   //   "discount": 22
   // },
   // {
   //   "promoName": "Iced Americano",
   //   "name": "1:2 Coffee",
-  //   "imageUrl": "assets/food/1_2 Coffee.jpg",
+  //   "imageUrl": "assets/food/1_2_Coffee.jpg",
   //   "discount": 18
   // },
   // {
@@ -1961,13 +1961,13 @@ final List<Map<String, dynamic>> promotionsEnglish = [
   // {
   //   "promoName": "Fresh Thong Muan + Khanom Chan",
   //   "name": "Kaew Boutique",
-  //   "imageUrl": "assets/food/Kaew Boutique.jpg",
+  //   "imageUrl": "assets/food/Kaew_Boutique.jpg",
   //   "discount": 30
   // },
   // {
   //   "promoName": "Mala Pork Soup / Mala Beef Soup",
   //   "name": "HOTPOT Man",
-  //   "imageUrl": "assets/food/HOTPOT MAN.jpg",
+  //   "imageUrl": "assets/food/HOTPOT_MAN.jpg",
   //   "discount": 37
   // },
   // {

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grabpromogame/loadingscreen.dart';
-import 'package:grabpromogame/main.dart';
 import 'package:grabpromogame/util.dart';
 
 class LeaderboardScreen extends StatefulWidget {
@@ -25,13 +24,15 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
   Future<List<Map<String, dynamic>>> _fetchLeaderboard() async {
     List<Map<String, dynamic>> leaderboard = [];
+    if (!firebaseReady) return rankedLocalScores().take(3).toList();
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection('testLeaderboard2')
           .orderBy('score', descending: true)
           .orderBy('durationS', descending: false)
           .orderBy('durationMs', descending: false)
-          .get();
+          .limit(3)
+          .get().timeout(const Duration(seconds: 10));
 
       int rank = 1;
       for (var doc in querySnapshot.docs) {
@@ -60,13 +61,18 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     List<Map<String, dynamic>> playerData = [];
     int rank = 1;
     int finalRank = 1;
+    if (!firebaseReady) {
+      return rankedLocalScores()
+          .where((p) => p['playerID'] == playerSessionID)
+          .toList();
+    }
     try {
       QuerySnapshot querySnapshotA = await FirebaseFirestore.instance
           .collection('testLeaderboard2')
           .orderBy('score', descending: true)
           .orderBy('durationS', descending: false)
           .orderBy('durationMs', descending: false)
-          .get();
+          .get().timeout(const Duration(seconds: 10));
 
       for (var doc in querySnapshotA.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
@@ -96,9 +102,10 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       DocumentSnapshot querySnapshot = await FirebaseFirestore.instance
           .collection('testLeaderboard2')
           .doc(playerSessionID)
-          .get();
-      Map<String, dynamic> data = querySnapshot.data() as Map<String, dynamic>;
-      if (querySnapshot.exists) {
+          .get().timeout(const Duration(seconds: 10));
+      if (querySnapshot.exists && querySnapshot.data() != null) {
+        Map<String, dynamic> data =
+            querySnapshot.data() as Map<String, dynamic>;
         playerData.add({
           'playerID': data['playerSessionID'],
           'rank': finalRank,
@@ -125,7 +132,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           .orderBy('score', descending: false)
           .orderBy('durationS', descending: false)
           .orderBy('durationMs', descending: false)
-          .get();
+          .get().timeout(const Duration(seconds: 10));
       int rank = 0;
       for (var doc in querySnapshot.docs) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
@@ -146,13 +153,20 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     return 0; // Return null if player is not found
   }
 
+  late final Future<List<Map<String, dynamic>>> _topFuture;
+  late final Future<List<Map<String, dynamic>>> _playerFuture;
+
   @override
   void initState() {
-    getPlayerData(widget.playerSessionID).then((rank) {});
-    Future.delayed(const Duration(milliseconds: 2000), () {
-      setState(() {
-        _loading = false;
-      });
+    _topFuture = _fetchLeaderboard();
+    _playerFuture = getPlayerData(widget.playerSessionID).then((data) {
+      if (mounted && data.isNotEmpty && data.first['rank'] == 1) {
+        setState(() => No1 = true);
+      }
+      return data;
+    });
+    Future.delayed(const Duration(milliseconds: 1200), () {
+      if (mounted) setState(() => _loading = false);
     });
     // dispose();
     // TODO: implement initState
@@ -233,7 +247,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                     SizedBox(
                       height: screenHeight * 0.26,
                       child: FutureBuilder<List<Map<String, dynamic>>>(
-                        future: _fetchLeaderboard(),
+                        future: _topFuture,
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
@@ -246,7 +260,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                           }
                           if (!snapshot.hasData || snapshot.data!.isEmpty) {
                             return const Center(
-                                child: Text("No leaderboard data available."));
+                                child: Text("Leaderboard unavailable right now."));
                           }
 
                           List<Map<String, dynamic>> leaderboard =
@@ -254,13 +268,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
                           return ListView.builder(
                             physics: NeverScrollableScrollPhysics(),
-                            itemCount: 3,
+                            itemCount: leaderboard.length < 3 ? leaderboard.length : 3,
                             itemBuilder: (context, index) {
                               final player = leaderboard[index];
-                              bool isUser = player['playerSessionID'] ==
-                                  widget.playerSessionID;
-                              String mili = player['mSec'].toString().substring(
-                                  2, player['mSec'].toString().length - 1);
+                              String mili = formatDuration(
+                                  (player['mSec'] as num?)?.toInt() ?? 0);
 
                               return Container(
                                   width: screenWidth * 0.9,
@@ -301,11 +313,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                   width: screenWidth * 0.1,
                                                   height: screenWidth * 0.1,
                                                   decoration: BoxDecoration(
-                                                    gradient: player['score'] ==
-                                                            widget.highScore
-                                                        ? getGradient(1)
-                                                        : getGradient(
-                                                            player['rank']),
+                                                    gradient: getGradient(
+                                                        player['rank']),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             30),
@@ -382,7 +391,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                       BorderRadius.circular(30),
                                                 ),
                                                 child: Text(
-                                                  '00:${player['sec']}:${mili}',
+                                                  mili,
                                                   style: TextStyle(
                                                       fontSize:
                                                           screenWidth * 0.04,
@@ -465,7 +474,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                     SizedBox(
                       height: screenHeight * 0.12,
                       child: FutureBuilder<List<Map<String, dynamic>>>(
-                        future: getPlayerData(widget.playerSessionID),
+                        future: _playerFuture,
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
@@ -478,7 +487,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                           }
                           if (!snapshot.hasData || snapshot.data!.isEmpty) {
                             return const Center(
-                                child: Text("No leaderboard data available."));
+                                child: Text("Leaderboard unavailable right now."));
                           }
 
                           List<Map<String, dynamic>> leaderboard =
@@ -488,15 +497,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                             itemCount: 1,
                             itemBuilder: (context, index) {
                               final player = leaderboard[index];
-                              bool isUser = player['playerSessionID'] ==
-                                  widget.playerSessionID;
-                              if (player['rank'] == 1) {
-                                No1 = true;
-                              } else {
-                                // No1 = false;
-                              }
-                              String mili = player['mSec'].toString().substring(
-                                  2, player['mSec'].toString().length - 1);
+                              String mili = formatDuration(
+                                  (player['mSec'] as num?)?.toInt() ?? 0);
                               return Column(
                                 children: [
                                   Container(
@@ -613,7 +615,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                                                       BorderRadius.circular(30),
                                                 ),
                                                 child: Text(
-                                                  '00:${player['sec']}:${mili}',
+                                                  mili,
                                                   style: TextStyle(
                                                       fontSize:
                                                           screenWidth * 0.04,
